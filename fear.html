@@ -2,15 +2,15 @@
 
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
-		<title>Fear Documentation v1.8.1</title>
+		<title>Fear Documentation v1.8.2</title>
 	</head>
 
 	<body bgcolor="#420000" text="#af996b" link="#af996b" vlink="#af996b">
 		<center>
 			<table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#330000">
 				<tr>
-					<td width="50%" align="center"><a href="loathing.html"><b>Loathing Documentation v1.8.1</b></a></td>
-					<td align="center" bgcolor="#390000"><b>Fear Documentation v1.8.1</b></td>
+					<td width="50%" align="center"><a href="loathing.html"><b>Loathing Documentation v1.8.2</b></a></td>
+					<td align="center" bgcolor="#390000"><b>Fear Documentation v1.8.2</b></td>
 				</tr>
 			</table>
 			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#3c0000">
@@ -958,6 +958,8 @@
 											<li><b>Uses Anticlump</b> - If checked, forces the map to use Anti-Clump gameplay.
 											<li><b>Uses vTFL</b> - If checked, forces the map to use vTFL (virtual TFL) gameplay.
 											<li><b>Is Last Level of Scenario</b> - If checked, will load the epilogue after beating this level for single player. Just like it does when you beat The Forge.
+											<li><b>Pregame Cutscene Before Narration<font color="red">*1.8.2*</font></b>
+											<li><b>Postgame Cutscene After Narration<font color="red">*1.8.2*</font></b>
 										</ul>
 										<li><b>Cutscene Movies</b> 
 										<ul>
@@ -965,10 +967,18 @@
 											<li><b>Success</b> - The tag of the cutscene movie to play after a victory. 
 											<li><b>Failure</b> - The tag of the cutscene movie to play after failing to complete a level. 
 										</ul>
-										<li><b>Storyline</b> 
+										<li><b>Storyline</b> - Solo level narration
 										<ul>
-											<li><b>Pregame</b> - The collection (picture) to use as a pregame scene in a solo player level. 
+											<li><b>Pregame</b> - The text to use for pregame narration.
 											<li><b>Picture Captions</b> - The string list to use as a caption displayed beneath the pregame picture. 
+											<li><b>Mission Success Collection <font color="red">*1.8.2* - Oak-only</font></b> - The collection to use for postgame win narration scenes.
+											<li><b>Mission Failure Collection <font color="red">*1.8.2* - Oak-only</font></b> - The collection to use for postgame loss narration scenes.
+											<li><b>Mission Success Text <font color="red">*1.8.2* - Oak-only</font></b> - The text to use for postgame win narration.
+											<li><b>Mission Failure Text <font color="red">*1.8.2* - Oak-only</font></b> - The text to use for postgame loss narration.
+											<li><b>Mission Success Subtitles <font color="red">*1.8.2* - Oak-only</font></b> - The string list to use for captions displayed under postgame win narration pictures. Either 1 string or 1 string per collection frame.
+											<li><b>Mission Failure Subtitles <font color="red">*1.8.2* - Oak-only</font></b> - The string list to use for captions displayed under postgame loss narration pictures. Either 1 string or 1 string per collection frame.
+											<li><b>Mission Success Sounds <font color="red">*1.8.2* - Oak-only</font></b> - The sound to use for postgame win narration.
+											<li><b>Mission Failure Sounds <font color="red">*1.8.2* - Oak-only</font></b> - The sound to use for postgame loss narration.
 										</ul>
 										<li><b>Game Scoring Types </b>- Checking these boxes enables the corresponding game types on the map. Naturally, this is only for netgames, and you must ensure that the appropriate game objects (flags, balls, etc.) are placed on the map with a map editor ahead of time. 
 										<li><b>Lighting</b> 
@@ -995,6 +1005,8 @@
 											<li><b>Density</b> - This is the density of the fog. Dense fog is harder to see through, and light fog is more like a barely noticeable mist, which can be great for adding atmosphere to a map. 
 											<li><b>Fog Color</b> - This is for selecting the color of the fog. Usually, a nice light gray will suffice, but an enterprising person might use a black fog to create the illusion of night. 
 										</ul>
+										<li><b>Minimum Player Zoom <font color="red">*1.8.2* - Oak-only</font></b> - Allows an extended zoom level. Valid range is between "-5.0" (full extended
+zoom) and -0.99998 (Myth II's normal max zoomed out level).
 									</ul>
 								</td>
 							</tr>
