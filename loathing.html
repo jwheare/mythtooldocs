@@ -2,15 +2,15 @@
 
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
-		<title>Loathing Documentation v1.8.3</title>
+		<title>Loathing Documentation v1.8.4</title>
 	</head>
 
 	<body bgcolor="#420000" text="#af996b" link="#af996b" vlink="#af996b">
 		<center>
 			<table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#3c0000">
 				<tr>
-					<td width="50%" align="center"><b>Loathing Documentation v1.8.3</b></td>
-					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Fear Documentation v1.8.3</b></a></td>
+					<td width="50%" align="center"><b>Loathing Documentation v1.8.4</b></td>
+					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Fear Documentation v1.8.4</b></a></td>
 				</tr>
 			</table>
 			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#3c0000">
@@ -1619,7 +1619,7 @@
 											<li><b>Team Count Greater Than</b> - Tests to see if the number of teams in a game is greater than this value.
 											<li><b>Player Count Equal To</b> - Tests to see if the number of players in a game is equal to this value.
 											<li><b>Player Count Less Than</b> - Tests to see if the number of players in a game is less than this value.
-											<li><b>Player Count Greater Than</b> - Tests to see if the number of players in a game is greater than this value.
+											<li><b>Player Count Greater Than</b> - Tests to see if the number of players in a game is greater than this value.<br><i>Warning: This does not exclude dropped players. Workaround is to use it in conjunction with <b>Count From This Team Only</b> as dropped players are not considered to be part of a team.</i>
 											<li><b>Count From This Team Only</b> - Tests using only the players from this same team.
 										</ul><br />
 									<a name="prta"></a>
@@ -1814,9 +1814,9 @@
 											<li><b>Ammunition</b> - Takes a number, sets the amount of ammunition a unit has without regard to normal in-game maximums. 
 											<li><b>Add Ammunition</b> - Takes a number, increments the amount of ammunition the unit is holding by that amount (can be negative)
 											<li><b>Reinforcements Alert</b> - If new troops are being made visible, play the New Units Received sound.
-											<li><b>Player Index to Detach <font color="red">*1.8.0*</font></b> - Gives control of units to specified player index. (Same index Query Units MA can obtain.)
-											<li><b>Team Index to Detach <font color="red">*1.8.0*</font></b> - Gives control of units to specified team index. (Same index Query Units MA can obtain.)
-											<li><b>Detach Units to Player</b> - Gives control of monsters to the specified player of the same team.
+											<li><b>Player Index to Detach <font color="red">*1.8.0*</font></b> - Gives control of units to specified player index. (Same index Query Units MA can obtain.)<br><i>Warning: Using this with a value that doesn't come from Query Units is error prone - as a given player index may have dropped and in co-op, some player indexes refer to the computer Dark and Neutral teams. Additionally, with mid-game joining, player indexes can go up to 127 if players join and drop over the course of a game.</i>
+											<li><b>Team Index to Detach <font color="red">*1.8.0*</font></b> - Gives control of units to specified team index. (Same index Query Units MA can obtain.) In a co-op, team 0 is the Light team, team 1 is Dark and team 2 is Neutral.
+											<li><b>Detach Units to Player</b> - Gives control of monsters to the specified player of the same team. Player 0 is the team captain and increasing numbers are team members. Ignores players that have dropped.
 											<li><b>Held Flag</b> - If True, Monsters become stuck in place like statues, unable to respond to user commands or to automatically respond to any battlefield event.
 											<li><b>Mana</b> - Takes a value, sets the mana of the unit to that amount.
 											<li><b>Eliminate Team</b> - Eliminates the team of the first monster on the list.  Use with care.
