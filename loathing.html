@@ -2,15 +2,15 @@
 
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
-		<title>Updated Loathing Documentation</title>
+		<title>Loathing Documentation v1.8.0</title>
 	</head>
 
 	<body bgcolor="#420000" text="#af996b" link="#af996b" vlink="#af996b">
 		<center>
 			<table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#3c0000">
 				<tr>
-					<td width="50%" align="center"><b>Updated Loathing Documentation</b></td>
-					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Updated Fear Documentation</b></a></td>
+					<td width="50%" align="center"><b>Loathing Documentation v1.8.0</b></td>
+					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Fear Documentation v1.8.0</b></a></td>
 				</tr>
 			</table>
 			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#3c0000">
@@ -58,7 +58,7 @@
 								<td bgcolor="#390000">Loathing is a special, stripped down version of the Myth II engine that allows you to modify a mesh with considerably more accuracy than is possible with a couple of dwarves and wights. In tandem with <a href="fear.html">Fear</a>, it can be used to create entirely new and unique netmaps, limited only by the imagination and skill of the map maker--as well as a few limitations in the Myth engine that you'll eventually bump into. 
 									<p>The first things most people do with Loathing is hurry into an existing netmap and change all of the warriors into Soulblighters and dwarves into Screaming Iron Assault Dwarves. This is quick, easy, and healthy. These maps might not be too much fun to play, but making them is really good practice for a new map maker. </p>
 									<p>Later on, you will be creating new mesh, importing color and media maps, generating units sets from scratch, and eventually tweaking a nearly finished map. Loathing can do all of these things, and with a minimum in ritual sacrifices and voodoo rites. Read on to see how.</p>
-									<p>This document has now been updated to describe features offered in the latest version of Loathing.  Look for sections in italics and especially passages marked with a big red <font color=red><b>NEW</b></font> to see what's changed.</td>
+									<p>This document has now been updated to describe features offered in the latest version of Myth.  Look for sections in italics and especially passages marked with a big red <b><font color="red">*version*</font></b> to see what's changed. Features not introduced in the latest major version will be marked with an orange <b><font color="orange">*version*</font></b> instead.
 							</tr>
 						</table></td>
 				</tr>
@@ -101,6 +101,74 @@
 										<li><a href="#introToActions"><b>Introduction to Map Actions</b></a> 
 										<li><a href="#editingMapActions"><b>Editing Map Actions</b></a> 
 										<li><a href="#parameters"><b>Action Types and Subordinate Parameters</b></a> 
+										<br /><br /><ul>
+											<li><a href="#defa"><b>Default Parameters</b></a>
+											<li><a href="#none"><b>None</b></a>
+											<li><a href="#acli"><b>Action List</b></a>
+											<li><a href="#snif"><b>Action Sniffing</b></a>
+											<li><a href="#ambi"><b>Ambient Sound Control</b></a>
+											<li><a href="#assa"><b>Assassin</b></a>
+											<li><a href="#atta"><b>Attack</b></a>
+											<li><a href="#bear"><b>Bear</b></a>
+											<li><a href="#cdau"><b>CD Audio</b></a>
+											<li><a href="#chic"><b>Chicken</b></a>
+											<li><a href="#conn"><b>Connector</b></a>
+											<li><a href="#end2"><b>Custom Endgame</b></a>
+											<li><a href="#scor"><b>Custom Scoring</b></a>
+											<li><a href="#deer"><b>Deer</b></a>
+											<li><a href="#endg"><b>Endgame</b></a>
+											<li><a href="#fade"><b>Fade Screen</b></a>
+											<li><a href="#foll"><b>Follow</b></a>
+											<li><a href="#gene"><b>General Action</b></a>
+											<li><a href="#geom"><b>Geometry Filter</b></a>
+											<li><a href="#grou"><b>Group</b></a>
+											<li><a href="#guar"><b>Group Guard</b></a>
+											<li><a href="#spup"><b>Group Split Up</b></a>
+											<li><a href="#girl"><b>Harass</b></a>
+											<li><a href="#invi"><b>Invisible Pursuit</b></a>
+											<li><a href="#lead"><b>Leading</b></a>
+											<li><a href="#legi"><b>Legion</b></a>
+											<li><a href="#ligh"><b>Lightning</b></a>
+											<li><a href="#lpgr"><b>Local Projectile Group Action</b></a>
+											<li><a href="#lock"><b>Lock</b></a>
+											<li><a href="#look"><b>Look</b></a>
+											<li><a href="#math"><b>Mathematics</b></a>
+											<li><a href="#mean"><b>Meander</b></a>
+											<li><a href="#mele"><b>Melee</b></a>
+											<li><a href="#mece"><b>Mesh Cell Modifier</b></a>
+											<li><a href="#miss"><b>Mission</b></a>
+											<li><a href="#anim"><b>Model Animation</b></a>
+											<li><a href="#moef"><b>Model Effect</b></a>
+											<li><a href="#moma"><b>Move Marker</b></a>
+											<li><a href="#move"><b>Movement</b></a>
+											<li><a href="#mung"><b>Munger</b></a>
+											<li><a href="#goal"><b>Netgame Goal</b></a>
+											<li><a href="#plan"><b>Netgame Time</b></a>
+											<li><a href="#ngty"><b>Netgame Type</b></a>
+											<li><a href="#obco"><b>Object Control</b></a>
+											<li><a href="#obmo"><b>Observer Movement</b></a>
+											<li><a href="#part"><b>Particle System Control</b></a>
+											<li><a href="#peas"><b>Peasant</b></a>
+											<li><a href="#pick"><b>Pick Up Object</b></a>
+											<li><a href="#plat"><b>Platoon</b></a>
+											<li><a href="#plmo"><b>Platoon Movement</b></a>
+											<li><a href="#plsc"><b>Platoon Scouting</b></a>
+											<li><a href="#plyc"><b>Player Count</b></a>
+											<li><a href="#prta"><b>Prohibited Netgame Teams</b></a>
+											<li><a href="#quni"><b>Query Units</b></a>
+											<li><a href="#rout"><b>Rout</b></a>
+											<li><a href="#sham"><b>Shaman</b></a>
+											<li><a href="#soar"><b>Soaring</b></a>
+											<li><a href="#soun"><b>Sound Action</b></a>
+											<li><a href="#squa"><b>Squad</b></a>
+											<li><a href="#suic"><b>Suicide</b></a>
+											<li><a href="#surr"><b>Surround</b></a>
+											<li><a href="#tuni"><b>Test Unit</b></a>
+											<li><a href="#ctrl"><b>Unit Control</b></a>
+											<li><a href="#uind"><b>Unit Indicator</b></a>
+											<li><a href="#wand"><b>Wandering Movement</b></a>
+											<li><a href="#knot"><b>World Knot</b></a>
+										</ul>
 									</ul>
 									<p>&nbsp;</td>
 							</tr>
@@ -324,21 +392,26 @@
 				<tr>
 					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#3c0000">
 							<tr>
-								<td bgcolor="#3c0000"><b>Limitations <font color=red>(NEW)</font></b></td>
+								<td bgcolor="#3c0000"><b>Limitations</b></td>
 								<td align="right" bgcolor="#3c0000"></td>
 							</tr>
 							<tr>
-								<td bgcolor="#390000" colspan="2">When Myth II hit version 1.5, many of the limitations previously forced on mapmakers were greatly relaxed.  To see exactly what you can now fit on a mesh, we've outlined below what exactly has changed and what the new limitations are...
+								<td bgcolor="#390000" colspan="2">Many of the Myth II limitations have been greatly relaxed over the years.  To see exactly what you can now fit on a mesh, we've outlined below what exactly are the limits for specific tag types (aka "definitions") per map.
 									<ul>
-										<li><b>Artifact Types</b> - the old limit per map was 16, the new limit is 128.
-										<li><b>Collections</b> - the old limit per map was 64, the new limit is 256.
-										<li><b>Lightning Types</b> - the old limit per map was 4, the new limit is 16.
-										<li><b>Monster Types</b> - the old limit was 32, the new limit is 64.
-										<li><b>Object Types</b> - the old limit was 64, the new limit is 128.
-										<li><b>Projectile Types</b> - the old limit was 256, the new limit is 1024.
-										<li><b>Projectile Group Types</b> - the old limit was 100, the new limit is 1024.
-										<li><b>Scenery Types</b> - the old limit was 32, the new limit is 96.
-										<li><b>String List Types</b> - the old limit was 128, the new limit is 1024.
+										<li><b>Artifact Types</b> - The limit is 256. (Increased from 128 in 1.8.0.)
+										<li><b>Collection Types</b> - The limit is 256.
+										<li><b>Local Physic Types</b> - The limit is 128.
+										<li><b>Lightning Types</b> - The limit is 16.
+										<li><b>Local Projectile Group Types</b> - The limit is 128.
+										<li><b>Mesh Effect Types</b> - The limit is 32.
+										<li><b>Model Types</b> - The limit is 512.
+										<li><b>Monster Types</b> - The limit is 256. (Increased from 128 in 1.8.0.)
+										<li><b>Object Types</b> - The limit is 256.
+										<li><b>Projectile Types</b> - The limit is 1024.
+										<li><b>Projectile Group Types</b> - The limit is 768.
+										<li><b>Scenery Types</b> - The limit is 96.
+										<li><b>String List Types</b> - The limit is 1024.
+										<li><b>Unit Types</b> - The limit is 512.
 									</ul>
 								</td>
 							</tr>
@@ -546,10 +619,10 @@
 										<li><b>Is Invisible Observer</b> - This is used to create an invisible, uncontrollable unit that acts as an observer, allowing the owner team to see in a given area. 
 										<li><b>Netgame Target</b> - Used for assigning the target in the Assassin netgame, or for livestock in Stampede games.
 										<b>NOTE:</b> Units marked with this flag should only appear in their desired game type. For example an Assassin target with this flag <b>SHOULD NOT</b> exist under game types other than Assassin.
-										<li><i><b>Respawns <font color=red>NEW</font></b> - This unit will reappear Deathmatch-style when it dies.
-										<li><b>Respawns Via Script <font color=red>NEW</font></b> - The unit won't respawn automatically, but will need a Unit Control - Visible map action to make them do so.
-										<li><b>Respawns at Death Location <font color=red>NEW</font></b> - The unit reappears at the place where it died rather than where it started out.
-										<li><b>Use Monster Entrance <font color=red>NEW</font></b> - Unit reappears using its own Entrance projectile group rather than the teleport effect</i>
+										<li><b>Respawns</b> - This unit will reappear Deathmatch-style when it dies.
+										<li><b>Respawns Via Script</b> - The unit won't respawn automatically, but will need a Unit Control - Visible map action to make them do so.
+										<li><b>Respawns at Death Location</b> - The unit reappears at the place where it died rather than where it started out.
+										<li><b>Use Monster Entrance</b> - Unit reappears using its own Entrance projectile group rather than the teleport effect.
 									</ul>
 									<center>
 										<p><img src="gfx/unit_edit.gif" naturalsizeflag="3"> </p>
@@ -799,6 +872,7 @@
 											<li><b>Initially active</b>: Begins active, needs no trigger. 
 											<li><b>No initial delay</b>: No delay before the action begins. 
 											<li><b>Only initial delay</b>: Doesn't insert a delay after the first time through. 
+											<li><b>Deleted on Deactivation <font color="darkorange">*1.7.0*</font></b>: Deletes the action after it is deactivated. 
 										</ul>
 									</ul>
 									<p><b>Main Map Actions Menu</b></p>
@@ -866,7 +940,9 @@
 								<td bgcolor="#390000" colspan="2">Consider this a reference to all of the action type parameters. We are not responsible for the psychological trauma that might result from reading through this entire list in one sitting. Refer to it as necessary. <br>
 									<br>
 									<ul>
-										<li><b>Universal</b> 
+									<a name="defa"></a>
+										<li><b>Default Parameters</b> 
+											<p>This action does nothing. It only stores the default parameters used in all actions.</p> 
 										<ul>
 											<li><b>Link</b> - Takes an action identifier, linking another action. 
 											<li><b>Debug Flag</b> - If true, used to write debug information. 
@@ -880,18 +956,20 @@
 											<li><b>Activates on Inhibition</b> - Takes an action identifier, when inhibited all actions in the list are executed. 
 											<li><b>Activates on Missing Prerequisites</b> - Takes an action identifier, when missing prerequisites all actions in the list are executed. 
 											<li><b>Deactivates on Success</b> - Takes an action identifier, deactivates all actions in the list when successful. 
-											<li><i><b>Deactivates on Failure <font color=red>NEW</font></b> - Takes an action identifier, if fails then deactivates all actions in the list.</i>
+											<li><b>Deactivates on Failure</b> - Takes an action identifier, if fails then deactivates all actions in the list.
 											<li><b>Deactivates on Activation</b> - Takes an action identifier, deactivates all actions in the list when activated. 
 											<li><b>Deactivates on Deactivation</b> - Takes an action identifier, deactivates all actions in the list when deactivated. 
 											<li><b>Deactivates on Error</b> - Takes an action identifier, deactivates all actions in the list when an error occurs. 
 											<li><b>Inhibitions</b> - Takes an action identifier, will not trigger if one of the given (and non-linked) actions is successful. 
 											<li><b>Prerequisites</b> - Takes an action identifier, will not trigger unless one of the given (and non-linked) actions is successful. 
 											<li><b>Activates Simultaneously</b> - Takes an action identifier, triggering the actions triggers all actions in the list. 
-										</ul>
+										</ul><br />
+									<a name="none"></a>
 										<li><b>None</b> 
 										<ul>
 											<li>No additional subordinate parameters. 
-										</ul>
+										</ul><br />
+									<a name="acli"></a>
 										<li><b>Action List</b> 
 										<ul>
 											<li><b>Actions to Activate</b> - Takes action identifiers, a list of actions to be activated. 
@@ -900,33 +978,33 @@
 											<li><b>Chance of Activating</b> - Takes a number, contains an array giving the chances of listed actions to activate. 
 											<li><b>Actions to Deactivate</b> - Takes action identifiers, a list of actions to be deactivated. 
 											<li><b>Chance of Deactivating</b> - Takes a number, contains an array giving the chances of listed actions to deactivate. 
-										</ul>
+										</ul><br />
+									<a name="snif"></a>
+										<li><b>Action Sniffing</b> 
+										<ul>
+											<li><b>Test Case</b> - Takes a number, defining which case to test for. 
+											<li><b>Don't Clear Flag</b> - Takes a flag, if true don't clear the test case after success. 
+											<li><b>Keep Reporting Errors</b> After Initial Success Flag - Takes a flag, if true keep reporting errors after the action is successful the first time. 
+											<li><b>Time Between Errors</b> - Takes a number, defining the minimum time between reporting errors. 
+											<li><b>Delay Before Announcing Errors</b> - Takes a number, defining how long to wait before beginning to report errors. 
+										</ul><br />
+									<a name="ambi"></a>
 										<li><b>Ambient Sound Control</b> 
 										<ul>
 											<li><b>Sound</b> - Takes a source identifier, determining the sound to be played. 
 											<li><b>Volume</b> - Takes a number, determining the volume it is played at. 
 											<li><b>Duration</b> - Takes a number, duration in seconds to fade out a sound effect. 
-										</ul>
-										<li><b>Model Animation</b> 
-										<ul>
-											<li><b>Model Animation</b> - Takes a model identifier, determining the model to animate. 
-											<li><b>Start Forward Flag</b> - Takes a flag, if true starts playing an animation forward from the beginning. 
-											<li><b>Start Backward Flag</b> - Takes a flag, if true starts playing an animation backward from the end. 
-											<li><b>Stop Flag</b> - Takes a flag, if true stops playing an animation. 
-											<li><b>Back and Forth Flag</b> - Takes a flag, if true plays an animation back and forth. 
-											<li><b>Cycle Flag</b> - Takes a flag, if true makes an animation cycle. 
-											<li><b>Reset Frame Index Flag</b> - Takes a flag, if true resets to the start or end of a sound. 
-											<li><b>Advance Animation Flag</b> - Takes a flag, if true moves the animation forward a single frame. 
-											<li><b>Frame Greater Than</b> - Takes a number, tests if the current animation frame index is greater than that number. 
-											<li><b>Frame Less Than</b> - Takes a number, tests if the current animation frame index is less than that number. 
-											<li><b>Frame Equal To</b> - Takes a number, tests if the current animation frame index is equal to that number. 
-										</ul>
+											<li><b>Player Index <font color="red">*1.8.0*</font></b> - This action will only work on the given player index. (Same index Query Units MA can obtain.)
+											<li><b>Team Index <font color="red">*1.8.0*</font></b> - This action will only work on the given team index. (Same index Query Units MA can obtain.)
+										</ul><br />
+									<a name="assa"></a>
 										<li><b>Assassin (Mahir only)</b> 
 										<ul>
 											<li><b>Subject</b> - Takes monster identifiers, the suicide monsters to attack with. 
 											<li><b>Visibility Radius</b> - Takes a number, the radius around the suicide unit which is visible. 
 											<li><b>Initial Delay</b> - Takes a number, the maximum random delay in calls to the unit before starting. 
-										</ul>
+										</ul><br />
+									<a name="atta"></a>
 										<li><b>Attack</b> 
 										<ul>
 											<li><b>Attackers</b> - Takes monster identifiers, monsters that will do the attacking. 
@@ -934,104 +1012,91 @@
 											<li><b>Attack All Enemies Flag</b> - Takes a flag, if true attacks all enemies on map. 
 											<li><b>Use Special Abilities Flag</b> - Takes a flag, if true use special abilities in attack. 
 											<li><b>Attack Ground Location</b> - Takes a world point, attacks the ground at that position. 
-											<li><i><b>Attack 3D Location <font color=red>NEW</font></b> - Takes a 3D world point (which you can provide the action by using a Geometry Filter), attacks the air at that position.  Very useful for knocking down incoming arrows with lightning.</i>
+											<li><b>Attack 3D Location</b> - Takes a 3D world point (which you can provide the action by using a Geometry Filter), attacks the air at that position.  Very useful for knocking down incoming arrows with lightning.
 											<li><b>Attack Nearest Flag</b> - Takes a flag, if true monsters attack the nearest available targets. 
 											<li><b>Don't Retarget Flag</b> - Takes a flag, if true only monsters without targets are used to do move on. 
 											<li><b>Polygon</b> - Takes world points, attack only units within the defined clockwise, convex polygon. 
 											<li><b>Closed Polygon Flag</b> - Takes a flag, if true indicates that the polygon is closed. 
 											<li><b>Reversed Polygon Flag</b> - Takes a flag, if true tests for units outside the polygon rather than within. 
-											<li><i><b>Close on Enemies Flag <font color=red>NEW</font></b> - For units with several attacks, this will specify using the one with the closest range.</i>
-											<li><i><b>Attack Team <font color=red>NEW</font></b> - Only attacks units belonging to the specified Team Number.</i>
-											<li><i><b>Attack Unit Type <font color=red>NEW</font></b> - Only Attacks units that are the specified type, being melee, missile, suicide, harmless or ambient life.</i>
-											<li><i><b>Charm Target Flag <font color=red>NEW</font></b> - When used, will make the first unit in the Attackers parameter take control of the Targets. Make sure the Targets are in the Attacker's team via Loathing for this to work even if there are zero of them placed on the mesh.</i>
-										</ul>
-										<li><b>CDAudio</b> 
+											<li><b>Close on Enemies Flag</b> - For units with several attacks, this will specify using the one with the closest range.
+											<li><b>Attack Team</b> - Only attacks units belonging to the specified Team Number.
+											<li><b>Attack Unit Type</b> - Only Attacks units that are the specified type, being melee, missile, suicide, harmless or ambient life.
+											<li><b>Charm Target Flag</b> - When used, will make the first unit in the Attackers parameter take control of the Targets. Make sure the Targets are in the Attacker's team via Loathing for this to work even if there are zero of them placed on the mesh.
+										</ul><br />
+									<a name="bear"></a>
+										<li><b>Bear <font color="red">*1.8.0*</font></b> 
+										<p>This action is similar to Chicken and Deer, but it makes the unit attack nearby non-Bears.</p>
 										<ul>
-											<li><i>This was never implemented, ignore it.</i>
-										</ul>
+											<li>No additional subordinate parameters--this map action is called from the unit via its Map Action attribute. You can use <a href="fear.html#mons">Fear</a> to edit this characteristic. 
+										</ul><br />
+									<a name="cdau"></a>
+										<li><b>CD Audio</b> 
+										<ul>
+											<li>This was never implemented, ignore it.
+										</ul><br />
+									<a name="chic"></a>
 										<li><b>Chicken</b> 
 										<ul>
 											<li>No additional subordinate parameters--this map action is called from the unit via its Map Action attribute. You can use <a href="fear.html#mons">Fear</a> to edit this characteristic. 
-										</ul>
+										</ul><br />
+									<a name="conn"></a>
 										<li><b>Connector</b> 
 										<ul>
-											<li><i>This was never implemented, ignore it. Use Loathing to add connectors instead of scripting.</i>
-										</ul>
-										<li><b>Unit Control</b> 
+											<li>This was never implemented, ignore it. Use Loathing to add connectors instead of scripting.
+										</ul><br />
+									<a name="end2"></a>
+										<li><b>Custom Endgame <font color="red">*1.8.0*</font></b> 
+										<p>This action allows you to control the endgame of your custom game, for example if you altered a gametype to work differently.</p>
 										<ul>
-											<li><b>Monsters</b> - Takes monster identifiers, the monsters to affect. 
-											<li><b>Received User Control Flag</b> - Takes a flag, if true denotes that user control is received. 
-											<li><b>Ignores User Control Flag</b> - Takes a flag, if true monsters ignore user commands. 
-											<li><i><b>Uncontrollable <font color=red>NEW</font></b> - If true the unit is uncontrollable by the player and doesn't give the player visibility of enemy units</i>
-											<li><b>Does Not Autotarget Flag</b> - Takes a flag, if true monsters do not autotarget. 
-											<li><b>Cannot Be Autotargeted Flag</b> - Takes a flag, if true monsters cannot be autotargeted. 
-											<li><b>Delete Monsters</b> - Takes monster identifiers, deletes the monsters. 
-											<li><b>Fade Flag</b> - <i>Will fade a unit off the map when used with Invisible Flag or fade a unit onto the map when used with Visible Flag.</i> 
-											<li><b>Visible Flag</b> - Takes a flag, if true makes the monster visible. 
-											<li><b>Invisible Flag</b> - Takes a flag, if true makes the monster invisible. 
-											<li><b>Monster Source Flag</b> - Takes a flag, if true makes the marker a monster source. 
-											<li><b>Health Fraction</b> - Takes a number, setting the health fraction of the monster. 
-											<li><i><b>Raise Health Fraction <font color=red>NEW</font></b> - Takes a number, raises health by the specified amount.</i>
-											<li><i><b>Lower Health Fraction <font color=red>NEW</font></b> - Takes a number, lowers monster's health by the specified amount (cannot kill the monster).</i>
-											<li><i><b>Kill Monsters <font color=red>NEW</font></b> - Takes monster identifiers and kills them, using either soft or hard death as specified.</i>
-											<li><b>New Monster Name</b> - Takes a number, setting the monster's name to the indexed name in the monster name list. 
-											<li><b>Experience</b> - Takes a number, setting the experience level of the monster. 
-											<li><i><b>Add Experience <font color=red>NEW</font></b> - Takes a number, increments the experience level of the monster by that amount (can be negative)</i>
-											<li><b>Levels Survived</b> - Takes a number, setting the number of levels a unit has survived. 
-											<li><b>Use Monster Entrance Flag</b> - Takes a flag, if true uses the monster entrance projectile group. 
-											<li><b>World Knot Visibility Flag</b> - Takes a flag - if true makes the monster appear with the world knot appearance method. 
-											<li><b>Tain Visibility Flag</b> - Takes a flag, if true makes the monster appear with the tain appearance method. 
-											<li><b>Magic Visibility Flag</b> - Takes a flag, if true makes the monster visible/invisible magically (like a pathfinder dwarf). 
-											<li><i><b>Ghost Visibility Flag</b> - Takes a flag, if true makes the monster flicker on and off like a ghost. Once it's set, you can't make the unit stop flickering - but you can affect the phases of the flicker by setting the flag to either true or false.</i>
-											<li><b>Transparent Flag</b> - If flag is true, makes the unit 50% transparent.
-											<li><b>Set Marker Height</b> - Takes a number, adds the value to the monster's marker height. 
-											<li><i><b>Set Monster Height <font color=red>NEW</font></b> - Takes a number, sets the height of the monster on the mesh. (512 = 1 WU above the mesh, 0 and negative values = ground/media height)</i> 
-											<li><i><b>Incremental Monster Height <font color=red>NEW</font></b> - Takes a number, adds (or subtracts) to the height of the monster on the mesh. (512 = 1 WU higher, -512 = -1 WU lower) Can't go lower than ground/media height.</i> 
-											<li><b>Give Monster Artifact or Projectile</b> - Takes an object identifier, gives a monster the artifact. 
-											<li><i><b>Switch Artifact <font color=red>NEW</font></b> - Takes an projectile type and makes monsters holding this projectile in their inventories switch to holding it actively.</i>
-											<li><b>Remove Artifact</b> - Takes a flag, if true removes the monster's current holstered artifact (if it exists). 
-											<li><i><b>Drop Artifact Flag <font color=red>NEW</font></b> - Makes the unit drop their active artifact just like Shift-I does in game.</i>
-											<li><i><b>Add Charges <font color=red>NEW</font></b> - Takes a number, increments (or decreases if negative) the number of artifact charges of the monster, if the monster is holding an artifact.</i>
-											<li><b>Ammunition</b> - Takes a number, sets the amount of ammunition a unit has without regard to normal in-game maximums. 
-											<li><i><b>Add Ammunition <font color=red>NEW</font></b> - Takes a number, increments the amount of ammunition the unit is holding by that amount (can be negative)</i>
-											<li><b>Reinforcements Alert</b> - If new troops are being made visible, play the New Units Received sound.
-											<li><b>Detach Units to Player</b> - Gives control of monsters to the specified player.
-											<li><i><b>Held Flag <font color=red>NEW</font></b> - If True, Monsters become stuck in place like statues, unable to respond to user commands or to automatically respond to any battlefield event.</i>
-											<li><i><b>Mana <font color=red>NEW</font></b> - Takes a value, sets the mana of the unit to that amount.</i>
-											<li><i><b>Eliminate Team <font color=red>NEW</font></b> - Eliminates the team of the first monster on the list.  Use with care.</i>
-											<li><i><b>Overhead Text Tag <font color=red>NEW</font></b> - The string list tag containing the text message that you wish to be displayed over the unit's head.</i>
-											<li><i><b>Overhead Text Index <font color=red>NEW</font></b> - Optional parameter (default is 0) that selects the specific string to use from the tag in the Overhead Text Tag.</i>
-											<li><i><b>Overhead Text Font <font color=red>NEW</font></b> - Optional parameter that allows you to select the font tag you want the overhead text to use.</i>
-											<li><i><b>Overhead Text Shadow Flag <font color=red>NEW</font></b> - Optional parameter that enables the overhead text to have a shadow.</i>
-											<li><i><b>Overhead Text Color <font color=red>NEW</font></b> - Optional parameter (default is white) that allows you to choose the color of the overhead text. Enter 3 values from 0 to 65535 which represent red, green, and blue in that order.</i>
-											<li><i><b>Overhead Text Duration <font color=red>NEW</font></b> - Optional parameter (default is 300) that sets how long the overhead text will be displayed in ticks. (30 ticks = 1 second)</i>
-										</ul>
-										<li><b>Default Actions</b> 
+											<li><b>Force Team Win</b> - Forces this team index to instantly win even if they were losing while ignoring time remaining. (To force the winning team to win instantly, use this action without this parameter.)
+											<li><b>Sudden Death</b> - Forces the game to go to sudden death after the time is up.
+											<li><b>No Celebration</b> - Does not allow the units of the winning team to celebrate.
+										</ul><br />
+									<a name="scor"></a>
+										<li><b>Custom Scoring <font color="red">*1.8.0*</font></b> 
+										<p>This action only works for custom (aka "none" gametype) and point-based gametypes (hunting, assassin, and stampede).</p>
 										<ul>
-											<li>No additional subordinate parameters. 
-										</ul>
+											<li><b>Team Index</b> - The team index to affect. (Use a list of numbers to affect multiple teams.)
+											<li><b>Add Points</b> - Add points (or subtract if negative) to the team's score.
+											<li><b>Set Points</b> - Set this score for the teams being affected.
+											<li><b>Query Score</b> - Queries the current score. (Will use a list if team index is set as a list.)
+										</ul><br />
+									<a name="deer"></a>
+										<li><b>Deer</b> 
+										<ul>
+											<li>No additional subordinate parameters--this map action is called from the unit via its Map Action attribute. You can use <a href="fear.html#mons">Fear</a> to edit this characteristic. 
+										</ul><br />
+									<a name="dela"></a>
 										<li><b>Delay</b> 
 										<ul>
 											<li><b>Results Action</b> - Takes an action identifer, directs the results of a delay to the target action. 
 											<li><b>Delay Time</b> - Takes a number, sets the time in seconds to delay. 
+											<li><b>Delaying Subjects</b> - Monsters to send to results during the delay time.
 											<li><b>Results Type</b> - Takes a field name, signifies the field name under which subjects are stored. 
 											<li><b>Even Distribution Flag</b> - Takes a flag, if true delays the monsters evenly over the given time. 
-										</ul>
+										</ul><br />
+									<a name="endg"></a>
 										<li><b>Endgame Condition</b> 
 										<ul>
 											<li><b>Dark Victory Flag</b> - This flag never did anything, if an Endgame Condition action has no Light Victory Flag the map assumes the Dark wins and therefore the player loses. 
 											<li><b>Light Victory Flag</b> - Takes a flag, if true Light side wins. 
-											<li><b>Failure Flag</b> - When this flag is used with the Light Victory Flag, it makes the map choose the alternate (secret) level instead of the default next level.</i>
+											<li><b>Failure Flag</b> - When this flag is used with the Light Victory Flag, it makes the map choose the alternate (secret) level instead of the default next level.
 											<li><b>No Celebration</b> - Takes a flag, if true units on winning team don't cheer. 
-										</ul>
-										<li><i><b>Fade Screen <font color=red>NEW</font></b></i> 
+										</ul><br />
+									<a name="fade"></a>
+										<li><b>Fade Screen <font color="darkorange">*1.7.0*</font></b> 
 										<ul>
-											<li><i><b>Fade Duration <font color=red>NEW</font></b> - The number of ticks (30 ticks = 1 second) the fade effect will last. A value of 0 means the fade is off. A positive value will make it a fade it while a negative value will make it a fade out effect.</i>
-											<li><i><b>Fade Starting Point <font color=red>NEW</font></b> - Allows you to select the starting point of the fade effect in case you don't want it to start from the default. The default will be the lowest number in the Fade Duration. If the Fade Duration is a negative value then that is the default starting point, otherwise it is 0.</i>
-											<li><i><b>Fade Color <font color=red>NEW</font></b> - Optional parameter (default is black) that allows you to choose the color of the fade screen effect. Enter 3 values from 0 to 65535 which represent red, green, and blue in that order.</i>
-										</ul>
+											<li><b>Fade Duration</b> - The number of ticks (30 ticks = 1 second) the fade effect will last. A value of 0 means the fade is off. A positive value will make it a fade it while a negative value will make it a fade out effect.
+											<li><b>Fade Starting Point</b> - Allows you to select the starting point of the fade effect in case you don't want it to start from the default. The default will be the lowest number in the Fade Duration. If the Fade Duration is a negative value then that is the default starting point, otherwise it is 0.
+											<li><b>Fade Color</b> - Optional parameter (default is black) that allows you to choose the color of the fade screen effect. Enter 3 values from 0 to 65535 which represent red, green, and blue in that order.
+											<li><b>Player Index <font color="red">*1.8.0*</font></b> - This action will only work on the given player index. (Same index Query Units MA can obtain.)
+											<li><b>Team Index <font color="red">*1.8.0*</font></b> - This action will only work on the given team index. (Same index Query Units MA can obtain.)
+										</ul><br />
+									<a name="foll"></a>
 										<li><b>Follow</b> 
 										<ul>
+											<li><b>Monster Followers</b> - The monster(s) that will follow.
+											<li><b>Monsters to Follow</b> - The monster(s) the follower(s) will follow.
 											<li><b>Radius</b> - Takes a number, denotes the radius to determin spatial groups. 
 											<li><b>Follow Radius</b> - Takes a number, determines the distance to follow at. 
 											<li><b>Falling Behind Actions</b> - Takes action identifiers, determines actions to activate the first time that the units start to fall behind. 
@@ -1039,8 +1104,9 @@
 											<li><b>Follower Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the following monsters are eliminated. 
 											<li><b>Followed Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the followed monsters are eliminated. 
 											<li><b>Stop When Idle Flag</b> - Takes a flag, if true following monsters will not attack. 
-											<li><i><b>Blinkered Flag <font color=red>NEW</font></b> - Takes a flag, if true never follow enemies, and never abandon.</i>
-										</ul>
+											<li><b>Blinkered Flag</b> - Takes a flag, if true never follow enemies, and never abandon.
+										</ul><br />
+									<a name="gene"></a>
 										<li><b>General Action</b> 
 										<ul>
 											<li><b>Command Type</b> - Takes a number of action to do: 
@@ -1053,7 +1119,8 @@
 												<li>5: Taunt 
 											</ul>
 											<li><b>Monsters</b> - Takes a monster identifier, determines which monsters follow the command type. 
-										</ul>
+										</ul><br />
+									<a name="geom"></a>
 										<li><b>Geometry Filter</b> 
 										<ul>
 											<li><b>Monsters</b> - Takes monster identifiers, monsters to check for in the geometry. 
@@ -1064,49 +1131,72 @@
 											<li><b>Circle Centerpoint</b> - Takes a world point, defines the center point of a circle. 
 											<li><b>Circle Centerpoint (Monster)</b> - Takes a monster identifier, defines the center point of a circle as a monster's location. 
 											<li><b>Circle Radius</b> - Takes a number, defines the radius of a circle. 
-											<li><b>Holding Object</b> - Takes an object identifier, defines which units are holding that object.  <i><font color=red>NEW</font>: Multiple object identifiers can now be specified in this and the following parameters.</i>
+											<li><b>Holding Object</b> - Takes an object identifier, defines which units are holding that object.  Multiple object identifiers can be specified in this and the following parameters.
 											<li><b>Not Holding Object</b> - Takes an object identifier, defines which units are not holding that object. 
-											<li><i><b>Holding Object Inventory <font color=red>NEW</font></b> - Takes an object identifier, defines which units are holding that object either actively or in their inventory.</i>
-											<li><i><b>Not Holding Object Inventory <font color=red>NEW</font></b> - Takes an object identifier, defines which units are not holding that object, either actively or in their inventory.</i>
-											<li><i><b>Health Fraction Greater Than <font color=red>NEW</font></b> - Takes a value, defines which units have health fractions larger than that value.</i>
-											<li><i><b>Health Fraction Less Than <font color=red>NEW</font></b> - Takes a value, defines which units have health fractions less than that value.</i>
+											<li><b>Holding Object Inventory</b> - Takes an object identifier, defines which units are holding that object either actively or in their inventory.
+											<li><b>Not Holding Object Inventory</b> - Takes an object identifier, defines which units are not holding that object, either actively or in their inventory.
+											<li><b>Health Fraction Greater Than</b> - Takes a value, defines which units have health fractions larger than that value.
+											<li><b>Health Fraction Less Than</b> - Takes a value, defines which units have health fractions less than that value.
 											<li><b>Entire Map</b> - Takes the map itself, defines the entire map as the geometry. 
-											<li><b>Results Action Identifier</b> - Takes an action identifier, defines where to place the results of a geometry test. <i><font color=red>NEW</font>: Multiple Results Action Identifiers can now be specified, as they can in the following Tested Items parameters.  If, say, four types are entered in Tested Items Inside Field Name, four Results Action Identifiers will also need to be specified to match.</i>
+											<li><b>Results Action Identifier</b> - Takes an action identifier, defines where to place the results of a geometry test. Multiple Results Action Identifiers can be specified, as they can in the following Tested Items parameters.  If, say, four types are entered in Tested Items Inside Field Name, four Results Action Identifiers will also need to be specified to match.
 											<li><b>Tested Items Inside Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object identifiers that are inside the geometry. 
 											<li><b>Tested Items Outside Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object identifiers that are outside the geometry. 
 											<li><b>Tested Items Inside Location Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object locations that are inside the geometry. 
 											<li><b>Tested Items Outside Location Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object locations that are outside the geometry. 
 											<li><b>Maximum Number of Items</b> - Takes a number, restricts the number of items added to the result to this number if set. 
-											<li><i><b>Minimum Number of Items <font color=red>NEW</font></b> - Takes a number, ensures that at least this number of items are added to the result else the action fails.</i>
-											<li><i><b>Count of Items Inside <font color=red>NEW</font></b> - Takes a number, ensures that at most this number of items are added to the result for the inside of the geometry and anything else is placed to the results for the outside of the geometry. Does not take polygons and circles into account.</i>
-											<li><i><b>Choose Random Items <font color=red>NEW</font></b> - Chooses the items to be added to the list randomly rather than in order.</i>
+											<li><b>Minimum Number of Items</b> - Takes a number, ensures that at least this number of items are added to the result else the action fails.
+											<li><b>Count of Items Inside</b> - Takes a number, ensures that at most this number of items are added to the result for the inside of the geometry and anything else is placed to the results for the outside of the geometry. Does not take polygons and circles into account.
+											<li><b>Choose Random Items</b> - Chooses the items to be added to the list randomly rather than in order.
 											<li><b>Use Markers Instead of Monsters</b> - Takes a flag, if true uses monster markers instead of marker positions. 
 											<li><b>Only Use Uncreated Monsters</b> - Takes a flag, if true uses only monster markers that have not yet been made visible.
-											<li><i><b>Only Use Monsters with Same Owner <font color=red>NEW</font></b> - This flag makes the geometry only use monsters that belong to the same player as the first monster in the Monsters parameter.</i>
-											<li><i><b>Only Use Monsters with Same Type <font color=red>NEW</font></b> - This flag makes the geometry only use monsters that belong to the monster type as the first monster in the Monsters parameter.</i>
-											<li><i><b>Only Use Monsters with Same Team <font color=red>NEW</font></b> - This flag makes the geometry only use monsters that belong to the same team as the first monster in the Monsters parameter.</i>
-											<li><i><b>Monsters From This Team Index <font color=red>NEW</font></b> - The geometry will ignore all monsters that do not belong to the team set here.</i>
-											<li><i><b>Tests for Monsters on a Given Team Index <font color=red>NEW</font></b> - Takes a number, includes only monsters that belong to the team index specified by that number. Ignores polygon and circles.</i>
-											<li><i><b>Tests for Monsters of Type <font color=red>NEW</font></b> - Takes a monster type identifier, adds monsters to list that are of that type.</i>
+											<li><b>Only Use Monsters with Same Owner</b> - This flag makes the geometry only use monsters that belong to the same player as the first monster in the Monsters parameter.
+											<li><b>Only Use Monsters with Same Type</b> - This flag makes the geometry only use monsters that belong to the monster type as the first monster in the Monsters parameter.
+											<li><b>Only Use Monsters with Same Team</b> - This flag makes the geometry only use monsters that belong to the same team as the first monster in the Monsters parameter.
+											<li><b>Monsters From This Team Index</b> - The geometry will ignore all monsters that do not belong to the team set here.
+											<li><b>Tests for Monsters on a Given Team Index</b> - Takes a number, includes only monsters that belong to the team index specified by that number. Ignores polygon and circles.
+											<li><b>Tests for Monsters of Type</b> - Takes a monster type identifier, adds monsters to list that are of that type.
 											<li><b>Tests for Berserk Monsters</b> - Returns Berserk Monsters.
 											<li><b>Tests for Taunting Monsters</b> - Returns Monsters that are in the process of taunting.
-											<i>
-												<li><b>Tests for Attacking Monsters <font color=red>NEW</font></b> - Returns Monsters that are inthe process of attacking.
-												<li><b>Tests for Moving Monsters <font color=red>NEW</font></b> - Returns monsters that are marching somewhere.
-												<li><b>Tests for Running Monsters <font color=red>NEW</font></b> - Returns monsters that have the runs.
-												<li><b>Tests for Idle Monsters <font color=red>NEW</font></b> - Returns Monsters who either have nothing to do, or who's controlling player has taken a break for an hour or two.
-												<li><b>Ammunition Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Ammunition level greater than this value.
-												<li><b>Ammunition Less Than <font color=red>NEW</font></b> - Returns Monsters with an Ammunition level Less than this value.
-												<li><b>Combined Power Greater Than <font color=red>NEW</font></b> - Returns Monsters with a Combined Power level greater than this value.
-												<li><b>Combined Power Less Than <font color=red>NEW</font></b> - Returns Monsters with a Combined Power level Less than this value.
-												<li><b>Experience Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Experience level greater than this value.
-												<li><b>Experience Less Than <font color=red>NEW</font></b> - Returns Monsters with an Experience level Less than this value.
-												<li><b>Charges Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level greater than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
-												<li><b>Charges Less Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level Less than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
-												<li><b>Subtract Monster Lists <font color=red>NEW</font></b> - Takes two lists of monsters, one marked subj and the other marked obje.  It adds to the results list all monsters that are in the subj list but are not in the obje list.
-												<li><b>Subtract Monsters (obje) <font color=red>NEW</font></b> - The monsters that will not go to the results when used with Subtract Monster Lists parameter.
-											</i>
-										</ul>
+											<li><b>Tests for Attacking Monsters</b> - Returns Monsters that are inthe process of attacking.
+											<li><b>Tests for Moving Monsters</b> - Returns monsters that are marching somewhere.
+											<li><b>Tests for Running Monsters</b> - Returns monsters that have the runs.
+											<li><b>Tests for Idle Monsters</b> - Returns Monsters who either have nothing to do, or who's controlling player has taken a break for an hour or two.
+											<li><b>Ammunition Greater Than</b> - Returns Monsters with an Ammunition level greater than this value.
+											<li><b>Ammunition Less Than</b> - Returns Monsters with an Ammunition level Less than this value.
+											<li><b>Combined Power Greater Than</b> - Returns Monsters with a Combined Power level greater than this value.
+											<li><b>Combined Power Less Than</b> - Returns Monsters with a Combined Power level Less than this value.
+											<li><b>Experience Greater Than</b> - Returns Monsters with an Experience level greater than this value.
+											<li><b>Experience Less Than</b> - Returns Monsters with an Experience level Less than this value.
+											<li><b>Charges Greater Than</b> - Returns Monsters with an Artifact Charges level greater than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
+											<li><b>Charges Less Than</b> - Returns Monsters with an Artifact Charges level Less than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
+											<li><b>Subtract Monster Lists</b> - Takes two lists of monsters, one marked subj and the other marked obje.  It adds to the results list all monsters that are in the subj list but are not in the obje list.
+											<li><b>Subtract Monsters (obje)</b> - The monsters that will not go to the results when used with Subtract Monster Lists parameter.
+										</ul><br />
+									<a name="grou"></a>
+										<li><b>Group</b> 
+										<ul>
+											<li><b>Initial State</b> - Takes an action identifier, which must be either a guard or split up action. Defines how the unit starts on the map. 
+										</ul><br />
+									<a name="guar"></a>
+										<li><b>Group Guard</b> 
+										<ul>
+											<li><b>Guard Point</b> - Takes a world point, defines where the unit is guarding. 
+											<li><b>Guard Radii</b> - Takes a radius, defines the inner and outer radius to guard within. 
+											<li><b>Actions</b> - Takes two action identifiers, the first of which is used to set up the group, the second of which is the action used to attack. 
+											<li><b>Resets</b> - The action set here will be triggered every time the group's state changes to a non-attacking state, and so long as the group has less units than it started with. 
+										</ul><br />
+									<a name="spup"></a>
+										<li><b>Group Split Up</b> 
+										<ul>
+											<li><b>Threshholds</b> - Takes numbers, defining surviving monster counts. 
+											<li><b>Setup Action Pointers</b> - Takes field names, defining setup action lists. 
+											<li><b>Decision Point</b> - Units are split into sub-groups based upon their proximity to this point, so the nearest units are grouped first. If no point is supplied then units are grouped in the order they are provided to the action.
+											<li><b>Initialise Group</b> - Allows you to initialise from an existing Group action. The Split Up action creates its own Group internally but can copy parameters from another by using this parameter.
+											<li><b>Count per Group</b> - This determines how the groups are split. This value is for the exact number of units that will be per group.
+											<li><b>Count Fraction per Group</b> - This determines how the groups are split. This value is for the percentage of the total number of units that will be per group.
+
+										</ul><br />
+									<a name="girl"></a>
 										<li><b>Harass (for ghols) </b>
 										<ul>
 											<li><b>Subject</b> - Takes monster identifiers, defines the monsters doing the harassment. 
@@ -1116,24 +1206,9 @@
 											<li><b>Reevaluation Delay</b> - Takes a number, defines how long to delay before reevaluation. 
 											<li><b>Projectile Radius</b> - Takes a number, defines the radius around the unit to look for projectiles to throw. 
 											<li><b>Guard Waypoint</b> - Takes a world point, defines where a unit should go to if no enemies are in range. 
-											<li><i><b>Timid Flag <font color=red>NEW</font></b> - Takes a flag, if true activates the much less aggressive (but in many ways more interesting) TFL Harass AI.  To work it requires that you set a Guard Waypoint.</i>
-										</ul>
-										<li><b>Netgame Goal</b> 
-										<ul>
-											<li><b>Polygon</b> - Takes a polygon, defines the area around the goal. 
-											<li><b>Team Index</b> - Takes a number, defines the index of the team who currently owns the goal. 
-										</ul>
-										<li><b>Group</b> 
-										<ul>
-											<li><b>Initial State</b> - Takes an action identifier, which must be either a guard or split up action. Defines how the unit starts on the map. 
-										</ul>
-										<li><b>Group Guard</b> 
-										<ul>
-											<li><b>Guard Point</b> - Takes a world point, defines where the unit is guarding. 
-											<li><b>Guard Radii</b> - Takes a radius, defines the inner and outer radius to guard within. 
-											<li><b>Actions</b> - Takes two action identifiers, the first of which is used to set up the group, the second of which is the action used to attack. 
-											<li><b>Resets</b> - The action set here will be triggered every time the group's state changes to a non-attacking state, and so long as the group has less units than it started with. 
-										</ul>
+											<li><b>Timid Flag</b> - Takes a flag, if true activates the much less aggressive (but in many ways more interesting) TFL Harass AI.  To work it requires that you set a Guard Waypoint.
+										</ul><br />
+									<a name="invi"></a>
 										<li><b>Invisible Pursuit</b> 
 										<ul>
 											<li><b>Invisible Unit</b> - Takes a monster identifier, defining the invisible unit. 
@@ -1141,22 +1216,8 @@
 											<li><b>Meander Points</b> - Takes world points, defining which places the unit should meander to. 
 											<li><b>Activate on Casualty</b> - Takes action identifiers, defining a list of actions to activate when the team recieves a casualty. 
 											<li><b>Activate on Visible</b> - Takes action identifiers, defining a list of actions to activate when the unit becomes visible. 
-										</ul>
-										<li><b>World Knot</b> 
-										<ul>
-											<li><b>Models</b> - Takes model identifiers, defining the models composing the world knot. 
-											<li><b>Duration</b> - Takes a number, defining the duration of the teleportation effect. 
-											<li><b>Model Animations</b> - Takes model identifiers, defining animations to perform on the world knot models. NEVER EVER EVER EVER run a model animation while the world knot is doing something! 
-											<li><b>Teleporting Out Flag</b> - Takes a flag, if true the world knot teleports out. 
-											<li><b>Activate On Wave</b> - Takes action identifiers, defining a set of actions to activate when matching waves come through. One action per wave only. 
-											<li><b>Monsters to bring in</b> - Takes action identifiers, each defining subject fields of monster to bring in. 
-											<li><b>World Knot to go to (linked list)</b> - Takes an action identifier, places the next world knot onto the end of a linked list. 
-											<li><b>Trigger on Teleport In</b> - Takes action identifiers, defines actions to trigger when the world knot begins a teleport in sequence. 
-											<li><b>Use Bounding Box For Knot Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the world knot. If false, an average is used. 
-											<li><b>Use Bounding Box For Wave Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the wave. If false, an average is used. 
-											<li><b>World Knot Centerpoint</b> - Takes a world point, defining the center of the world knot if you know the map action would specify it wrong otherwise. 
-											<li><b>World Knot Radius</b> - Takes a radius, defining the radius of the world knot if you know that the map action would specify it wrong otherwise. 
-										</ul>
+										</ul><br />
+									<a name="lead"></a>
 										<li><b>Leading</b> 
 										<ul>
 											<li><b>Leader</b> - Takes a monster identifier, defining the leader. 
@@ -1185,7 +1246,8 @@
 											<li><b>Maximum Times To Yell</b> - Takes a number, defining the maximum number of times to beckon before stopping. 
 											<li><b>Minimum Radius Before Fleeing</b> - Takes a radius, defining how close the leader can get to the enemy before running. 
 											<li><b>Fleeing Radius</b> - Takes a radius, defining how far behind the group the leader will flee when he cowers. 
-										</ul>
+										</ul><br />
+									<a name="legi"></a>
 										<li><b>Legion (defensive) </b>
 										<ul>
 											<li><b>Group Count</b> - Takes a number, defining how many groups there are in the legion. 
@@ -1197,6 +1259,7 @@
 											<li><b>Visibility Radius</b> - Takes a radius, determining the radius around its current centerpoint within which it will look for enemies. 
 											<li><b>Outer Attack Radius</b> - Takes a radius, determining the radius around its current centerpoint within which the legion will attack enemies. 
 											<li><b>Inner Attack Radius</b> - Takes a radius, determining the radius around its current centerpoint within which the legion never stop attacking enemies. 
+											<li><b>Power Over Distance Threshold</b> - The radius about it's current centerpoint within which the legion will select targets with a higher combined power value than the rest (default value is 4 WU).
 											<li><b>Global Centerpoint</b> - Takes a world point, defining the absolute center of the legion. 
 											<li><b>Global Facing</b> - Takes an angle, determining which direction the legion is facing. 
 											<li><b>Fallback Actions</b> - Takes action identifiers, determining which actions will be activated when the legion starts to fall back. 
@@ -1221,35 +1284,88 @@
 											</ul>
 											<li><b>Group Position</b> Dependency Array - Takes numbers, defining an array of which groups are guarding which. 
 											<li><b>Allied Legions</b> - Takes action identifiers, defining which legion actions will act with the legion. 
-										</ul>
+											<li><b>Circle Flag</b> - The 2 points from Line are used to make a circle where one point is the center and the other is the radius. The legion can position itself anywhere within that circle.
+										</ul><br />
+									<a name="ligh"></a>
 										<li><b>Lightning</b> 
 										<ul>
 											<li><b>Central Sound Source</b> - Takes a sound, defining where the lightning will be shot from. 
 											<li><b>Radius</b> - Takes a radius, defining the radius around the center to scan for monsters. 
 											<li><b>Projectile Tag</b> - The projectile tag created by this action. Does not have to be a lightning attack, could be something guided or marked on target. 
 											<li><b>Monsters</b> - The monters to be affected by this action. 
-										</ul>
-										<li><b>Lock</b> 
-										<ul>
-											<li><b>Keys</b> - Takes action identifers, defining keys. 
-											<li><b>Actions To Activate</b> - Takes action identifiers, defining actions to be activated when the lock is opened. 
-											<li><b>Actions To Deactivate</b> - Takes action identifers, defining actions to be deactivated when the lock is opened. 
-										</ul>
-										<li><b>Look</b> 
-										<ul>
-											<li>No additional subordinate parameters. 
-										</ul>
+										</ul><br />
+									<a name="lpgr"></a>
 										<li><b>Local Projectile Group Action</b> 
 										<ul>
 											<li><b>Groups</b> - Takes local projectile groups, defining the groups to use. 
 											<li><b>Turn On Flag</b> - If true, turns on the groups. 
 											<li><b>Turn Off Flag</b> - If true, turns off the groups. 
 											<li><b>Opacity</b> - Takes a number, determining how opaque the groups are. 
-										</ul>
-										<li><i><b>Mathematics <font color=red>NEW</font></b></i> 
+											<li><b>Player Index <font color="red">*1.8.0*</font></b> - This action will only work on the given player index. (Same index Query Units MA can obtain.)
+											<li><b>Team Index <font color="red">*1.8.0*</font></b> - This action will only work on the given team index. (Same index Query Units MA can obtain.)
+										</ul><br />
+									<a name="lock"></a>
+										<li><b>Lock <font color="darkorange">*1.7.0*</font></b> 
+										<p>This action can run multiple tests instantly which allow for much faster response. It works like a lock, but does not reset when retriggered. To reset use the Munger parameter "Reboot Actions" on the Lock action.</p>
 										<ul>
-											<li>A bunch of parameters, read their descriptions in Loathing.
-										</ul>
+											<li><b>Keys</b> - Actions that are activated to test if they succeed (unlock) or fail (lock). (Maximum of 8 entries.)
+											<li><b>Unlock Triggers</b> - Actions to activate when matching "Keys" have succeeded. (Requires same number of entries as Keys.)
+											<li><b>Lock Triggers</b> - Actions to activate when matching "Keys" have failed. (Requires same number of entries as Keys.)
+											<li><b>0 Triggers Unlocked</b> - Actions to activate when 0 triggers have been unlocked.
+											<li><b>1 Trigger Unlocked</b> - Actions to activate when 1 trigger has been unlocked.
+											<li><b>2 Triggers Unlocked</b> - Actions to activate when 2 triggers have been unlocked.
+											<li><b>3 Triggers Unlocked</b> - Actions to activate when 3 triggers have been unlocked.
+											<li><b>4 Triggers Unlocked</b> - Actions to activate when 4 triggers have been unlocked.
+											<li><b>5 Triggers Unlocked</b> - Actions to activate when 5 triggers have been unlocked.
+											<li><b>6 Triggers Unlocked</b> - Actions to activate when 6 triggers have been unlocked.
+											<li><b>7 Triggers Unlocked</b> - Actions to activate when 7 triggers have been unlocked.
+											<li><b>8 Triggers Unlocked</b> - Actions to activate when 8 triggers have been unlocked.
+										</ul><br />
+									<a name="look"></a>
+										<li><b>Look</b> 
+										<ul>
+											<li>No additional subordinate parameters. 
+										</ul><br />
+									<a name="math"></a>
+										<li><b>Mathematics <font color="darkorange">*1.7.0*</font></b> 
+										<p>This action allows you to run equations and alter the values of other parameters. It basically has four parts: a left value, a right value, an operator, and the result. Use this basic example of 1 + 2 = 3 to help you understand. The left value is "1", the right value is "2", the operator used is for addition, and the result is "3". </p>
+										<p>For each value (left and right), there are multiple options. Integer parameters use whole numbers (i.e. -1, 0, 1, 2) while Fraction parameters use decimal numbers (i.e. 3.74, 4.22). If you want to grab the value from a different action you will need an Action Identifier and a Field Name. One is used to choose the action while the other specifies the four character tag ID of the parameter you wish to select. The result is stored in the "Result Integer" and "Result Fraction" parameters, but you can feed the result to another action using "Destination Action Identifier" and "Destination Field Name".</p>
+										<ul>
+											<li><b>Left Integer</b> - Integer to use for left side of operation.
+											<li><b>Left Fraction <font color="darkorange">*1.7.1*</font></b> - Fraction to use for left side of operation.
+											<li><b>Left Action Identifier</b> - Action identifier of field whose count will be used on the left.
+											<li><b>Left Field Name</b> - Field whose count will be used on the left.
+											<li><b>Right Integer</b> - Integer to use for right side of operation.
+											<li><b>Right Fraction <font color="darkorange">*1.7.1*</font></b> - Fraction to use for right side of operation.
+											<li><b>Right Action Identifier</b> - Action identifier of field whose count will be used on the right.
+											<li><b>Right Field Name</b> - Field whose count will be used on the right.
+											<li><b>Negate Left Operand</b> - Use (-left_value) instead of left_value.
+											<li><b>Not Left Operand</b> - Replace left value with 1 if it's zero, and zero otherwise.
+											<li><b>Negate Right Operand</b> - Use (-right_value) instead of right_value.
+											<li><b>Not Right Operand</b> - Replace right value with 1 if it's zero, and zero otherwise.
+											<li><b>Add</b> - Add the left and right values.
+											<li><b>Subtract</b> - Subtract the right value from the left.
+											<li><b>Multiply</b> - Multiply the left and right values.
+											<li><b>Divide</b> - Divide the left value by the right value.
+											<li><b>Remainder</b> - Compute the remainder when the left value is divided by the right.
+											<li><b>Less Than</b> - 1 if left value is less than right, zero otherwise.
+											<li><b>Less Than or Equal</b> - 1 if left value is less than or equal to right, zero otherwise.
+											<li><b>Greater Than</b> - 1 if left value is greater than right, zero otherwise.
+											<li><b>Greater Than or Equal</b> - 1 if left value is greater than or equal to right, zero otherwise.
+											<li><b>Equal</b> - 1 if left and right values are equal, zero otherwise.
+											<li><b>Not Equal</b> - zero if left and right values are equal, one otherwise.
+											<li><b>And</b> - 1 if left and right values are both non-zero, 0 otherwise.
+											<li><b>Or</b> - 1 if left, right, or both values are non-zero, 0 if both are zero.
+											<li><b>Exclusive Or</b> - 1 if either left or right value, but not both, is non-zero; 0 if both are zero or both are non-zero.
+											<li><b>Negate Output</b> - Subtract result from zero before outputting.
+											<li><b>Not Output</b> - Output a 0 if result is non-zero, and a 1 if result is zero.
+											<li><b>Destination Action Identifier</b> - Action to store output, in addition to 'Result Integer' and 'Result Fraction' in current action.
+											<li><b>Destination Field Name</b> - Field in destination action to store output, in addition to 'Result Integer' and 'Result Fraction' in current action.
+											<li><b>Output is a Fraction <font color="darkorange">*1.7.1*</font></b> - Output is stored as a fixed parameter (eg  3.141) instead of an integer parameter (eg  3). If set to false, will do the opposite. Useful only if the parameter type does not already exist in the action.
+											<li><b>Result Integer <font color="darkorange">*1.7.1*</font></b> - The result of the operation as an integer.
+											<li><b>Result Fraction <font color="darkorange">*1.7.1*</font></b> - The result of the operation as a fraction.
+										</ul><br />
+									<a name="mean"></a>
 										<li><b>Meander Action (wander aimlessly) </b>
 										<ul>
 											<li><b>Meanderers</b> - Takes monster identifiers, defining which monsters will meander. 
@@ -1257,7 +1373,28 @@
 											<li><b>Activate On Casualty</b> - Takes action identifiers, defining actions to activate when a casualty occurs. 
 											<li><b>Scan For Threats</b> - Takes a flag, if true the units will scan for nearby threats. 
 											<li><b>Threat Scan Width</b> - Takes a number, designating the width in cells to scan for threats. 
-										</ul>
+										</ul><br />
+									<a name="mele"></a>
+										<li><b>Melee</b> 
+										<ul>
+											<li><b>Targets</b> - Only attack groups which contain these targets
+											<li><b>Formation</b> - Takes a number, defining the formation to use: 
+											<ul>
+												<li>0: Short Line 
+												<li>1: Long Line 
+												<li>2: Loose Line 
+												<li>3: Staggered Line 
+												<li>4: Box 
+												<li>5: Rabble 
+												<li>6: Shallow Encirclement 
+												<li>7: Deep Encirclement 
+												<li>8: Vanguard 
+												<li>9: Circle 
+											</ul>
+											<li><b>Power Over Distance Threshhold</b> - Takes a number, the distance at which to choose a more powerful group isntead of a closer one. 
+											<li><b>Subjects</b> - Takes monster identifiers, defines the subjects of the action. 
+										</ul><br />
+									<a name="mece"></a>
 										<li><b>Mesh Cell Modifier</b> 
 										<ul>
 											<li><b>Mesh Cells To Affect</b> - Takes world points. Each cell with a world point in it is modified. 
@@ -1281,29 +1418,28 @@
 												<li>14: Walking Impassable 
 												<li>15: Flying Impassable 
 											</ul>
-										</ul>
-										<li><b>Melee</b> 
-										<ul>
-											<li><b>Formation</b> - Takes a number, defining the formation to use: 
-											<ul>
-												<li>0: Short Line 
-												<li>1: Long Line 
-												<li>2: Loose Line 
-												<li>3: Staggered Line 
-												<li>4: Box 
-												<li>5: Rabble 
-												<li>6: Shallow Encirclement 
-												<li>7: Deep Encirclement 
-												<li>8: Vanguard 
-												<li>9: Circle 
-											</ul>
-											<li><b>Power Over Distance Threshhold</b> - Takes a number, the distance at which to choose a more powerful group isntead of a closer one. 
-											<li><b>Subjects</b> - Takes monster identifiers, defines the subjects of the action. 
-										</ul>
+										</ul><br />
+									<a name="miss"></a>
 										<li><b>Mission</b> 
 										<ul>
 											<li><b>Advance Flag</b> - Takes a flag, if true advances the mission objective. 
-										</ul>
+										</ul><br />
+									<a name="anim"></a>
+										<li><b>Model Animation</b> 
+										<ul>
+											<li><b>Model Animation</b> - Takes a model identifier, determining the model to animate. 
+											<li><b>Start Forward Flag</b> - Takes a flag, if true starts playing an animation forward from the beginning. 
+											<li><b>Start Backward Flag</b> - Takes a flag, if true starts playing an animation backward from the end. 
+											<li><b>Stop Flag</b> - Takes a flag, if true stops playing an animation. 
+											<li><b>Back and Forth Flag</b> - Takes a flag, if true plays an animation back and forth. 
+											<li><b>Cycle Flag</b> - Takes a flag, if true makes an animation cycle. 
+											<li><b>Reset Frame Index Flag</b> - Takes a flag, if true resets to the start or end of a sound. 
+											<li><b>Advance Animation Flag</b> - Takes a flag, if true moves the animation forward a single frame. 
+											<li><b>Frame Greater Than</b> - Takes a number, tests if the current animation frame index is greater than that number. 
+											<li><b>Frame Less Than</b> - Takes a number, tests if the current animation frame index is less than that number. 
+											<li><b>Frame Equal To</b> - Takes a number, tests if the current animation frame index is equal to that number. 
+										</ul><br />
+									<a name="moef"></a>
 										<li><b>Model Effect</b> 
 										<ul>
 											<li><b>Model</b> - Takes a model identifier, defining the model to use. 
@@ -1323,15 +1459,16 @@
 											<li><b>Final Scale</b> - Takes a number, defining the final scale of the model. 
 											<li><b>Projectile Type To Detonate</b> - Takes a projectile type, defining a projectile type to create and detonate immediately. 
 											<li><b>Projectile Origin</b> - Takes a world point, defining a the point to create the projectile at. 
-										</ul>
+										</ul><br />
+									<a name="moma"></a>
 										<li><b>Move Marker</b> 
 										<ul>
 											<li><b>Team Index</b> - Takes a number, defining the index of the team to move the marker near. 
 											<li><b>Subject</b> - Takes a monster identifier, defining the monster to move. The monster MUST NOT have been created before you attempt to move the marker. 
 											<li><b>Target Monster</b> - Takes a monster identifier, defining the monster to replace with the one you're moving.  It must use the same Collection else very strange things will happen.
-											<li><b>Team Index</b> - The team index to move the marker near.  I haven't used this so I can't add to that description.
 											<li><b>Destination</b> - The point to move the marker to - only works with created monsters, and cannot be used with Target Monster.
-										</ul>
+										</ul><br />
+									<a name="move"></a>
 										<li><b>Movement</b> 
 										<ul>
 											<li><b>Waypoints</b> - Takes world points, defining the locations to move to. 
@@ -1353,10 +1490,12 @@
 												<li>9: Circle 
 											</ul>
 											<li><b>Final Facing</b> - Takes an angle, defining which facing to assume at the last waypoint. 
-										</ul>
+											<li><b>Object to Point At</b> - A list of monsters to face at the end of the movement order.
+											<li><b>Closest Waypoint Flag <font color="darkorange">*1.7.0*</font></b> - Makes units move to the closest waypoint in the Waypoints parameter.
+										</ul><br />
+									<a name="mung"></a>
 										<li><b>Munger</b> 
 										<ul>
-											<li><b>* This is something that by general Bungie consensus, users should NEVER mess around with. It is included simply for the purposes of comprehensive documentation.</b> 
 											<li><b>Insert Parameters</b> - Takes action identifiers, defines parameters to insert. 
 											<li><b>Replace Parameters</b> - Takes action identifiers, defines parameters to replace. 
 											<li><b>Delete Parameters</b> - Takes action identifiers, defines parameters to delete. 
@@ -1365,21 +1504,40 @@
 											<li><b>Activate Actions</b> - Takes action identifiers, defining the actions to activate. 
 											<li><b>Delete Actions</b> - Takes action identifiers, defining the actions to delete. 
 											<li><b>Actions To Make Successful</b> - Takes action identifiers, defining the actions to make successful. 
-										</ul>
+											<li><b>Reboot Actions <font color="red">*1.8.0*</font></b> - Takes action identifiers, defining the actions to reboot. Rebooting an action causes its state to be rebuilt from its current parameters. This enables parameter mungering on map actions that read parameters only once during their initial activation, which makes regular parameter mungering ineffective. Rebootable actions include but are not limited to: assassin, invisible, lock, meander, melee, suicide, surround, test unit, world knot.
+										</ul><br />
+									<a name="goal"></a>
+										<li><b>Netgame Goal</b> 
+										<ul>
+											<li><b>Polygon</b> - Takes a polygon, defines the area around the goal. 
+											<li><b>Team Index</b> - Takes a number, defines the index of the team who currently owns the goal. 
+										</ul><br />
+									<a name="plan"></a>
+										<li><b>Netgame Time</b> 
+										<ul>
+											<li><b>Planning Time Over</b> - Takes a flag, if true the action succeeds if planning time has expired. 
+											<li><b>Sudden Death</b> - Takes a flag, if true the action succeeds if sudden death is in progress. 
+											<li><b>Game Over</b> - Takes a flag, if true the action succeeds if the game is over. 
+											<li><b>Time Remaining Less Than</b> - Takes a number, if remaining game time (not including Sudden Death) is less than this number, the action succeeds. 
+										</ul><br />
+									<a name="ngty"></a>
 										<li><b>Netgame Type</b> 
 										<ul>
 											<li><b>Type</b> - Takes numbers corresponding to each netgame type, if true the action succeeds. 
 											<li><b>Winning Team Index</b> - Takes number corresponding to team number, if true the action succeeds. 
 											<li><b>Winning Team Can Tie</b> - Takes a flag, if true the action can succeed even if the winning team is tied. 
 											<li><b>Winning Team Minimum Score</b> - Takes number corresponding to minimum score of winning team, if true the action succeeds. 
-										</ul>
+											<li><b>Minimum Patch Version</b> - The netgame must be running at least this version to succeed. <i><font color="red">*1.8.0*</font> - For 1.8.0 and higher, a value of "8" succeeds. Older versions use a value of "5" or lower, so this is only useful for 1.8.0 and higher.</i>
+										</ul><br />
+									<a name="obco"></a>
 										<li><b>Object Control</b> 
 										<ul>
 											<li><b>Projectile Tag</b> - Takes a field name, defining which projectile tag to affect. 
-											<li><b>Reveal All Flag <font color=red>NEW (1.7)</font></b> - Takes a flag, if true reveals all instances of the object. 
+											<li><b>Reveal All Flag</b> - Takes a flag, if true reveals all instances of the object. 
 											<li><b>Reveal Random Flag</b> - Takes a flag, if true reveal a random instance of the object and hide all others.
-											<li><b>Hide All Flag</b> - Takes a flag, if true hides all instances of the object. 
-										</ul>
+											<li><b>Hide All Flag <font color="darkorange">*1.7.0*</font></b> - Takes a flag, if true hides all instances of the object. 
+										</ul><br />
+									<a name="obmo"></a>
 										<li><b>Observer Movement</b> 
 										<ul>
 											<li><b>Camera Mode</b> - Takes a number, defining the camera mode: 
@@ -1392,32 +1550,35 @@
 											<li><b>Destination</b> - Takes a world point, defining where to move the observer to. 
 											<li><b>Final Facing</b> - Takes an angle, defining where the observer needs to face when it reaches the destination. 
 											<li><b>Viewing subject</b> - Takes a monster identifier, defining which monster to follow if desired. 
+											<li><b>Maximum Zoom</b> - If present, camera goes to maximum zoom-out by the end of the movement.
 											<li><b>Linear Interpolant Separation</b> - Takes a number, defining the distance between linearly interpolated camera positions. 
 											<li><b>Angular Interpolant Separation</b> - Takes a number, defining the distance between angularly interpolated camera positions. 
 											<li><b>Maximum Time Before Cutting</b> - Takes a number, defining how long to move the camera through interpolation before snapping to the destination. 
-											<li><i><b>Maximum Zoom <font color=red>NEW</font></b> - If present, camera goes to maximum zoom-out by the end of the movement.</i>
-										</ul>
+											<li><b>Don't Return User Control Flag</b> - If present, we don't return user control when the camera movement is through.
+											<li><b>Shake Camera Flag</b> - If present, we start shaking the camera like in an earthquake.
+											<li><b>Shake Duration</b> - The shake duration in seconds.  If not provided, it defaults to 8.0 sec.
+											<li><b>Shake Intensity</b> - The shake intensity in WU.  If not provided, it defaults to 0.5 WU.
+											<li><b>Player Index <font color="red">*1.8.0*</font></b> - This action will only work on the given player index. (Same index Query Units MA can obtain.)
+											<li><b>Team Index <font color="red">*1.8.0*</font></b> - This action will only work on the given team index. (Same index Query Units MA can obtain.)
+										</ul><br />
+									<a name="part"></a>
 										<li><b>Particle System Control</b> 
 										<ul>
 											<li><b>Switch Particle System State</b> - Takes a flag, if true toggles between snowing and not snowing. 
 											<li><b>Target Multiplier</b> - Takes a number, defining a multiplier to determine number of particles. 
-										</ul>
+										</ul><br />
+									<a name="peas"></a>
 										<li><b>Peasant</b> 
 										<ul>
 											<li>No additional subordinate parameters. 
-										</ul>
+										</ul><br />
+									<a name="pick"></a>
 										<li><b>Pick Up Object</b> 
 										<ul>
 											<li><b>Object</b> - Takes an object identifier, defining which object to pick up. 
 											<li><b>Monsters</b> - Takes monster identifiers, defining which monsters to pick the object up. 
-										</ul>
-										<li><b>Netgame Time</b> 
-										<ul>
-											<li><b>Planning Time Over</b> - Takes a flag, if true the action succeeds if planning time has expired. 
-											<li><b>Sudden Death</b> - Takes a flag, if true the action succeeds if sudden death is in progress. 
-											<li><b>Game Over</b> - Takes a flag, if true the action succeeds if the game is over. 
-											<li><b>Time Remaining Less Than</b> - Takes a number, if remaining game time (not including Sudden Death) is less than this number, the action succeeds. 
-										</ul>
+										</ul><br />
+									<a name="plat"></a>
 										<li><b>Platoon</b> 
 										<ul>
 											<li><b>Initial State</b> - Takes an action identifier, defining the starting state. 
@@ -1425,7 +1586,8 @@
 											<li><b>Centerpoint</b> - Takes a world point, defining the unit's initial centerpoint. 
 											<li><b>Facing</b> - Takes an angle, defining the unit's initial facing. 
 											<li><b>Allies</b> - Takes action identifiers, defining the other platoons which may be called when attacking. 
-										</ul>
+										</ul><br />
+									<a name="plmo"></a>
 										<li><b>Platoon Movement</b> 
 										<ul>
 											<li><b>Waypoints</b> - Takes world points, defining which points to use as waypoints. 
@@ -1436,8 +1598,9 @@
 											<li><b>Interpolate Flag</b> - Takes a flag, if true interpolates between waypoints. 
 											<li><b>Interpolant Spacing</b> - Takes a number, defining the distance between interpolated waypoints. 
 											<li><b>Congregate Flag</b> - Takes a flag, if true the platoon will congregate toward its apparent center before moving toward the first waypoint. 
-										</ul>
-										<li><b>Platoon Scouting</b> - <i>Platoon Scouting is similar to Platoon Movement, however units choose the waypoint sequence randomly and are unwilling to attack a stronger enemy group - unless there's a chance they can slice them in the back.  Scouting can be a very deadly form of harass.</i>
+										</ul><br />
+									<a name="plsc"></a>
+										<li><b>Platoon Scouting</b> - Platoon Scouting is similar to Platoon Movement, however units choose the waypoint sequence randomly and are unwilling to attack a stronger enemy group - unless there's a chance they can slice them in the back.  Scouting can be a very deadly form of harass.
 										<ul>
 											<li><b>Waypoints</b> - Takes world points, defining the list of waypoints to use. 
 											<li><b>Waypoint Radii</b> - Takes radii, defining the random radius at each waypoint. 
@@ -1447,56 +1610,87 @@
 											<li><b>Interpolate Flag</b> - Takes a flag, if true interpolates between waypoints. 
 											<li><b>Interpolant Spacing</b> - Takes a number, defining the distance between interpolated waypoints. 
 											<li><b>Congregate Flag</b> - Takes a flag, if true the platoon will congregate toward its apparent center before moving toward the first waypoint. 
-										</ul>
-										<li><b>Prohibited Netgame Teams</b> 
+										</ul><br />
+									<a name="plyc"></a>
+										<li><b>Player Count</b> 
 										<ul>
-											<li><b>* This Map Action is not fully implemented and can cause problems such as incorrect team counts and false game reporting.</b> 
+											<li><b>Team Count Equal To</b> - Tests to see if the number of teams in a game is equal to this value.
+											<li><b>Team Count Less Than</b> - Tests to see if the number of teams in a game is less than this value.
+											<li><b>Team Count Greater Than</b> - Tests to see if the number of teams in a game is greater than this value.
+											<li><b>Player Count Equal To</b> - Tests to see if the number of players in a game is equal to this value.
+											<li><b>Player Count Less Than</b> - Tests to see if the number of players in a game is less than this value.
+											<li><b>Player Count Greater Than</b> - Tests to see if the number of players in a game is greater than this value.
+											<li><b>Count From This Team Only</b> - Tests using only the players from this same team.
+										</ul><br />
+									<a name="prta"></a>
+										<li><b>Prohibited Netgame Teams</b> 
+										<p>This action will be activated when the map loads even if you do not trigger it.</p>
+										<ul>
 											<li><b>Game Type + Team Indexes</b> - Takes two numbers, the first is the number of the game type and the second is the team to be removed. As many of these as required can be added to the same action. 
-										</ul>
+										</ul><br />
+									<a name="quni"></a>
+										<li><b>Query Units <font color="red">*1.8.0*</font></b> 
+										<p>This action grabs specific values from units which can then be used with other actions such as the Math action.</p>
+										<ul>
+											<li><b>Monsters</b> - Monsters to query. The Query Units action is used to retrieve values from units to use with other map actions.
+											<li><b>Vitality</b> - Queries the monsters on their current health. (Uses a different scale than seen in Fear.)
+											<li><b>Vitality Maximum</b> - Queries the monsters on their maximum health. (Uses a different scale than seen in Fear.)
+											<li><b>Vitality Fraction</b> - Queries the monsters on their current health using the same scale as Fear. (Which is "Vitality" divided by "Vitality Maximum". )
+											<li><b>Mana</b> - Queries the monsters on their current mana. (Uses a different scale than seen in Fear.)
+											<li><b>Mana Maximum</b> - Queries the monsters on their maximum mana. (Uses a different scale than seen in Fear.)
+											<li><b>Mana Fraction</b> - Queries the monsters on their current mana using the same scale as Fear. (Which is "Mana" divided by "Mana Maximum". )
+											<li><b>Ammunition</b> - Queries the monsters on their current ammunition count.
+											<li><b>Ammunition Maximum</b> - Queries the monsters on their maximum ammunition count.
+											<li><b>Ammunition Fraction</b> - Queries the monsters on their current ammunition fraction. (Which is "Ammunition" divided by "Ammunition Maximum". )
+											<li><b>Charges</b> - Queries the monsters on their current artifact charge count.
+											<li><b>Charges Maximum</b> - Queries the monsters on their maximum artifact charge count.
+											<li><b>Charges Fraction</b> - Queries the monsters on their current artifact charge fraction. (Which is "Charges" divided by "Charges Maximum". )
+											<li><b>Experience</b> - Queries the monsters on their experience. (Shown as shields or skulls in the status bar.)
+											<li><b>Battles Survived</b> - Queries the monsters on the number of levels they have survived. (Shown as daggers in the status bar.)
+											<li><b>Objects Held Count</b> - Queries the monsters on the number of objects they currently hold.
+											<li><b>Height Over Mesh</b> - Queries the monsters on their current height over the mesh.
+											<li><b>Team Index</b> - Queries the monsters on what team index they currently belong on.
+											<li><b>Player Index</b> - Queries the monsters on what player index they currently belong on.
+										</ul><br />
+									<a name="rout"></a>
 										<li><b>Rout</b> 
 										<ul>
 											<li><b>Destinations</b> - Takes world points, defining the positions to run to when routed. 
 											<li><b>Subject</b> - Takes monster identifiers, defining the monsters to rout. 
-										</ul>
+										</ul><br />
+									<a name="sham"></a>
 										<li><b>Shaman</b> 
 										<ul>
 											<li><b>Shaman</b> - Takes a monster identifier, defining the shaman to control. 
 											<li><b>Allies</b> - Takes monster identifiers, defining the allies that the shaman tries to heal. 
 											<li><b>Vitality Threshhold</b> - Takes a number, determining the health level of allies before the shaman tries to heal them. 
 											<li><b>Fallback Action Identifier</b> - Takes an action identifier, defining which action to trigger if the shaman has nobody to heal. 
-										</ul>
-										<li><b>Action Sniffing</b> 
-										<ul>
-											<li><b>Test Case</b> - Takes a number, defining which case to test for. 
-											<li><b>Don't Clear Flag</b> - Takes a flag, if true don't clear the test case after success. 
-											<li><b>Keep Reporting Errors</b> After Initial Success Flag - Takes a flag, if true keep reporting errors after the action is successful the first time. 
-											<li><b>Time Between Errors</b> - Takes a number, defining the minimum time between reporting errors. 
-											<li><b>Delay Before Announcing Errors</b> - Takes a number, defining how long to wait before beginning to report errors. 
-										</ul>
+										</ul><br />
+									<a name="soar"></a>
 										<li><b>Soaring</b> 
 										<ul>
 											<li>No additional subordinate parameters--this map action is called from the unit via its Map Action attribute. You can use <a href="fear.html#mons">Fear</a> to edit this characteristic. 
-										</ul>
+										</ul><br />
+									<a name="soun"></a>
 										<li><b>Sound Action</b> 
 										<ul>
 											<li><b>Sound Tag</b> - Takes a sound, defines the sound to use. 
 											<li><b>Monster</b> - Takes a monster identifier, defining which monster generates the sound. 
 											<li><b>Override Flag</b> - Takes a flag, if true the monster will generate the sound despite any player commands that have been issued. 
-											<li><i><b>Only Owner Flag <font color=red>NEW</font></b> - This flag makes only the owners of the first monster in the Monster parameter hear this sound or see this message.</i> 
-											<li><i><b>Only Team Flag <font color=red>NEW</font></b> - This flag makes only the team of the first monster in the Monster parameter hear this sound or see this message.</i> 
-										</ul>
-										<li><b>Group Split Up</b> 
-										<ul>
-											<li><b>Threshholds</b> - Takes numbers, defining surviving monster counts. 
-											<li><b>Setup Action Pointers</b> - Takes field names, defining setup action lists. 
-										</ul>
+											<li><b>Only Owner Flag</b> - This flag makes only the owners of the first monster in the Monster parameter hear this sound or see this message. 
+											<li><b>Only Team Flag</b> - This flag makes only the team of the first monster in the Monster parameter hear this sound or see this message. 
+											<li><b>Player Index <font color="red">*1.8.0*</font></b> - This action will only work on the given player index. (Same index Query Units MA can obtain.)
+											<li><b>Team Index <font color="red">*1.8.0*</font></b> - This action will only work on the given team index. (Same index Query Units MA can obtain.)
+										</ul><br />
+									<a name="squa"></a>
 										<li><b>Squad</b> 
 										<ul>
 											<li><b>Centerpoint</b> - Takes a world point, defining the centerpoint of the squad. 
 											<li><b>Facing</b> - Takes an angle, defining the facing of the squad. 
 											<li><b>Formation</b> - Takes a number, defining the formation to assume while walking between waypoints. 
 											<li><b>Monsters</b> - Takes monster identifiers, defining the monsters in the squad. 
-										</ul>
+										</ul><br />
+									<a name="suic"></a>
 										<li><b>Suicide (for wights) </b>
 										<ul>
 											<li><b>Subjects</b> - Takes monster identifiers, defining the monsters to suicide with. 
@@ -1510,14 +1704,16 @@
 											<li><b>Activate On Casualty</b> - Takes action identifiers, defining which actions to activate when a casualty occurs. 
 											<li><b>Inhibition</b> - Takes an action identifier, determining which units to prevent from creating. 
 											<li><b>Never Avoid</b> - Takes a flag, if true will never attempt to avoid the enemy during a charge. 
-										</ul>
+										</ul><br />
+									<a name="surr"></a>
 										<li><b>Surround</b> 
 										<ul>
 											<li><b>Units Lost Before Attacking</b> - Takes a number, defining the maximum number of units which may be lost before triggering an attack. 
 											<li><b>Time Before Attacking</b> - Takes a number, defining how long to wait before attacking. 
 											<li><b>Activate On Attack</b> - Takes action identifiers, defining which actions to activate when the attack is triggered. 
 											<li><b>Subject</b> - Takes monster identifiers, defining the monsters used to surround with. 
-										</ul>
+										</ul><br />
+									<a name="tuni"></a>
 										<li><b>Test Unit</b> 
 										<ul>
 											<li><b>Monsters</b> - Monsters to check for in the test. 
@@ -1536,13 +1732,13 @@
 											<li><b>Difficulty Greater Than or Equal To</b> - Takes a number, and tests for a difficulty greater than or equal to it. 
 											<li><b>Difficulty Less Than or Equal To</b> - Takes a number, and tests for a difficulty less than or equal to it. 
 											<li><b>Difficulty Equal To</b> - Takes a number, and tests for a difficulty equal to it. 
-											<li><i><b>TFL Gameplay Active <font color=red>NEW</font></b> - Takes a flag, if true tests for whether the player has activated TFL Gameplay.</i>
-											<li><i><b>Anticlump Active <font color=red>NEW</font></b> - Takes a flag, if true tests for whether the player has activated the Anticlump option.</i>
+											<li><b>TFL Gameplay Active</b> - Takes a flag, if true tests for whether the player has activated TFL Gameplay.
+											<li><b>Anticlump Active</b> - Takes a flag, if true tests for whether the player has activated the Anticlump option.
 											<li><b>Power Ratio Less Than</b> - Takes a number, and tests for a power ratio less than it. 
 											<li><b>Power Ratio Greater Than</b> - Takes a number, and tests for a power ratio greater than it. 
 											<li><b>Received User Command</b> - Takes a flag, if true tests whether or not the unit has received a command from the user. 
-											<li><b>Object Held</b> - Takes an object identifier, and tests whether the unit is holding it.
-											<li><i><b>Object Held Inventory <font color=red>NEW</font></b> - Takes an object identifier, and tests whether the unit is holding it, including stashed away in its inventory. </i>
+											<li><b>Object Held</b> - Takes an object identifier, and tests whether the unit is holding it. <i><font color="red">*1.8.0*</font> Use a blank to test for Inventory 0.</i>
+											<li><b>Object Held Inventory</b> - Takes an object identifier, and tests whether the unit is holding it, including stashed away in its inventory. <i><font color="red">*1.8.0*</font> Use a blank to test for an empty inventory. It ignores units that do not have inventory but are still holding an artifact.</i>
 											<li><b>Object Held By All Units Flag</b> - Takes a flag, and tests whether all units are holding the object. 
 											<li><b>Object Test Radius</b> - Takes a world point and a radius, and tests whether an object is in the area. 
 											<li><b>Radius About Centerpoint</b> - Takes a radius, and tests for points in the resulting circle. 
@@ -1550,14 +1746,14 @@
 											<li><b>Enemy Closer Than Radius</b> - Takes a radius, and tests whether there are enemies within the given radius of the subject. 
 											<li><b>Ignore Invisible Units Flag</b> - Takes a flag, if true forbids test from acknowledging magically invisible units withing the radius. 
 											<li><b>Units Must Be Selected Flag</b> - Tests to make sure all the given units are currently selected. (Can only work in single player.) 
-											<li><i><b>Ammunition Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this level of ammo.</i>
-											<li><i><b>Experience Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this number of kills.</i>
-											<li><i><b>Mana Percentage Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this percentage of mana.</i>
-											<li><i><b>Charges Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this number of charges in their active artifact.</i>
-											<li><i><b>Height Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have a greater height than this number.</i>
+											<li><b>Ammunition Greater Than</b> - Takes a number, tests to ensure the given units have more than this level of ammo.
+											<li><b>Experience Greater Than</b> - Takes a number, tests to ensure the given units have more than this number of kills.
+											<li><b>Mana Percentage Greater Than</b> - Takes a number, tests to ensure the given units have more than this percentage of mana.
+											<li><b>Charges Greater Than</b> - Takes a number, tests to ensure the given units have more than this number of charges in their active artifact.
+											<li><b>Height Greater Than</b> - Takes a number, tests to ensure the given units have a greater height than this number.
 											<li><b>Unit is Taunting</b> - Takes a flag, if true tests to see if the units are taunting (cheeky buggers).
 											<li><b>Unit has a Waypoint Near</b> - Takes a flag, if true tests to see if the units are within 3 world units of a waypoint.
-											<li><i><b>Standing on This Terrain Type <font color=red>NEW</font></b> - Tests to make sure any of the given unitis are on this terrain type.</i>
+											<li><b>Standing on This Terrain Type</b> - Tests to make sure any of the given unitis are on this terrain type.
 											<ul>
 												<li>0: Dwarf-Depth Media 
 												<li>1: Human-Depth Media 
@@ -1576,14 +1772,100 @@
 												<li>14: Walking Impassable 
 												<li>15: Flying Impassable 
 											</ul>
-											<li><i><b>Lists Differ <font color=red>NEW</font></b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if any units are in one list and not in the other.</i>
-											<li><i><b>Lists Same <font color=red>NEW</font></b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if both lists are identical.</i>
-										</ul>
+											<li><b>Lists Differ</b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if any units are in one list and not in the other.
+											<li><b>Lists Same</b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if both lists are identical.
+										</ul><br />
+									<a name="ctrl"></a>
+										<li><b>Unit Control</b> 
+										<ul>
+											<li><b>Monsters</b> - Takes monster identifiers, the monsters to affect. 
+											<li><b>Received User Control Flag</b> - Takes a flag, if true denotes that user control is received. 
+											<li><b>Ignores User Control Flag</b> - Takes a flag, if true monsters ignore user commands. 
+											<li><b>Uncontrollable</b> - If true the unit is uncontrollable by the player and doesn't give the player visibility of enemy units
+											<li><b>Does Not Autotarget Flag</b> - Takes a flag, if true monsters do not autotarget. 
+											<li><b>Cannot Be Autotargeted Flag</b> - Takes a flag, if true monsters cannot be autotargeted. 
+											<li><b>Delete Monsters</b> - Takes monster identifiers, deletes the monsters. 
+											<li><b>Fade Flag</b> - Will fade a unit off the map when used with Invisible Flag or fade a unit onto the map when used with Visible Flag. 
+											<li><b>Visible Flag</b> - Takes a flag, if true makes the monster visible. 
+											<li><b>Invisible Flag</b> - Takes a flag, if true makes the monster invisible. 
+											<li><b>Monster Source Flag</b> - Takes a flag, if true makes the marker a monster source. 
+											<li><b>Health Fraction</b> - Takes a number, setting the health fraction of the monster. 
+											<li><b>Raise Health Fraction</b> - Takes a number, raises health by the specified amount.
+											<li><b>Lower Health Fraction</b> - Takes a number, lowers monster's health by the specified amount (cannot kill the monster).
+											<li><b>Kill Monsters</b> - Takes monster identifiers and kills them, using either soft or hard death as specified.
+											<li><b>New Monster Name</b> - Takes a number, setting the monster's name to the indexed name in the monster name list. 
+											<li><b>Experience</b> - Takes a number, setting the experience level of the monster. 
+											<li><b>Add Experience</b> - Takes a number, increments the experience level of the monster by that amount (can be negative)
+											<li><b>Levels Survived</b> - Takes a number, setting the number of levels a unit has survived. 
+											<li><b>Use Monster Entrance Flag</b> - Takes a flag, if true uses the monster entrance projectile group. 
+											<li><b>World Knot Visibility Flag</b> - Takes a flag - if true makes the monster appear with the world knot appearance method. 
+											<li><b>Tain Visibility Flag</b> - Takes a flag, if true makes the monster appear with the tain appearance method. 
+											<li><b>Magic Visibility Flag</b> - Takes a flag, if true makes the monster visible/invisible magically (like a pathfinder dwarf). 
+											<li><b>Ghost Visibility Flag</b> - Takes a flag, if true makes the monster flicker on and off like a ghost. Once it's set, you can't make the unit stop flickering - but you can affect the phases of the flicker by setting the flag to either true or false.
+											<li><b>Transparent Flag</b> - If flag is true, makes the unit 50% transparent.
+											<li><b>Set Marker Height</b> - Takes a number, adds the value to the monster's marker height. 
+											<li><b>Set Monster Height</b> - Takes a number, sets the height of the monster on the mesh. (512 = 1 WU above the mesh, 0 and negative values = ground/media height) 
+											<li><b>Incremental Monster Height</b> - Takes a number, adds (or subtracts) to the height of the monster on the mesh. (512 = 1 WU higher, -512 = -1 WU lower) Can't go lower than ground/media height. 
+											<li><b>Give Monster Artifact or Projectile</b> - Takes an object identifier, gives a monster the artifact. 
+											<li><b>Switch Artifact</b> - Takes an projectile type and makes monsters holding this projectile in their inventories switch to holding it actively.
+											<li><b>Remove Artifact</b> - Takes a flag, if true removes the monster's current holstered artifact (if it exists). 
+											<li><b>Drop Artifact Flag <font color="darkorange">*1.7.0*</font></b> - Makes the unit drop their active artifact just like Shift-I does in game.
+											<li><b>Add Charges</b> - Takes a number, increments (or decreases if negative) the number of artifact charges of the monster, if the monster is holding an artifact.
+											<li><b>Ammunition</b> - Takes a number, sets the amount of ammunition a unit has without regard to normal in-game maximums. 
+											<li><b>Add Ammunition</b> - Takes a number, increments the amount of ammunition the unit is holding by that amount (can be negative)
+											<li><b>Reinforcements Alert</b> - If new troops are being made visible, play the New Units Received sound.
+											<li><b>Player Index to Detach <font color="red">*1.8.0*</font></b> - Gives control of units to specified player index. (Same index Query Units MA can obtain.)
+											<li><b>Team Index to Detach <font color="red">*1.8.0*</font></b> - Gives control of units to specified team index. (Same index Query Units MA can obtain.)
+											<li><b>Detach Units to Player</b> - Gives control of monsters to the specified player of the same team.
+											<li><b>Held Flag</b> - If True, Monsters become stuck in place like statues, unable to respond to user commands or to automatically respond to any battlefield event.
+											<li><b>Mana</b> - Takes a value, sets the mana of the unit to that amount.
+											<li><b>Eliminate Team</b> - Eliminates the team of the first monster on the list.  Use with care.
+											<li><b>Overhead Text Tag <font color="darkorange">*1.7.0*</font></b> - The string list tag containing the text message that you wish to be displayed over the unit's head.
+											<li><b>Overhead Text Index <font color="darkorange">*1.7.0*</font></b> - Optional parameter (default is 0) that selects the specific string to use from the tag in the Overhead Text Tag.
+											<li><b>Overhead Text Font <font color="darkorange">*1.7.0*</font></b> - Optional parameter that allows you to select the font tag you want the overhead text to use. (Optional, default value is the tagID for the "screen high-resolution" font tag.)
+											<li><b>Overhead Text Shadow Flag <font color="darkorange">*1.7.0*</font></b> - Optional parameter that enables the overhead text to have a shadow.
+											<li><b>Overhead Text Color <font color="darkorange">*1.7.0*</font></b> - Optional parameter (default is white) that allows you to choose the color of the overhead text. Enter 3 values from 0 to 65535 which represent red, green, and blue in that order.
+											<li><b>Overhead Text Duration <font color="darkorange">*1.7.0*</font></b> - Optional parameter (default is 300) that sets how long the overhead text will be displayed in ticks. (30 ticks = 1 second)
+											<li><b>Netgame Target Flag <font color="red">*1.8.0*</font></b> - If true, marks unit as a netgame target (the Loathing checkbox). If false, toggles the setting off. This setting is used for Assassin and Stampede gametype targets.
+											<li><b>Hunted Creature Flag <font color="red">*1.8.0*</font></b> - If true, marks unit as a hunted creature (the Loathing checkbox). If false, toggles the setting off. This setting is used for Hunting gametype targets.
+											<li><b>Ambient Life Flag <font color="red">*1.8.0*</font></b> - If true, marks unit as ambient life (the Loathing checkbox). If false, toggles the setting off. This setting forces the units to be out of your control.
+										</ul><br />
+									<a name="uind"></a>
+										<li><b>Unit Indicator <font color="red">*1.8.0*</font></b> 
+										<p>This action allows you to use indicators on specific units. The overhead text parameters are the same as the ones in Unit Control, but these can be set to be shown to specific players or teams only.</p>
+										<ul>
+											<li><b>Monsters</b> - Monsters to affect.
+											<li><b>Player Index</b> - This action will only work on the given player index. (Same index Query Units MA can obtain.)
+											<li><b>Team Index</b> - This action will only work on the given team index. (Same index Query Units MA can obtain.)
+											<li><b>Overhead Text Tag</b> - Select the String List tag containing the text messages that you wish to be displayed over the unit's head.
+											<li><b>Overhead Text Index</b> - Enter the value to select the specific index of the String List tag containing the text that will be displayed. (Optional, default value is 0.)
+											<li><b>Overhead Text Font</b> - The Font tag that will be used for the overhead text. (Optional, default value is the tagID for the "screen high-resolution" font tag.)
+											<li><b>Overhead Text Shadow Flag</b> - Overhead text shadow is used. (Optional, default value is FALSE.)
+											<li><b>Overhead Text Color</b> - (List of exactly 3 values.) The color of the overhead text that will be used, in the form of values from 0 to 65535 for red, green, blue - in that order. (Optional, default color is white.)
+											<li><b>Overhead Text Duration</b> - Number of ticks the overhead text will last. (Optional, default value is 300 where 30 ticks = 1 second.)
+										</ul><br />
+									<a name="wand"></a>
 										<li><b>Wandering Movement</b> 
 										<ul>
 											<li><b>Centerpoint</b> - Takes a world point, defining the centerpoint of the wandering. 
 											<li><b>Wander Radius</b> - Takes a radius, defining the radius within which to wander. 
 											<li><b>Monsters</b> - Takes monster identifiers, defining which monsters are wanderers. 
+										</ul><br />
+									<a name="knot"></a>
+										<li><b>World Knot</b> 
+										<ul>
+											<li><b>Models</b> - Takes model identifiers, defining the models composing the world knot. 
+											<li><b>Duration</b> - Takes a number, defining the duration of the teleportation effect. 
+											<li><b>Model Animations</b> - Takes model identifiers, defining animations to perform on the world knot models. NEVER EVER EVER EVER run a model animation while the world knot is doing something! 
+											<li><b>Teleporting Out Flag</b> - Takes a flag, if true the world knot teleports out. 
+											<li><b>Activate On Wave</b> - Takes action identifiers, defining a set of actions to activate when matching waves come through. One action per wave only. 
+											<li><b>Monsters to bring in</b> - Takes action identifiers, each defining subject fields of monster to bring in. 
+											<li><b>World Knot to go to (linked list)</b> - Takes an action identifier, places the next world knot onto the end of a linked list. 
+											<li><b>Trigger on Teleport In</b> - Takes action identifiers, defines actions to trigger when the world knot begins a teleport in sequence. 
+											<li><b>Use Bounding Box For Knot Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the world knot. If false, an average is used. 
+											<li><b>Use Bounding Box For Wave Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the wave. If false, an average is used. 
+											<li><b>World Knot Centerpoint</b> - Takes a world point, defining the center of the world knot if you know the map action would specify it wrong otherwise. 
+											<li><b>World Knot Radius</b> - Takes a radius, defining the radius of the world knot if you know that the map action would specify it wrong otherwise. 
 										</ul>
 									</ul>
 								</td>
@@ -1719,7 +2001,7 @@
 			<p><table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#3c0000">
 				<tr>
 					<td width="50%" align="center"><b>Loathing Documentation</b></td>
-					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Updated Fear Documentation</b></a></td>
+					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Fear Documentation</b></a></td>
 				</tr>
 			</table></center>
 	</body>
