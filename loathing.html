@@ -884,7 +884,7 @@
 											<li><b>Deactivates on Activation</b> - Takes an action identifier, deactivates all actions in the list when activated. 
 											<li><b>Deactivates on Deactivation</b> - Takes an action identifier, deactivates all actions in the list when deactivated. 
 											<li><b>Deactivates on Error</b> - Takes an action identifier, deactivates all actions in the list when an error occurs. 
-											<li><b>Inhibitions</b> - Takes an action identifier, will not trigger if all given (and non-linked) actions are successful. 
+											<li><b>Inhibitions</b> - Takes an action identifier, will not trigger if one of the given (and non-linked) actions is successful. 
 											<li><b>Prerequisites</b> - Takes an action identifier, will not trigger unless one of the given (and non-linked) actions is successful. 
 											<li><b>Activates Simultaneously</b> - Takes an action identifier, triggering the actions triggers all actions in the list. 
 										</ul>
@@ -924,8 +924,7 @@
 										<li><b>Assassin (Mahir only)</b> 
 										<ul>
 											<li><b>Subject</b> - Takes monster identifiers, the suicide monsters to attack with. 
-											<li><b>Visibility</b> - Takes a number, the radius around the suicide unit which is visible. 
-											<li><b>Fear Duration</b> - Takes a number, the amount of time the suicide unit waits before deciding that an attacking missile unit is no longer paying attention. 
+											<li><b>Visibility Radius</b> - Takes a number, the radius around the suicide unit which is visible. 
 											<li><b>Initial Delay</b> - Takes a number, the maximum random delay in calls to the unit before starting. 
 										</ul>
 										<li><b>Attack</b> 
@@ -941,16 +940,14 @@
 											<li><b>Polygon</b> - Takes world points, attack only units within the defined clockwise, convex polygon. 
 											<li><b>Closed Polygon Flag</b> - Takes a flag, if true indicates that the polygon is closed. 
 											<li><b>Reversed Polygon Flag</b> - Takes a flag, if true tests for units outside the polygon rather than within. 
-											<li><i><b>Close on Enemies <font color=red>NEW</font></b> - For units with several attacks, this will specify using the one with the closest range.</i>
+											<li><i><b>Close on Enemies Flag <font color=red>NEW</font></b> - For units with several attacks, this will specify using the one with the closest range.</i>
 											<li><i><b>Attack Team <font color=red>NEW</font></b> - Only attacks units belonging to the specified Team Number.</i>
 											<li><i><b>Attack Unit Type <font color=red>NEW</font></b> - Only Attacks units that are the specified type, being melee, missile, suicide, harmless or ambient life.</i>
+											<li><i><b>Charm Target Flag <font color=red>NEW</font></b> - When used, will make the first unit in the Attackers parameter take control of the Targets. Make sure the Targets are in the Attacker's team via Loathing for this to work even if there are zero of them placed on the mesh.</i>
 										</ul>
 										<li><b>CDAudio</b> 
 										<ul>
-											<li><b>Play Track</b> - Takes a number, plays the selected track index. 
-											<li><b>Repeat Flag</b> - Takes a flag, if true repeats the tracks. 
-											<li><b>Fade Out Flag</b> - Takes a flag, if true fades out the track. 
-											<li><b>Fade In Flag</b> - Takes a flag, if true fades in the track. 
+											<li><i>This was never implemented, ignore it.</i>
 										</ul>
 										<li><b>Chicken</b> 
 										<ul>
@@ -958,9 +955,7 @@
 										</ul>
 										<li><b>Connector</b> 
 										<ul>
-											<li><b>Objects</b> - Takes object identifiers, the objects to connect. 
-											<li><b>Connection Tag</b> - Takes a connector, to define the projectile. 
-											<li><b>Distance to Interpolants</b> - Takes a number, defining the distance between interpolation points. 
+											<li><i>This was never implemented, ignore it. Use Loathing to add connectors instead of scripting.</i>
 										</ul>
 										<li><b>Unit Control</b> 
 										<ul>
@@ -971,14 +966,14 @@
 											<li><b>Does Not Autotarget Flag</b> - Takes a flag, if true monsters do not autotarget. 
 											<li><b>Cannot Be Autotargeted Flag</b> - Takes a flag, if true monsters cannot be autotargeted. 
 											<li><b>Delete Monsters</b> - Takes monster identifiers, deletes the monsters. 
-											<li><b>Fade Flag</b> - Takes a flag, if true deletes monster by fading them off of the map. 
+											<li><b>Fade Flag</b> - <i>Will fade a unit off the map when used with Invisible Flag or fade a unit onto the map when used with Visible Flag.</i> 
 											<li><b>Visible Flag</b> - Takes a flag, if true makes the monster visible. 
 											<li><b>Invisible Flag</b> - Takes a flag, if true makes the monster invisible. 
 											<li><b>Monster Source Flag</b> - Takes a flag, if true makes the marker a monster source. 
 											<li><b>Health Fraction</b> - Takes a number, setting the health fraction of the monster. 
-											<li><i><b>Raise Health Fraction <font color=red>NEW</font></b> - Takes a number, raises health by the specified amount.
-												<li><b>Lower Health Fraction <font color=red>NEW</font></b> - Takes a number, lowers monster's health by the specified amount (cannot kill the monster)
-											<li><b>Kill Monsters <font color=red>NEW</font></b> - Takes monster identifiers and kills them, using either soft or hard death as specified.</i>
+											<li><i><b>Raise Health Fraction <font color=red>NEW</font></b> - Takes a number, raises health by the specified amount.</i>
+											<li><i><b>Lower Health Fraction <font color=red>NEW</font></b> - Takes a number, lowers monster's health by the specified amount (cannot kill the monster).</i>
+											<li><i><b>Kill Monsters <font color=red>NEW</font></b> - Takes monster identifiers and kills them, using either soft or hard death as specified.</i>
 											<li><b>New Monster Name</b> - Takes a number, setting the monster's name to the indexed name in the monster name list. 
 											<li><b>Experience</b> - Takes a number, setting the experience level of the monster. 
 											<li><i><b>Add Experience <font color=red>NEW</font></b> - Takes a number, increments the experience level of the monster by that amount (can be negative)</i>
@@ -988,21 +983,28 @@
 											<li><b>Tain Visibility Flag</b> - Takes a flag, if true makes the monster appear with the tain appearance method. 
 											<li><b>Magic Visibility Flag</b> - Takes a flag, if true makes the monster visible/invisible magically (like a pathfinder dwarf). 
 											<li><i><b>Ghost Visibility Flag</b> - Takes a flag, if true makes the monster flicker on and off like a ghost. Once it's set, you can't make the unit stop flickering - but you can affect the phases of the flicker by setting the flag to either true or false.</i>
+											<li><b>Transparent Flag</b> - If flag is true, makes the unit 50% transparent.
 											<li><b>Set Marker Height</b> - Takes a number, adds the value to the monster's marker height. 
-											<li><b>Give Monster Artifact</b> - Takes an object identifier, gives a monster the artifact. 
-											<li><i><b>Switch Artifact <font color=red>NEW</font></b> - Takes an projectile type and makes monsters holding this projectile in their inventories switch to holding it actively</i>
+											<li><i><b>Set Monster Height <font color=red>NEW</font></b> - Takes a number, sets the height of the monster on the mesh. (512 = 1 WU above the mesh, 0 and negative values = ground/media height)</i> 
+											<li><i><b>Incremental Monster Height <font color=red>NEW</font></b> - Takes a number, adds (or subtracts) to the height of the monster on the mesh. (512 = 1 WU higher, -512 = -1 WU lower) Can't go lower than ground/media height.</i> 
+											<li><b>Give Monster Artifact or Projectile</b> - Takes an object identifier, gives a monster the artifact. 
+											<li><i><b>Switch Artifact <font color=red>NEW</font></b> - Takes an projectile type and makes monsters holding this projectile in their inventories switch to holding it actively.</i>
+											<li><b>Remove Artifact</b> - Takes a flag, if true removes the monster's current holstered artifact (if it exists). 
+											<li><i><b>Drop Artifact Flag <font color=red>NEW</font></b> - Makes the unit drop their active artifact just like Shift-I does in game.</i>
+											<li><i><b>Add Charges <font color=red>NEW</font></b> - Takes a number, increments (or decreases if negative) the number of artifact charges of the monster, if the monster is holding an artifact.</i>
 											<li><b>Ammunition</b> - Takes a number, sets the amount of ammunition a unit has without regard to normal in-game maximums. 
 											<li><i><b>Add Ammunition <font color=red>NEW</font></b> - Takes a number, increments the amount of ammunition the unit is holding by that amount (can be negative)</i>
-											<li><b>Remove Artifact</b> - Takes a flag, if true removes the monster's current holstered artifact (if it exists). 
-										<i>
 											<li><b>Reinforcements Alert</b> - If new troops are being made visible, play the New Units Received sound.
-											<li><b>Transparent Flag</b> - If flag is true, makes the unit 50% transparent.
 											<li><b>Detach Units to Player</b> - Gives control of monsters to the specified player.
-											<li><b>Held Flag <font color=red>NEW</font></b> - If True, Monsters become stuck in place like statues, unable to respond to user commands or to automatically respond to any battlefield event.
-											<li><b>Mana <font color=red>NEW</font></b> - Takes a value, sets the mana of the unit to that amount.
-											<li><b>Eliminate Team <font color=red>NEW</font></b> - Eliminates the team of the first monster on the list.  Use with care.
-											<li><b>Add Artifact Charges <font color=red>NEW</font></b> - Takes a number, increments the number of artifact charges of the monster, if the monster is holding an artifact (can be negative)</i>
-										</i>
+											<li><i><b>Held Flag <font color=red>NEW</font></b> - If True, Monsters become stuck in place like statues, unable to respond to user commands or to automatically respond to any battlefield event.</i>
+											<li><i><b>Mana <font color=red>NEW</font></b> - Takes a value, sets the mana of the unit to that amount.</i>
+											<li><i><b>Eliminate Team <font color=red>NEW</font></b> - Eliminates the team of the first monster on the list.  Use with care.</i>
+											<li><i><b>Overhead Text Tag <font color=red>NEW</font></b> - The string list tag containing the text message that you wish to be displayed over the unit's head.</i>
+											<li><i><b>Overhead Text Index <font color=red>NEW</font></b> - Optional parameter (default is 0) that selects the specific string to use from the tag in the Overhead Text Tag.</i>
+											<li><i><b>Overhead Text Font <font color=red>NEW</font></b> - Optional parameter that allows you to select the font tag you want the overhead text to use.</i>
+											<li><i><b>Overhead Text Shadow Flag <font color=red>NEW</font></b> - Optional parameter that enables the overhead text to have a shadow.</i>
+											<li><i><b>Overhead Text Color <font color=red>NEW</font></b> - Optional parameter (default is white) that allows you to choose the color of the overhead text. Enter 3 values from 0 to 65535 which represent red, green, and blue in that order.</i>
+											<li><i><b>Overhead Text Duration <font color=red>NEW</font></b> - Optional parameter (default is 300) that sets how long the overhead text will be displayed in ticks. (30 ticks = 1 second)</i>
 										</ul>
 										<li><b>Default Actions</b> 
 										<ul>
@@ -1017,12 +1019,16 @@
 										</ul>
 										<li><b>Endgame Condition</b> 
 										<ul>
-											<li><b>Dark Victory Flag</b> - Takes a flag, if true Dark side wins. 
+											<li><b>Dark Victory Flag</b> - This flag never did anything, if an Endgame Condition action has no Light Victory Flag the map assumes the Dark wins and therefore the player loses. 
 											<li><b>Light Victory Flag</b> - Takes a flag, if true Light side wins. 
-											<li><b>Failure Flag</b> - Takes a flag, if true Light side fails a victory. 
-											<li><b>Suspend Flag</b> - Takes a flag, if true game goes to Sudden Death instead of an abrupt ending. 
-											<li><b>Winning Team</b> - Takes a number, denotes the index of the winning team. 
+											<li><b>Failure Flag</b> - When this flag is used with the Light Victory Flag, it makes the map choose the alternate (secret) level instead of the default next level.</i>
 											<li><b>No Celebration</b> - Takes a flag, if true units on winning team don't cheer. 
+										</ul>
+										<li><i><b>Fade Screen <font color=red>NEW</font></b></i> 
+										<ul>
+											<li><i><b>Fade Duration <font color=red>NEW</font></b> - The number of ticks (30 ticks = 1 second) the fade effect will last. A value of 0 means the fade is off. A positive value will make it a fade it while a negative value will make it a fade out effect.</i>
+											<li><i><b>Fade Starting Point <font color=red>NEW</font></b> - Allows you to select the starting point of the fade effect in case you don't want it to start from the default. The default will be the lowest number in the Fade Duration. If the Fade Duration is a negative value then that is the default starting point, otherwise it is 0.</i>
+											<li><i><b>Fade Color <font color=red>NEW</font></b> - Optional parameter (default is black) that allows you to choose the color of the fade screen effect. Enter 3 values from 0 to 65535 which represent red, green, and blue in that order.</i>
 										</ul>
 										<li><b>Follow</b> 
 										<ul>
@@ -1033,8 +1039,10 @@
 											<li><b>Follower Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the following monsters are eliminated. 
 											<li><b>Followed Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the followed monsters are eliminated. 
 											<li><b>Stop When Idle Flag</b> - Takes a flag, if true following monsters will not attack. 
-											<li><b>Blinkered Flag <font color=red>NEW</font></b> - Takes a flag, if true never follow enemies, and never abandon.
-											<li>General Action 
+											<li><i><b>Blinkered Flag <font color=red>NEW</font></b> - Takes a flag, if true never follow enemies, and never abandon.</i>
+										</ul>
+										<li><b>General Action</b> 
+										<ul>
 											<li><b>Command Type</b> - Takes a number of action to do: 
 											<ul>
 												<li>0: Stop 
@@ -1050,7 +1058,7 @@
 										<ul>
 											<li><b>Monsters</b> - Takes monster identifiers, monsters to check for in the geometry. 
 											<li><b>Object Type</b> - Takes object types, objects to check for in the geometry. 
-											<li><b>Object Identifier</b> - Takes object identifiers, object identifiers to check for in the geometry. 
+											<li><b>Object Identifiers</b> - Takes object identifiers, object identifiers to check for in the geometry. 
 											<li><b>Polygon Points</b> - Takes world points, points to define a polygon. Must be in clockwise order. 
 											<li><b>Polygon Closed Flag</b> - Takes a flag, if true polygon is closed. 
 											<li><b>Circle Centerpoint</b> - Takes a world point, defines the center point of a circle. 
@@ -1058,13 +1066,10 @@
 											<li><b>Circle Radius</b> - Takes a number, defines the radius of a circle. 
 											<li><b>Holding Object</b> - Takes an object identifier, defines which units are holding that object.  <i><font color=red>NEW</font>: Multiple object identifiers can now be specified in this and the following parameters.</i>
 											<li><b>Not Holding Object</b> - Takes an object identifier, defines which units are not holding that object. 
-											<i>
-											<li><b>Holding Object Inventory <font color=red>NEW</font></b> - Takes an object identifier, defines which units are holding that object either actively or in their inventory.
-												<li><b>Not Holding Object Inventory <font color=red>NEW</font></b> - Takes an object identifier, defines which units are not holding that object, either actively or in their inventory.
-											</i>
-											<li><i><b>Health Fraction Greater Than <font color=red>NEW</font></b> - Takes a value, defines which units have health fractions larger than that value.
-												<li><b>Health Fraction Less Than <font color=red>NEW</font></b> - Takes a value, defines which units have health fractions less than that value.
-											</i>
+											<li><i><b>Holding Object Inventory <font color=red>NEW</font></b> - Takes an object identifier, defines which units are holding that object either actively or in their inventory.</i>
+											<li><i><b>Not Holding Object Inventory <font color=red>NEW</font></b> - Takes an object identifier, defines which units are not holding that object, either actively or in their inventory.</i>
+											<li><i><b>Health Fraction Greater Than <font color=red>NEW</font></b> - Takes a value, defines which units have health fractions larger than that value.</i>
+											<li><i><b>Health Fraction Less Than <font color=red>NEW</font></b> - Takes a value, defines which units have health fractions less than that value.</i>
 											<li><b>Entire Map</b> - Takes the map itself, defines the entire map as the geometry. 
 											<li><b>Results Action Identifier</b> - Takes an action identifier, defines where to place the results of a geometry test. <i><font color=red>NEW</font>: Multiple Results Action Identifiers can now be specified, as they can in the following Tested Items parameters.  If, say, four types are entered in Tested Items Inside Field Name, four Results Action Identifiers will also need to be specified to match.</i>
 											<li><b>Tested Items Inside Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object identifiers that are inside the geometry. 
@@ -1073,29 +1078,33 @@
 											<li><b>Tested Items Outside Location Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object locations that are outside the geometry. 
 											<li><b>Maximum Number of Items</b> - Takes a number, restricts the number of items added to the result to this number if set. 
 											<li><i><b>Minimum Number of Items <font color=red>NEW</font></b> - Takes a number, ensures that at least this number of items are added to the result else the action fails.</i>
+											<li><i><b>Count of Items Inside <font color=red>NEW</font></b> - Takes a number, ensures that at most this number of items are added to the result for the inside of the geometry and anything else is placed to the results for the outside of the geometry. Does not take polygons and circles into account.</i>
 											<li><i><b>Choose Random Items <font color=red>NEW</font></b> - Chooses the items to be added to the list randomly rather than in order.</i>
 											<li><b>Use Markers Instead of Monsters</b> - Takes a flag, if true uses monster markers instead of marker positions. 
 											<li><b>Only Use Uncreated Monsters</b> - Takes a flag, if true uses only monster markers that have not yet been made visible.
+											<li><i><b>Only Use Monsters with Same Owner <font color=red>NEW</font></b> - This flag makes the geometry only use monsters that belong to the same player as the first monster in the Monsters parameter.</i>
+											<li><i><b>Only Use Monsters with Same Type <font color=red>NEW</font></b> - This flag makes the geometry only use monsters that belong to the monster type as the first monster in the Monsters parameter.</i>
+											<li><i><b>Only Use Monsters with Same Team <font color=red>NEW</font></b> - This flag makes the geometry only use monsters that belong to the same team as the first monster in the Monsters parameter.</i>
+											<li><i><b>Monsters From This Team Index <font color=red>NEW</font></b> - The geometry will ignore all monsters that do not belong to the team set here.</i>
+											<li><i><b>Tests for Monsters on a Given Team Index <font color=red>NEW</font></b> - Takes a number, includes only monsters that belong to the team index specified by that number. Ignores polygon and circles.</i>
+											<li><i><b>Tests for Monsters of Type <font color=red>NEW</font></b> - Takes a monster type identifier, adds monsters to list that are of that type.</i>
+											<li><b>Tests for Berserk Monsters</b> - Returns Berserk Monsters.
+											<li><b>Tests for Taunting Monsters</b> - Returns Monsters that are in the process of taunting.
 											<i>
-											<li><b>Tests For Monsters On a Given Team Index <font color=red>NEW</font></b> - Takes a number, includes only monsters that belong to the team index specified by that number.
-											<li><b>Tests For Monsters Of Type <font color=red>NEW</font></b> - Takes a monster type identifier, adds monsters to list that are of that type.
-											</i>
-											<li><b>Tests For Berserk Monsters</b> - Returns Berserk Monsters.
-											<li><b>Tests For Taunting Monsters</b> - Returns Monsters that are in the process of taunting.
-											<i>
-												<li><b>Tests For Attacking Monsters <font color=red>NEW</font></b> - Returns Monsters that are inthe process of attacking.
-												<li><b>Tests For Moving Monsters <font color=red>NEW</font></b> - Returns monsters that are marching somewhere.
-												<li><b>Tests For Running Monsters <font color=red>NEW</font></b> - Returns monsters that have the runs.
-												<li><b>Tests For Idle Monsters <font color=red>NEW</font></b> - Returns Monsters who either have nothing to do, or who's controlling player has taken a break for an hour or two.
+												<li><b>Tests for Attacking Monsters <font color=red>NEW</font></b> - Returns Monsters that are inthe process of attacking.
+												<li><b>Tests for Moving Monsters <font color=red>NEW</font></b> - Returns monsters that are marching somewhere.
+												<li><b>Tests for Running Monsters <font color=red>NEW</font></b> - Returns monsters that have the runs.
+												<li><b>Tests for Idle Monsters <font color=red>NEW</font></b> - Returns Monsters who either have nothing to do, or who's controlling player has taken a break for an hour or two.
 												<li><b>Ammunition Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Ammunition level greater than this value.
 												<li><b>Ammunition Less Than <font color=red>NEW</font></b> - Returns Monsters with an Ammunition level Less than this value.
 												<li><b>Combined Power Greater Than <font color=red>NEW</font></b> - Returns Monsters with a Combined Power level greater than this value.
 												<li><b>Combined Power Less Than <font color=red>NEW</font></b> - Returns Monsters with a Combined Power level Less than this value.
 												<li><b>Experience Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Experience level greater than this value.
 												<li><b>Experience Less Than <font color=red>NEW</font></b> - Returns Monsters with an Experience level Less than this value.
-												<li><b>Artifact Charges Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level greater than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
-												<li><b>Artifact Charges Less Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level Less than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
+												<li><b>Charges Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level greater than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
+												<li><b>Charges Less Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level Less than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
 												<li><b>Subtract Monster Lists <font color=red>NEW</font></b> - Takes two lists of monsters, one marked subj and the other marked obje.  It adds to the results list all monsters that are in the subj list but are not in the obje list.
+												<li><b>Subtract Monsters (obje) <font color=red>NEW</font></b> - The monsters that will not go to the results when used with Subtract Monster Lists parameter.
 											</i>
 										</ul>
 										<li><b>Harass (for ghols) </b>
@@ -1116,13 +1125,14 @@
 										</ul>
 										<li><b>Group</b> 
 										<ul>
-											<li><b>Initial State</b> - Takes an action identifier, which must be either a guard or split up action. Defines how the unit wtarts on the map. 
+											<li><b>Initial State</b> - Takes an action identifier, which must be either a guard or split up action. Defines how the unit starts on the map. 
 										</ul>
 										<li><b>Group Guard</b> 
 										<ul>
 											<li><b>Guard Point</b> - Takes a world point, defines where the unit is guarding. 
-											<li><b>Guard Radius</b> - Takes a radius, defines the inner and outer radius to guard within. 
+											<li><b>Guard Radii</b> - Takes a radius, defines the inner and outer radius to guard within. 
 											<li><b>Actions</b> - Takes two action identifiers, the first of which is used to set up the group, the second of which is the action used to attack. 
+											<li><b>Resets</b> - The action set here will be triggered every time the group's state changes to a non-attacking state, and so long as the group has less units than it started with. 
 										</ul>
 										<li><b>Invisible Pursuit</b> 
 										<ul>
@@ -1140,7 +1150,7 @@
 											<li><b>Teleporting Out Flag</b> - Takes a flag, if true the world knot teleports out. 
 											<li><b>Activate On Wave</b> - Takes action identifiers, defining a set of actions to activate when matching waves come through. One action per wave only. 
 											<li><b>Monsters to bring in</b> - Takes action identifiers, each defining subject fields of monster to bring in. 
-											<li><b>Next world knot to go to</b> - Takes an action identifier, places the next world knot onto the end of a linked list. 
+											<li><b>World Knot to go to (linked list)</b> - Takes an action identifier, places the next world knot onto the end of a linked list. 
 											<li><b>Trigger on Teleport In</b> - Takes action identifiers, defines actions to trigger when the world knot begins a teleport in sequence. 
 											<li><b>Use Bounding Box For Knot Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the world knot. If false, an average is used. 
 											<li><b>Use Bounding Box For Wave Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the wave. If false, an average is used. 
@@ -1216,6 +1226,8 @@
 										<ul>
 											<li><b>Central Sound Source</b> - Takes a sound, defining where the lightning will be shot from. 
 											<li><b>Radius</b> - Takes a radius, defining the radius around the center to scan for monsters. 
+											<li><b>Projectile Tag</b> - The projectile tag created by this action. Does not have to be a lightning attack, could be something guided or marked on target. 
+											<li><b>Monsters</b> - The monters to be affected by this action. 
 										</ul>
 										<li><b>Lock</b> 
 										<ul>
@@ -1233,6 +1245,10 @@
 											<li><b>Turn On Flag</b> - If true, turns on the groups. 
 											<li><b>Turn Off Flag</b> - If true, turns off the groups. 
 											<li><b>Opacity</b> - Takes a number, determining how opaque the groups are. 
+										</ul>
+										<li><i><b>Mathematics <font color=red>NEW</font></b></i> 
+										<ul>
+											<li>A bunch of parameters, read their descriptions in Loathing.
 										</ul>
 										<li><b>Meander Action (wander aimlessly) </b>
 										<ul>
@@ -1361,8 +1377,8 @@
 										<ul>
 											<li><b>Projectile Tag</b> - Takes a field name, defining which projectile tag to affect. 
 											<li><b>Reveal All Flag <font color=red>NEW (1.7)</font></b> - Takes a flag, if true reveals all instances of the object. 
-											<li><b>Hide All Flag</b> - Takes a flag, if true hides all instances of the object. 
 											<li><b>Reveal Random Flag</b> - Takes a flag, if true reveal a random instance of the object and hide all others.
+											<li><b>Hide All Flag</b> - Takes a flag, if true hides all instances of the object. 
 										</ul>
 										<li><b>Observer Movement</b> 
 										<ul>
@@ -1466,6 +1482,8 @@
 											<li><b>Sound Tag</b> - Takes a sound, defines the sound to use. 
 											<li><b>Monster</b> - Takes a monster identifier, defining which monster generates the sound. 
 											<li><b>Override Flag</b> - Takes a flag, if true the monster will generate the sound despite any player commands that have been issued. 
+											<li><i><b>Only Owner Flag <font color=red>NEW</font></b> - This flag makes only the owners of the first monster in the Monster parameter hear this sound or see this message.</i> 
+											<li><i><b>Only Team Flag <font color=red>NEW</font></b> - This flag makes only the team of the first monster in the Monster parameter hear this sound or see this message.</i> 
 										</ul>
 										<li><b>Group Split Up</b> 
 										<ul>
@@ -1502,6 +1520,8 @@
 										</ul>
 										<li><b>Test Unit</b> 
 										<ul>
+											<li><b>Monsters</b> - Monsters to check for in the test. 
+											<li><b>Team Index</b> - Uses all the monsters from this team in the test. Ignores the Monsters parameter. 
 											<li><b>Unit Count Greater Than</b> - Takes a number, and tests for a unit count greater than it. 
 											<li><b>Unit Count Less Than</b> - Takes a number, and tests for a unit count less than it. 
 											<li><b>Unit Count Equal To</b> - Takes a number, and tests for a unit count equal to it. 
@@ -1515,29 +1535,49 @@
 											<li><b>Power Less Than</b> - Takes a number, and tests for cumulative power less than it. 
 											<li><b>Difficulty Greater Than or Equal To</b> - Takes a number, and tests for a difficulty greater than or equal to it. 
 											<li><b>Difficulty Less Than or Equal To</b> - Takes a number, and tests for a difficulty less than or equal to it. 
+											<li><b>Difficulty Equal To</b> - Takes a number, and tests for a difficulty equal to it. 
 											<li><i><b>TFL Gameplay Active <font color=red>NEW</font></b> - Takes a flag, if true tests for whether the player has activated TFL Gameplay.</i>
-												<li><i><b>Anticlump Active <font color=red>NEW</font></b> - Takes a flag, if true tests for whether the player has activated the Anticlump option.</i>
-											<li><b>Power Ratio Less Than</b> - Takes a number, and tests for a power ratio less than it. 
+											<li><i><b>Anticlump Active <font color=red>NEW</font></b> - Takes a flag, if true tests for whether the player has activated the Anticlump option.</i>
 											<li><b>Power Ratio Less Than</b> - Takes a number, and tests for a power ratio less than it. 
 											<li><b>Power Ratio Greater Than</b> - Takes a number, and tests for a power ratio greater than it. 
 											<li><b>Received User Command</b> - Takes a flag, if true tests whether or not the unit has received a command from the user. 
 											<li><b>Object Held</b> - Takes an object identifier, and tests whether the unit is holding it.
 											<li><i><b>Object Held Inventory <font color=red>NEW</font></b> - Takes an object identifier, and tests whether the unit is holding it, including stashed away in its inventory. </i>
-											<li><b>Object Held By aLl Units Flag</b> - Takes a flag, and tests whether all units are holding the object. 
+											<li><b>Object Held By All Units Flag</b> - Takes a flag, and tests whether all units are holding the object. 
 											<li><b>Object Test Radius</b> - Takes a world point and a radius, and tests whether an object is in the area. 
 											<li><b>Radius About Centerpoint</b> - Takes a radius, and tests for points in the resulting circle. 
 											<li><b>Enemy List</b> - Takes monster identifiers, defining a list of enemies to use for the Enemy Closer Than radius test. 
 											<li><b>Enemy Closer Than Radius</b> - Takes a radius, and tests whether there are enemies within the given radius of the subject. 
 											<li><b>Ignore Invisible Units Flag</b> - Takes a flag, if true forbids test from acknowledging magically invisible units withing the radius. 
+											<li><b>Units Must Be Selected Flag</b> - Tests to make sure all the given units are currently selected. (Can only work in single player.) 
+											<li><i><b>Ammunition Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this level of ammo.</i>
+											<li><i><b>Experience Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this number of kills.</i>
+											<li><i><b>Mana Percentage Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this percentage of mana.</i>
+											<li><i><b>Charges Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this number of charges in their active artifact.</i>
+											<li><i><b>Height Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have a greater height than this number.</i>
 											<li><b>Unit is Taunting</b> - Takes a flag, if true tests to see if the units are taunting (cheeky buggers).
 											<li><b>Unit has a Waypoint Near</b> - Takes a flag, if true tests to see if the units are within 3 world units of a waypoint.
-											<i>
-												<li><b>Ammunition Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this level of ammo.
-												<li><b>Experience Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this number of kills.
-												<li><b>Mana Percentage Greater Than <font color=red>NEW</font></b> - Takes a number, tests to ensure the given units have more than this percentage of mana.
-												<li><b>Lists Differ <font color=red>NEW</font></b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if any units are in one list and not in the other.
-												<li><b>Lists Same <font color=red>NEW</font></b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if both lists are identical.
-											</i>
+											<li><i><b>Standing on This Terrain Type <font color=red>NEW</font></b> - Tests to make sure any of the given unitis are on this terrain type.</i>
+											<ul>
+												<li>0: Dwarf-Depth Media 
+												<li>1: Human-Depth Media 
+												<li>2: Giant-Depth Media 
+												<li>3: Deep Media 
+												<li>4: Sloped 
+												<li>5: Steep 
+												<li>6: Grass 
+												<li>7: Desert 
+												<li>8: Rocky 
+												<li>9: Marsh 
+												<li>10: Snow 
+												<li>11: Forest 
+												<li>12: Unused 
+												<li>13: Unused 
+												<li>14: Walking Impassable 
+												<li>15: Flying Impassable 
+											</ul>
+											<li><i><b>Lists Differ <font color=red>NEW</font></b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if any units are in one list and not in the other.</i>
+											<li><i><b>Lists Same <font color=red>NEW</font></b> - Takes a flag, if true and two monster lists (subj and enem) have been provided tests to see if both lists are identical.</i>
 										</ul>
 										<li><b>Wandering Movement</b> 
 										<ul>

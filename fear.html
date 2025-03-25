@@ -396,6 +396,7 @@
 												<li><b>Is Unused</b> - True to its name, this flag is unused. Ignore it. 
 											</ul>
 										</ul>
+										<li><i><b>Overrides Player Tints <font color=red>NEW (1.7.2)</font></b> - If checked, makes the units using this collection reference keep their colors instead of using the player colors they would otherwise use when played in a multiplayer game.</i>
 									</ul>
 								</td>
 							</tr>
@@ -949,8 +950,7 @@
 											<li><b>Has Terrain Following Camera</b> - This flag makes the camera automatically raise and lower as you fly over rising and falling terrain. Rather annoying, but possibly useful. 
 											<li><b>Can Be Used by Demo</b> - I'm not sure this is implemented.
 											<li><b>Overhead Map Doesn't Scroll</b> - If checked, the overhead map is shown completely instead of being confined within the boundaries it would normally use.
-											<li><b>Models Don't Limit Rendering</b> - Not sure what this does. Whatever it used to do, it is no longer needed.
-											<li><i><b>Uses Anticlump <font color="red">(NEW)</font></b> - If checked, forces the map to use Anti-Clump gameplay.</i>
+<li><b>Models Don't Limit Rendering</b> - Some models like the Gonen's Bridge model sit on top of "invisible" raised terrain to allow  units to walk over them. If this flag is not set, Myth might not draw things on the other side of the hidden raised terrain, because it  believes that terrain is blocking those things from view. Additionally, if this flag is set, then media cells containing models, but not replaced  by those models, will be rendered at their normal height instead of their media height. This flag carries a performance penalty (albeit a tiny  one), so don't set it if not needed.											<li><i><b>Uses Anticlump <font color="red">(NEW)</font></b> - If checked, forces the map to use Anti-Clump gameplay.</i>
 											<li><i><b>Uses vTFL <font color="red">(NEW)</font></b> - If checked, forces the map to use vTFL (virtual TFL) gameplay.</i>
 											<li><i><b>Is Last Level of Scenario <font color="red">(NEW)</font></b> - If checked, will load the epilogue after beating this level for single player. Just like it does when you beat The Forge.</i>
 										</ul>
