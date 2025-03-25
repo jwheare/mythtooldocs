@@ -2,15 +2,15 @@
 
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
-		<title>1.5 Loathing Documentation</title>
+		<title>Updated Loathing Documentation</title>
 	</head>
 
 	<body bgcolor="#420000" text="#af996b" link="#af996b" vlink="#af996b">
 		<center>
 			<table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#3c0000">
 				<tr>
-					<td width="50%" align="center"><b>1.5 Loathing Documentation</b></td>
-					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>1.5 Fear Documentation</b></a></td>
+					<td width="50%" align="center"><b>Updated Loathing Documentation</b></td>
+					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Updated Fear Documentation</b></a></td>
 				</tr>
 			</table>
 			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#3c0000">
@@ -58,7 +58,7 @@
 								<td bgcolor="#390000">Loathing is a special, stripped down version of the Myth II engine that allows you to modify a mesh with considerably more accuracy than is possible with a couple of dwarves and wights. In tandem with <a href="fear.html">Fear</a>, it can be used to create entirely new and unique netmaps, limited only by the imagination and skill of the map maker--as well as a few limitations in the Myth engine that you'll eventually bump into. 
 									<p>The first things most people do with Loathing is hurry into an existing netmap and change all of the warriors into Soulblighters and dwarves into Screaming Iron Assault Dwarves. This is quick, easy, and healthy. These maps might not be too much fun to play, but making them is really good practice for a new map maker. </p>
 									<p>Later on, you will be creating new mesh, importing color and media maps, generating units sets from scratch, and eventually tweaking a nearly finished map. Loathing can do all of these things, and with a minimum in ritual sacrifices and voodoo rites. Read on to see how.</p>
-									<p>This document has now been updated to describe features offered by Loathing v1.5.  Look for sections in italics and especially passages marked with a big red <font color=red><b>NEW</b></font> to see what's changed.</td>
+									<p>This document has now been updated to describe features offered in the latest version of Loathing.  Look for sections in italics and especially passages marked with a big red <font color=red><b>NEW</b></font> to see what's changed.</td>
 							</tr>
 						</table></td>
 				</tr>
@@ -544,7 +544,8 @@
 										<li><b>Stone</b> - This makes units petrified upon entering a level. Not all that useful... 
 										<li><b>Detonates Immediately</b> - Units with this option will detonate immediately upon being created. Handy for creating exploding wights, or maybe for scatting blood and guts over an area in advance. 
 										<li><b>Is Invisible Observer</b> - This is used to create an invisible, uncontrollable unit that acts as an observer, allowing the owner team to see in a given area. 
-										<li><b>Netgame Target</b> - Used for assigning the target in the Assassin netgame, or for livestock in Stampede games. 
+										<li><b>Netgame Target</b> - Used for assigning the target in the Assassin netgame, or for livestock in Stampede games.
+										<b>NOTE:</b> Units marked with this flag should only appear in their desired game type. For example an Assassin target with this flag <b>SHOULD NOT</b> exist under game types other than Assassin.
 										<li><i><b>Respawns <font color=red>NEW</font></b> - This unit will reappear Deathmatch-style when it dies.
 										<li><b>Respawns Via Script <font color=red>NEW</font></b> - The unit won't respawn automatically, but will need a Unit Control - Visible map action to make them do so.
 										<li><b>Respawns at Death Location <font color=red>NEW</font></b> - The unit reappears at the place where it died rather than where it started out.
@@ -980,18 +981,19 @@
 											<li><b>Kill Monsters <font color=red>NEW</font></b> - Takes monster identifiers and kills them, using either soft or hard death as specified.</i>
 											<li><b>New Monster Name</b> - Takes a number, setting the monster's name to the indexed name in the monster name list. 
 											<li><b>Experience</b> - Takes a number, setting the experience level of the monster. 
+											<li><i><b>Add Experience <font color=red>NEW</font></b> - Takes a number, increments the experience level of the monster by that amount (can be negative)</i>
 											<li><b>Levels Survived</b> - Takes a number, setting the number of levels a unit has survived. 
 											<li><b>Use Monster Entrance Flag</b> - Takes a flag, if true uses the monster entrance projectile group. 
 											<li><b>World Knot Visibility Flag</b> - Takes a flag - if true makes the monster appear with the world knot appearance method. 
 											<li><b>Tain Visibility Flag</b> - Takes a flag, if true makes the monster appear with the tain appearance method. 
 											<li><b>Magic Visibility Flag</b> - Takes a flag, if true makes the monster visible/invisible magically (like a pathfinder dwarf). 
-											<li><i><b>Ghost Visibility Flag</b> - Takes a flag, if true makes the monster flicker on and off like a ghost.</i>
+											<li><i><b>Ghost Visibility Flag</b> - Takes a flag, if true makes the monster flicker on and off like a ghost. Once it's set, you can't make the unit stop flickering - but you can affect the phases of the flicker by setting the flag to either true or false.</i>
 											<li><b>Set Marker Height</b> - Takes a number, adds the value to the monster's marker height. 
 											<li><b>Give Monster Artifact</b> - Takes an object identifier, gives a monster the artifact. 
 											<li><i><b>Switch Artifact <font color=red>NEW</font></b> - Takes an projectile type and makes monsters holding this projectile in their inventories switch to holding it actively</i>
 											<li><b>Ammunition</b> - Takes a number, sets the amount of ammunition a unit has without regard to normal in-game maximums. 
 											<li><i><b>Add Ammunition <font color=red>NEW</font></b> - Takes a number, increments the amount of ammunition the unit is holding by that amount (can be negative)</i>
-											<li><b>Remove Artifact</b> - Takes a flag, if true removes the artifact from the monster. 
+											<li><b>Remove Artifact</b> - Takes a flag, if true removes the monster's current holstered artifact (if it exists). 
 										<i>
 											<li><b>Reinforcements Alert</b> - If new troops are being made visible, play the New Units Received sound.
 											<li><b>Transparent Flag</b> - If flag is true, makes the unit 50% transparent.
@@ -999,6 +1001,7 @@
 											<li><b>Held Flag <font color=red>NEW</font></b> - If True, Monsters become stuck in place like statues, unable to respond to user commands or to automatically respond to any battlefield event.
 											<li><b>Mana <font color=red>NEW</font></b> - Takes a value, sets the mana of the unit to that amount.
 											<li><b>Eliminate Team <font color=red>NEW</font></b> - Eliminates the team of the first monster on the list.  Use with care.
+											<li><b>Add Artifact Charges <font color=red>NEW</font></b> - Takes a number, increments the number of artifact charges of the monster, if the monster is holding an artifact (can be negative)</i>
 										</i>
 										</ul>
 										<li><b>Default Actions</b> 
@@ -1030,6 +1033,7 @@
 											<li><b>Follower Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the following monsters are eliminated. 
 											<li><b>Followed Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the followed monsters are eliminated. 
 											<li><b>Stop When Idle Flag</b> - Takes a flag, if true following monsters will not attack. 
+											<li><b>Blinkered Flag <font color=red>NEW</font></b> - Takes a flag, if true never follow enemies, and never abandon.
 											<li>General Action 
 											<li><b>Command Type</b> - Takes a number of action to do: 
 											<ul>
@@ -1085,8 +1089,12 @@
 												<li><b>Tests For Idle Monsters <font color=red>NEW</font></b> - Returns Monsters who either have nothing to do, or who's controlling player has taken a break for an hour or two.
 												<li><b>Ammunition Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Ammunition level greater than this value.
 												<li><b>Ammunition Less Than <font color=red>NEW</font></b> - Returns Monsters with an Ammunition level Less than this value.
-												<li><b>Combined Power Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Combined Power level greater than this value.
-												<li><b>Combined Power Less Than <font color=red>NEW</font></b> - Returns Monsters with an Combined Power level Less than this value.
+												<li><b>Combined Power Greater Than <font color=red>NEW</font></b> - Returns Monsters with a Combined Power level greater than this value.
+												<li><b>Combined Power Less Than <font color=red>NEW</font></b> - Returns Monsters with a Combined Power level Less than this value.
+												<li><b>Experience Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Experience level greater than this value.
+												<li><b>Experience Less Than <font color=red>NEW</font></b> - Returns Monsters with an Experience level Less than this value.
+												<li><b>Artifact Charges Greater Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level greater than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
+												<li><b>Artifact Charges Less Than <font color=red>NEW</font></b> - Returns Monsters with an Artifact Charges level Less than this value. (A monster with no artifact holstered has 0 Artifact Charges.)
 												<li><b>Subtract Monster Lists <font color=red>NEW</font></b> - Takes two lists of monsters, one marked subj and the other marked obje.  It adds to the results list all monsters that are in the subj list but are not in the obje list.
 											</i>
 										</ul>
@@ -1352,8 +1360,9 @@
 										<li><b>Object Control</b> 
 										<ul>
 											<li><b>Projectile Tag</b> - Takes a field name, defining which projectile tag to affect. 
-											<li><b>Reveal All Flag</b> - Takes a flag, if true reveals all instances of the object. 
-											<li><b>Reveal Random Flag</b> - Takes a flag, if true reveal a random instance of the object. 
+											<li><b>Reveal All Flag <font color=red>NEW (1.7)</font></b> - Takes a flag, if true reveals all instances of the object. 
+											<li><b>Hide All Flag</b> - Takes a flag, if true hides all instances of the object. 
+											<li><b>Reveal Random Flag</b> - Takes a flag, if true reveal a random instance of the object and hide all others.
 										</ul>
 										<li><b>Observer Movement</b> 
 										<ul>
@@ -1670,7 +1679,7 @@
 			<p><table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#3c0000">
 				<tr>
 					<td width="50%" align="center"><b>Loathing Documentation</b></td>
-					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>1.5 Fear Documentation</b></a></td>
+					<td align="center" bgcolor="#3c0000"><a href="fear.html"><b>Updated Fear Documentation</b></a></td>
 				</tr>
 			</table></center>
 	</body>
