@@ -1,0 +1,1582 @@
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="GoLive CyberStudio 3">
+		<title>Fear Documentation</title>
+	</head>
+
+	<body bgcolor="#220000" text="white" link="#ffeeee" vlink="#ffeeee">
+		<center>
+			<table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#330000">
+				<tr>
+					<td width="50%" align="center"><b>Loathing Documentation</b></td>
+					<td align="center" bgcolor="#000033"><a href="fear.html"><b>Fear Documentation</b></a></td>
+				</tr>
+			</table>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b><img height="51" width="376" src="gfx/loathing_header.gif"></b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b>Section I: Welcome to Loathing</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b>Introduction</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000">&quot;If you want to play God, you need to create a world.&quot; 
+									<p>Back in the day, when map editing meant hex editing, partially implemented tools, and lots of time in Photoshop, those people who could create a really slick map definitely possessed a slice of divinity. It took a lot of patience, a lot of skill, and a very empty calendar.</p>
+									<p>Not that it's any different now, mind you. Loathing, the answer to the collective scream of anguish that occurred when map makers first started working, makes life easier. Note that I said &quot;easier&quot;, not &quot;easy.&quot; Make no mistake--making a good map requires a lot of practice, and a fair amount of skill. </p>
+									<p>Loathing just makes it a lot easier to make a much better map. Anyone who has ever suffered through the creation of shadow, passability, media, and slope maps will adore Loathing. And those who have not will never realize that these tasks ever existed. Small comfort to those of us who finally mastered them...</p>
+									<p>Anyways, if you're ready to forge a new world in the realm of Myth, dig in. The authors of this document have over a dozen maps under their belts, many of which you are probably already familiar with. We hope their experience will be of great benefit to you as you learn to use Loathing.</p>
+									<p>After all, they made slope maps. Ooooh...</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b>What Loathing Does</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000">Loathing is a special, stripped down version of the Myth II engine that allows you to modify a mesh with considerably more accuracy than is possible with a couple of dwarves and wights. In tandem with <a href="fear.html">Fear</a>, it can be used to create entirely new and unique netmaps, limited only by the imagination and skill of the map maker--as well as a few limitations in the Myth engine that you'll eventually bump into. 
+									<p>The first things most people do with Loathing is hurry into an existing netmap and change all of the warriors into Soulblighters and dwarves into Screaming Iron Assault Dwarves. This is quick, easy, and healthy. These maps might not be too much fun to play, but making them is really good practice for a new map maker. </p>
+									<p>Later on, you will be creating new mesh, importing color and media maps, generating units sets from scratch, and eventually tweaking a nearly finished map. Loathing can do all of these things, and with a minimum in ritual sacrifices and voodoo rites. Read on to see how.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b>Table of Contents</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000">It's a big document out there... 
+									<p><b>Section II: Getting Familiar With Loathing</b></p>
+									<ul>
+										<li><a href="#installing"><b>Installing Loathing</b></a> 
+										<li><a href="#involved"><b>What's Involved In Map Making</b></a><a href="#involved"> </a>
+										<li><a href="#starting"><b>Getting Started</b></a> 
+										<li><a href="#interface"><b>Loathing Interface Elements</b></a> 
+										<li><a href="#tools"><b>The Tools</b></a> 
+									</ul>
+									<p><b>Section III: Editing Map Components</b></p>
+									<ul>
+										<li><a href="#displacement"><b>Displacement Maps</b></a> 
+										<li><a href="#color"><b>Color Maps</b></a> 
+										<li><a href="#shadow"><b>Shadow Maps</b></a> 
+										<li><a href="#terrain"><b>Terrain and Passability</b></a> 
+										<li><a href="#media"><b>Media Maps</b></a> 
+										<li><a href="#units"><b>Units</b></a> 
+										<li><a href="#projectiles"><b>Projectiles</b></a> 
+										<li><a href="#scenery"><b>Scenery</b></a> 
+										<li><a href="#models"><b>Models</b></a> 
+										<li><a href="#netgame"><b>Netgame Setups</b></a> 
+										<li><a href="#sounds"><b>Sounds</b></a> 
+										<li><a href="#observers"><b>Observers</b></a> 
+										<li><a href="#animations"><b>Model Animations</b></a> 
+									</ul>
+									<p><b>Section IV: Map Actions, aka &quot;Scripting&quot;</b></p>
+									<ul>
+										<li><a href="#introToActions"><b>Introduction to Map Actions</b></a> 
+										<li><a href="#editingMapActions"><b>Editing Map Actions</b></a> 
+										<li><a href="#parameters"><b>Action Types and Subordinate Parameters</b></a> 
+									</ul>
+									<p>&nbsp;</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><img height="39" width="32" src="gfx/ghol.gif"></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#000033">
+				<tr>
+					<td bgcolor="#330000"><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b>Section II: Getting Familiar With Loathing</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="installing"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Installing Loathing</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000">To do its work, Loathing must be placed in the same folder as your Myth II application. That is, it should be placed in the same folder as your tags and local folders, which contain the information Loathing will need to edit maps. If you are using a small install, make sure your Myth II CD is in the drive when you run Loathing. 
+									<p>On both the PC and Mac platforms, you will need to do a &quot;Custom Install&quot; to install Loathing onto your hard drive. See the &quot;Read Me&quot; text on the Myth II CD for more information.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="involved"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>What's Involved In Map Making</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">The first step in creating a map is understanding what is involved. Myth uses a powerful system of objects known as tags. Tags are Bungie's own platform-independent data format capable of storing everything from the units in the game and their behavior to the graphics and textures you see in a level. Creation of a map is simply the creation and careful integration of numerous tags. Once you know what the various tags mean, using Bungie's intuitive editors will make more sense. What follows is a description of some of the tags that exist in Myth and their purposes in the game. 
+									<ul>
+										<li><b>Collection</b> - The collection tag is one of the most universal tags in the game. Collections store all of Myth's two-dimensional graphics. All interface elements, all textures, all monster and player graphics, and all scenery are stored in collection tags. 
+										<li><b>Collection Reference</b> - The collection reference is, as you might expect, a reference to a collection tag. Some collection tags have colors in them that are treated as &quot;transparent&quot; by the Myth engine. For each of these colors, the collection reference can substitute in its own colors. This is very helpful in creating one object of many different colors. As an example, a tree could appear as a summer tree with a collection reference featuring shades of green, and then be used again later as an autumn tree with a collection reference containing orange and red as its colors. Collection references also contain a &quot;tint&quot; which can be used to give an object a dark feel appropriate to a night map. 
+										<li><b>String</b> - String tags are relatively simple tags, but they play an important role in developing a map. They contain text strings for use in maps, units, and other places. As an example, the name of a map and the description of a unit are kept in string tags. 
+										<li><b>Projectiles and Projectile Groups</b> - The projectile tag is a very interesting part of the Myth engine. It can take the form of flaming arrows, a warrior's sword swing, or a dwarf's bottle. These are one of the only things in the Myth engine that can actually cause damage to units. Projectiles can call other tags such as Lightning or Projectile groups. Projectile groups are, as you might expect, groups of projectiles. Each projectile can call a projectile group, which in turn can call as many as 15 more projectiles. This is a powerful and useful feature, but be careful what you create. If you overuse this, you will slow the engine down, and create unusable maps. 
+										<li><b>Local Projectile Groups</b> - These are special groups of particles that react to special physics models, and are responsible for such special effects as smoke, fires, magical effects, and all sorts of other strange things. 
+										<li><b>Mesh</b> - The mesh is by far the most important piece of a Myth map. Basically, the mesh contains all information about the organization, layout, and structure of a Myth map. Important elements such as scenery/unit placement, as well as ground elevation, terrain type, and more are kept in the mesh. Since this tag is so important and contains so many things, each of its components will be discussed individually: 
+										<ul>
+											<li><b>Submeshes</b> - Every mesh is composed of one or more submeshes. A submesh is a 256x256 pixel section of the mesh. This is the basic unit of size for mesh tags, and as such, all meshes must have dimensions that are a multiple of 256 pixels. 
+											<li><b>Object placement</b> - All objects that exist on a map, including 3D models, player-controlled units, non-player characters such as villagers, monsters, scenery, ambient sounds, projectiles, and weather are located and placed by the mesh. 
+											<li><b>Color Map (Texture map)</b> - The color map is the actual texture that the player sees. All map details such as grass, dirt, walkways, paths, and any other details not added through models or scenery must be painted onto the color map. 
+											<li><b>Displacement Map (Elevation)</b> - One of the most important factors in determining the quality of a map is the elevation of the terrain. The displacement map in the mesh contains all information about where hills, valleys, and stream beds exist in the map. 
+											<li><b>Shadow Map</b> - The shadow map determines where shadows appear on the map. It is important that the shadows are placed in the shadow map and not in the color map so that shadows from units and projectiles display correctly. 
+											<li><b>Reflection Map</b> - This data determines which areas of the map show reflectivity because of the presence of media. For media to reflect correctly, it must be marked as such in the Waterfx map. 
+											<li><b>Terrain Map</b> - Similar to the slope map, passability is determined by data in the mesh. Dwarves, for example, cannot get to all the areas that ghols can (their legs are just too short). They cannot pass through medium depth water or climb steep hills. Some places are so steep that only flying units such as soulless can reach them. 
+											<li><b>Media</b> - The presence or absence of media such as water or lava is determined by its selection and placement in the mesh. 
+											<li><b>Slope</b> - Myth has a very sophisticated physics model. Balls and heads roll downhill when sent in the right direction. The slope is the way a map determines what areas are steep enough to warrant such behavior by the Myth engine. The steepness of all areas of the landscape are kept in the slope information of the mesh. 
+											<li><b>Collection</b> - While the mesh does not contain any collection tags, it does contain references to the tags it needs. A mesh needs a collection tag for the texture map, and another one for the overhead map. If the map is a multiplayer level, then a pregame collection tag is also necessary. 
+											<li><b>Map Actions</b> - Map actions are one of the most interesting and powerful aspects of Myth maps. They are the programming behind the computer's actions on a solo or multiplayer map. They determine what causes a win or loss of a game, and how all non-player characters behave. 
+											<li><b>Other Data</b> - There is a lot more data stored in a mesh as well. Game types, references to text strings, next/previous level information, and more is stored in the mesh. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="starting"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Getting Started</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Before launching Loathing, you will need a color map--the flat image that will be laid over the mesh to create the terrain for your map. This image will determine your map's size, and its dimensions (in pixels) must be divisible by 256. Color maps must use no more than 240 colors and need to be stored in PICT format on the Mac, or bmp on Windows. Color maps will be discussed in greater detail in the<a href="#color"> color map</a> section. 
+									<p>If you are feeling ambitious, you can also create a grayscale image for a displacement map--the altitudes for the various points of your mesh. White is high, black is low. If you choose to create a displacement map, it needs to line up with the color map, and be the same size. You can find more information on displacement maps in the<a href="#color"> color map</a> section.</p>
+									<p>After you launch Loathing, select &quot;New&quot; from the &quot;File&quot; menu. Enter a map name in the first dialog box; we recommend that you choose a descriptive one that can be understood by other people. You can change the name later if you need to. The second dialog asks for the media type, choose &quot;Water.&quot; You will learn more about media in the<a href="#color"> color map</a> section. The third and final dialog prompts you for the color map. Choose the color map you created earlier. A new flat plane with your color map is created. Choose &quot;Save&quot; from the file menu.</p>
+									<p>You have created a basic mesh. It does not have units or scenery on it, and is flat. Also, the camera will not be correctly implemented until you do so manually. Still, this is sufficient if you only want to view the map.</p>
+									<p>If you created a grayscale image for a displacement map you can add height to your map by choosing &quot;Displacement Map&gt; Import&quot; from the Maps menu.</p>
+									<p>To place teams on your map you first need to add Unit Types to the map. Double-click on the Unit Tool (body icon). Use the Add button to introduce different troops to your map. Each unit needs to be assigned to a team. If a unit appears on more than one team, you need to create an instance for each team. Keep it simple: only use a few units types at first, and only one or two teams. Ignore the various check boxes. After closing the dialog with the OK button you are ready to place units on your map. Each time you click on the map (in the 3d window) you add a unit at that location; the unit type is chosen in the unit dialog window.</p>
+									<p>You also need to place an Observer (camera) for each team. Double-click on the Observer Tool (eyeball icon). Use the Add button to create observers for each team, Value is the number of each team, enter &quot;1&quot; for Team 1, &quot;2&quot; for Team 2, etc.. After closing the dialog, place a single observer for each team: choose each team from the observer dialog window and click once on the map for each team.</p>
+									<p>If you added a displacement map and/or units you need to save your map again.</p>
+									<p>The map you have created will not be displayed in Myth II yet. You must first edit your map with <a href="fear.html">Fear</a>. When Fear has finished launching, double click on the folder &quot;Meshes&quot; in the &quot;Tags&quot; list, and choose the mesh you created. Check the box labeled &quot;Is complete&quot; from the Flags section. This is technically not true, you will be working on the map later, but for Myth to recognize the map it must be tagged as such. If you added units to your map, check the box labeled &quot;Body Count&quot; from the Game Scoring Types. Choose &quot;OK&quot; and launch Myth II: Soulblighter. Start a multi-player game. Choose your new map from the options dialog. Start the game and you can look at your new map. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="interface"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Loathing Interface Elements</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">If you're not familiar with Loathing's interface, you might find yourself up the proverbial creek without a paddle. Here is an overview of Loathing's main, and some minor, interface elements. You will become familiar with all of these things over time, so don't worry if you're overwhelmed at first. <br>
+									<b><br>
+									</b>
+									<ul>
+										<li><b>Windows</b> 
+										<ul>
+											<li><b>2D view</b>: The 2D view window works much like the overhead map that appears in the Top Right corner of your screen during a game of Myth. You can use it to place or move the editing camera used in the 3D view. At times it also displays the locations of scenery or other markers placed on the map. 
+											<li><b>3D view</b>: This is the view window that is much like the main view in the actual game. It shows you a 3D view of the terrain, units and objects. You can place, delete, and move objects, raise the mesh, and edit the entire map through the 3D view. 
+											<li><b>List view</b>: This window appears when you click on a tool in the palette that has a corresponding pop-up menu. It appears below the Tool Palette and contains a list for these tools: 
+											<ul>
+												<li>scenery 
+												<li>models 
+												<li>units 
+												<li>observers 
+												<li>projectiles 
+												<li>passability 
+												<li>sound 
+												<li>map action 
+												<li>local projectile group 
+												<li>model animations 
+											</ul>
+										</ul>
+										<li><b>Menus</b> 
+										<ul>
+											<li><b>File</b> - New, Open, Close... If you don't know how to use 'em, learn. Only one map can be opened at a time. 
+											<li><b>Edit</b> - Certain things such as unit placement are not undoable. But, a mistake like this is quickly alleviated with the tap of the delete/backspace key. Others can be duplicated, such as unit placements. Object placements, on the other hand, cannot. 
+											<ul>
+												<li><b>View Preferences</b> - Allows you to edit your preferences, including grid overlays, and whether you want media, objects or models to be displayed. Note that preferences for the various tools are not saved; they need to be reset each time you choose each tool. 
+												<li><b>Tool Preferences</b> - Certain tools such as the Displacement brush have preferences, use this to edit the preferences for the tool. For tools that place objects like units and scenery there is only one option: &quot;Show All.&quot; When this option is unchecked, only instances of the current object are shown on the overhead view. This is very useful should you need to look at the placements of, for example, flags, deer, or wind sounds. 
+											</ul>
+											<li><b>Maps</b> - This is where you can import or export or edit these different maps: 
+											<ul>
+												<li>Shadow Map 
+												<li>Color Map 
+												<li>Reflection Map 
+												<li>Displacement Map 
+												<li>Terrain Map 
+											</ul>
+										</ul>
+										<li><b>Models</b> 
+										<ul>
+											<li><b>Set Model Location</b> - Sets the X, Y, and Z coordinates for the selected model. 
+										</ul>
+										<li><b>Mesh</b> 
+										<ul>
+											<li><b>Bounded Observer</b> - Bounds the observer to the dimensions set in Mesh&gt;Set Mesh Parameters. 
+											<li><b>Drop Observer</b> - Drops an observer camera underneath the current camera in the 3D view. 
+											<li><b>Set Height</b> - Sets the numerical height of the selected point(s). Use the meshpoint tool to select points. 
+											<li><b>Set Height to Zero</b> - Lowers or Raises the selected point(s) to zero. 
+											<li><b>Set Media Height</b> - Sets the height of all media on the map. 
+											<li><b>Edit Jitter Amount</b> - Edits the amount the selected point(s) are &quot;jittered&quot; by Jitter Selected Vertices. Try it, you'll like it. 
+											<li><b>Jitter Selected Vertices</b> - Jitters the selected vertices. Do the jitterbug with your mesh. 
+											<li><b>Edit Mesh Edge Raise Amount...</b> - this sets the height to which the map edges should be raised (see below). 
+											<li><b>Raise Mesh Edge</b> - Allows you to edit the edge of the mesh. For example, make a large wall around the edges to prevent units from leaving the mesh. 
+											<li><b>Set Mesh Parameters</b> - Sets how close to each edge of your map the observer can get. 
+											<li><b>Shift Mesh Markers</b> - Shifts everything on the map, including heights and water however many units you specify in the dialogue that appears. Be careful with this one, there's no undoing. 
+											<li><b>Recompute Mesh LOD</b> - Recomputes the LOD of the mesh fixing any abnormalities in the mesh. 
+											<li><b>Export/Import Map Actions</b> - Export the actions for your map to text or Import actions for your map that you have made somewhere else. 
+										</ul>
+										<li><b>Selection</b> 
+										<ul>
+											<li><b>Edit Marker</b> - Edits the Marker. You may raise or lower the height of the marker, change its difficulty or other perform other actions. 
+											<li><b>Rotate Selection</b> - Rotates the position of the selection you have made by the amount you have entered. 
+											<li><b>Create Data Container</b> - Creates a Data Container in the Map Actions Dialogue. 
+											<li><b>Create Squad</b> - Creates a squad out of the selection of units you have made. The squad will appear in the Map Actions Dialogue. 
+											<li><b>Create Observer Movement Action</b> - Creates an action in the Map Actions Dialogue that will tell the observer (camera) what to do. (For example: rotate, pan forward, up, back, etc.) 
+										</ul>
+										<li><b>Windows</b> 
+										<ul>
+											<li><b>Visual</b> - This opens the Visual or 3D window. 
+											<li><b>Overhead</b> - This opens the overhead window. 
+											<li><b>Tools</b> - This opens the Tools window. 
+											<li><b>Zoom In/Zoom Out</b> - This zooms the overhead map in and out. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="tools"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>The Tools</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Loathing's tools might seem complex at first, but don't worry--you'll get the hang of them with a little practice. The palettes for the Mac and PC are a bit different, but all the tool icons are the same. 
+									<ul>
+										<li><b>Tools</b> 
+										<ul>
+											<li><img src="gfx/Tool_Pics/01_Arrow.jpg" width="25" height="21" naturalsizeflag="3"> <b>Selection Tool</b> - Selects units, scenery, objects, and other devices in the 3D view. Clicking selects an object. Shift-click adds objects to the selection set. Click and drag selects all objects within the bounding-box. Units added to a selection automatically face in the same direction. The orientation of selected units may be changed by dragging (an arrow appears to indicate the new direction), and their position on the mesh can be changed by Control-dragging. 
+											<li><img src="gfx/Tool_Pics/02_Meshpoint.jpg" width="24" height="21" naturalsizeflag="3"> <b>Meshpoint Tool</b> - This tool turns on the grid in the 3D view. Click on a vertex to select it. Shift-click adds/removes vertices from the selection set. Dragging selects all vertices within the dragged region. Dragging a vertice raises or lowers any selected vertices. When trying to raise or lower more than one meshpoint, be sure to hold down the shift key. 
+											<li><img src="gfx/Tool_Pics/03_Displacement.jpg" width="24" height="21" naturalsizeflag="3"> <b>Displacement Brush</b> - This brush is used to raise or lower terrain levels in the 3D view. Use the Edit&gt;Tool Preferences... menu option to change the shape and function of the displacement brush. 
+											<li><img src="gfx/Tool_Pics/04_Terrain.jpg" width="24" height="21" naturalsizeflag="3"> <b>Terrain Tool</b> - This tool is much like the Meshpoint Tool, but it is used when dealing with multiple meshpoints, instead of one. This does not require that you hold down the shift key when raising or lowering multiple meshpoints. 
+											<li><img src="gfx/Tool_Pics/05_Submesh.jpg" width="24" height="21" naturalsizeflag="3"> <b>Submesh Tool</b> - Edits the mesh, shadows, and colors on a submesh basis. A submesh is a 256x256 unit. Therefore, a 1792x1792 size map would have forty-nine submeshes (7x7). When selected, this tool shows the outlines of the submeshes in the 3D view window. 
+											<li><img src="gfx/Tool_Pics/06_%20Scenery.jpg" width="24" height="21" naturalsizeflag="3"> <b>Scenery Tool</b> - Adds and edits scenery. 
+											<li><img src="gfx/Tool_Pics/07_Model.jpg" width="24" height="21" naturalsizeflag="3"> <b>Model Tool</b> - Adds and edits models. 
+											<li><img src="gfx/Tool_Pics/08_Unit.jpg" width="24" height="21" naturalsizeflag="3"> <b>Unit Tool</b> - Adds and edits units (troops and ambient lifeforms). 
+											<li><img src="gfx/Tool_Pics/09_Observer.jpg" width="24" height="21" naturalsizeflag="3"> <b>Observer Tool</b> - Adds and edits observers (cameras). 
+											<li><img src="gfx/Tool_Pics/10_Passability.jpg" width="24" height="21" naturalsizeflag="3"> <b>Passability Tool</b> - Edits the passability of mesh triangles, determining which units may pass over which cells. 
+											<li><img src="gfx/Tool_Pics/11_Projectile.jpg" width="24" height="21" naturalsizeflag="3"> <b>Projectile Tool</b> - Adds and edits projectiles. 
+											<li><img src="gfx/Tool_Pics/12_Sound.jpg" width="24" height="21" naturalsizeflag="3"> <b>Sound Tool</b> - Adds and edits sound sources. 
+											<li><img src="gfx/Tool_Pics/13_Action.jpg" width="24" height="21" naturalsizeflag="3"> <b>Action Tool</b> - Brings up its own special window which allows you to &quot;script&quot; actions into your map. 
+											<li><img src="gfx/Tool_Pics/14_LPGR.jpg" width="24" height="21" naturalsizeflag="3"> <b>Local Projectile Groups - </b>Adds and edits local projectile groups on your map, such as the mist from a waterfall. 
+											<li><img src="gfx/Tool_Pics/15_ModelAnim.jpg" width="24" height="21" naturalsizeflag="3"> <b>Model Animations</b> - Adds and edits Model Animations on your map, such as a turning windmill. 
+											<li><img src="gfx/Tool_Pics/16_WaterMask.jpg" width="24" height="21" naturalsizeflag="3"> <b>Water Mask Adjustment</b> - tool edits the reflection mask for the media on your map. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><img height="39" width="32" src="gfx/ghol.gif"></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b>Section III: Editing Map Components</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="displacement"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Displacement Maps</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">The displacement map is the mesh that makes up the contours of your map; it was frequently referred to as the &quot;height map&quot; by Myth I mapmakers. An <a href="gfx/displacement_map.gif">example</a> displacement map, taken from the netmap &quot;Gimble on the Wabe&quot; and reduced to one quarter of its full size, can be seen <a href="gfx/displacement_map.gif">here</a> if you still aren't clear on what these things are. 
+									<p><b>Creating Displacement Maps</b></p>
+									<p>Mapmakers for the original Myth relied heavily on grayscale representations of height maps. The lighter the shade of gray, the higher the altitude. These documents can be made and edited in your favorite graphics program, such as Photoshop or Painter. Counterintuitively, they must be saved as &quot;indexed color&quot; rather than &quot;grayscale&quot; before they can be used in Loathing. To import a greyscale document, select &quot;Displacement Map...&gt; Import&quot; from the Maps menu.</p>
+									<p><b>Editing Displacement Maps</b></p>
+									<p>Loathing introduces powerful mesh editing tools into the cartographer's arsenal. It is now possible to edit the displacement map completely from within Loathing, rather than starting with a greyscale document.</p>
+									<ul>
+										<li><img src="gfx/Tool_Pics/02_Meshpoint.jpg" width="24" height="21" naturalsizeflag="3"> <b>Meshpoint Tool</b> - edits the mesh on a vertex by vertex level. When you select this tool a red grid is overlaid on the 3D window. Click on a vertex to select it. Shift click adds/removes vertices from the selection set. Drag click selects all vertices within the dragged region. Dragging raises or lowers any selected vertices; remember to hold down the shift key before clicking on a selection set or vertices to drag them. 
+										<li><img src="gfx/Tool_Pics/03_Displacement.jpg" width="24" height="21" naturalsizeflag="3"> <b>Displacement Brush</b> - This tool may be intimidating at first, but it is by far the most powerful and useful tool for editing meshes in Loathing. There are three modes for this tool: Raise Tool, Flatten Tool, and Filter Tool. The function keys controls the tool's behavior: 
+										<ul>
+											<li><b>F7</b> - changes the mode 
+											<li><b>F8</b> - toggles the brush shape between circular and square 
+											<li><b>F9</b> - decreases the brush radius 
+											<li><b>F10</b> - increases the brush radius 
+											<li><b>F11</b> - decreases the feather radius 
+											<li><b>F12</b> - increases the feather radius 
+											<li><b>Raise Tool</b> - This is the default mode, and perhaps the most useful one. The tool behaves like a magnetic brush, raising or lowering the mesh beneath it. The brush is displayed by two concentric circles or squares: the inner shape indicates the brush area, the outer displays the feather radius. You can adjust the rate of change by pressing the + and - keys on the main keyboard (not the keypad); the Shift key reverses the direction of displacement. 
+											<li><b>Flatten Tool</b> - This tool flattens the terrain towards a specified height. You can increase or decrease the target elevation by pressing the + and - keys on the main keyboard (not the keypad) or in the tool preferences; the Shift key moves the terrain away from the targeted height. 
+											<li><b>Filter Tool</b> - There are four filters available; each can be selected in the Edit menu under &quot;Tool Preferences.&quot; You can increase or decrease the filter effect rate by pressing the + and - keys on the main keyboard (not the keypad). 
+											<li><b>Elevation Adjustment</b> - This tool raises only. 
+											<li><b>Absolute Elevation</b> - sets the elevation of meshpoints to a specific height 
+											<li><b>Smooth</b> - smoothes terrain 
+											<li><b>Noise</b> - adds noise (bumps) 
+										</ul>
+										<li><img src="gfx/Tool_Pics/04_Terrain.jpg" width="24" height="21" naturalsizeflag="3"> <b>Terrain Tool</b> - This tool is designed for band selecting. It is very similar to the Meshpoint Tool, except : 
+										<ul>
+											<li>You cannot select a single vertex by clicking directly on it. 
+											<li>You do not need to hold down the shift key to maintain the selection set when clicking on a selected vertex 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="color"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Color Maps</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">A color map is the graphic which overlays the mesh. In Myth I cartography it was known as the texture map. The color map has the greatest influence on the appearance of your map. Keep in mind that your color palette is limited, and that an excessive number of different textures and colors will lead to jarring transitions and poorly rendered textures. An <a href="gfx/color_map.gif">example</a> color map, again from &quot;Gimble on the Wabe&quot; and reduced to one quarter size, can be seen <a href="gfx/color_map.gif">here</a>. 
+									<p><b>Color Map Format</b></p>
+									<p>The file has to be saved at 240 colors and 72 pixels per inch, and as a PICT file on the Mac or a BMP file on the PC. The dimensions of your colormap must be a multiple of 256 (the submesh size), such as 1536x1280, or even a very small mesh with dimensions of 512x512. If your color map does not meet this format, it may fail to load, or produce unexpected results.</p>
+									<p><b>Importing Color Maps</b></p>
+									<p>When you create a new document in Loathing, you are asked to name the map, and to choose its media type. When Loathing prompts you for a file, it is looking for the color map. Select the graphic you have prepared (make sure it adheres to all the guidelines in the Format section above). You can update or change this graphic at any time by choosing &quot;Color Map&gt; Import...&quot; from the Maps Menu. You can also export the current graphic by selecting &quot;Export...&quot; from the same menu. </p>
+									<p><b>Tips on Creating Color Maps</b></p>
+									<ul>
+										<li><b>Using Photoshop</b> - The most common way to create and edit color maps is in 2D graphics editors such as Photoshop or Painter. In Photoshop, it is usual to maintain and edit the main document in RGB color, saving Indexed Color versions under another name as needed. Working with layers makes it easier to organize your document, and create smooth transitions. 
+										<li><b>Bryce</b> - Color maps can also be generated with good results by Bryce 3D, a rendering package that specializes in landscapes. Bryce can automatically apply different styles of landscape textures to a terrain mesh. This involves importing a greyscale height image, applying a landscape texture to it, and rendering the image to disk from an overhead perspective. Bryce can also be used to create greyscale height maps and export them for use in Loathing. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="shadow"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Shadow Maps</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">A shadow map is an overlay for the color map which shows where the shadows created by the mesh fall. This map is extremely important because it determines if the shadows on your finished map are consistent with those of the units and scenery. The light source is at 45&deg; from the northeast corner (note that this is the opposite side that most interfaces use, such as the MacOS interface, in which light always comes from the northwest corner... keep this in mind). Take a look at an <a href="gfx/shadow_map.gif">example</a> from &quot;Gimble on the Wabe&quot; (we really like that map) <a href="gfx/shadow_map.gif">here</a>. 
+									<p><b>Creating Shadow Maps</b></p>
+									<p>Back in the dark ages, creating accurate shadow maps was one of the banes of Myth cartography. They were usually made by hand, by a trick in Photoshop, or by rendering them in Bryce 3D; each of the three options was either inaccurate, or labor-intensive. Loathing has made this burdensome task trivial: choose Shadow Map&gt; Add Mesh Shading from the Maps menu. To update the shadows after you have been working on a section of the mesh, use the Shadow Map feature of the Submesh tool.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="terrain"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Terrain and Passability</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">The terrain type of a given cell determines which unit types may move onto it. Passability has both dramatic and subtle effects on gameplay; its layout on your map deserves careful consideration. It is important that its layout corresponds to the slope and color map so that gameplay is intuitive. There is nothing more frustrating than trying to move your troops onto regions where they should obviously be able to pass, only to have their movement hindered by a poorly done Passability map. 
+									<p>Different units can pass over different terrain types--their ability to pass over various terrain types is determined in <a href="fear.html">Fear</a>, inside of the <a href="fear.html#mons">monster</a> tags. The terrain descriptions below give examples of which units can and can't pass, but keep in mind that you can change these things.</p>
+									<p><b>Terrain Types</b></p>
+									<center>
+										<h2><img src="gfx/pass_palette.gif" width="149" height="221" naturalsizeflag="3"></h2>
+									</center>
+									<ul>
+										<li><b>Dwarf-Depth Media</b> - Most units can pass through this, with the notable exceptions of shades, which cannot pass over water of any sort. Like all media, this terrain type always kills fires. 
+										<li><b>Human-Depth Media</b> - Hardy, human sized units and larger can handle this, while some other, more frail units (like archers and warlocks) cannot. 
+										<li><b>Giant-Depth Media</b> - Only Trow, large Myrkridia, and dead units may pass through this terrain type. 
+										<li><b>Deep Media</b> - Only dead or amphibious units may pass through this terrain type. 
+										<li><b>Sloped</b> - Impassable to most two legged units, but passable to agile units like ghols and wolves. 
+										<li><b>Steep</b> - Impassable to most units, with the notable exceptions of spiders and soulless. This terrain type is also non-flammable--fires will start, but they won't spread. 
+										<li><b>Grass</b> - The default terrain type, flammable and passable to all current units. 
+										<li><b>Desert</b> - Passable to all current units, nonflammable. Units also leave tracks over this terrain, as they would in sand. 
+										<li><b>Rocky</b> - Nonflammable, cocktails break/explode easier, passable to all current units. 
+										<li><b>Marsh</b> - Cocktails and other burning projectiles extinguish more often on this terrain type. 
+										<li><b>Snow</b> - Units leave tracks, completely nonflammable, cocktails extinguish more often. 
+										<li><b>Forest</b> - Not really used, and with no special effects. 
+										<li><b>Walking Impassable</b> - Only flying units can traverse this terrain. 
+										<li><b>Flying Impassable</b> - Used for preventing units from wandering off the map. No unit should be able to cross this terrain type. 
+										<li><b>Scenery Impassable</b> - These purple cells are created automatically when scenery items are placed. This option is not available as an option in the menu window, and scenery impassable cells cannot be edited until the scenery is moved. 
+									</ul>
+									<center>
+										<p><img src="gfx/terrain_sample.gif" width="549" height="352" naturalsizeflag="3"></p>
+										<p>This image shows samples of all four media depths, desert, steep, grass (clear), and scenery impassable terrain types.</p>
+									</center>
+									<p>&nbsp;</p>
+									<p><b>Editing Passability</b></p>
+									<p><img src="gfx/Tool_Pics/10_Passability.jpg" width="24" height="21" naturalsizeflag="3"><b>Passability Tool - </b>When the Passability tool is selected, a red grid appears on the map, and a menu window opens listing the various terrain types. Attributes may be selected from this list, and applied to individual cells or regions of the mesh. There are three modes for applying Passability.</p>
+									<ul>
+										<li><b>Default:</b> A single click edits all cells under the brush. Drag-click edits all cells that pass under the brush. 
+										<li><b>Option Key:</b> A single click edits one cell at a time. Drag-click edits each cell that passes under the cursor 
+										<li><b>Shift Key:</b> This option fills a larger region. If you click on grass, it fills approximately a window's worth, or 16 x 16. If you click on another terrain type, it fills (replaces) all the contiguous cells of that type. Think of it as a fill tool. 
+										<li><b>F8</b>: Toggles brush shape between round and square. 
+										<li><b>F9</b>: Decreases brush radius. 
+										<li><b>F10</b>: Increases brush radius. 
+									</ul>
+									<p><b>Map Edges</b></p>
+									<p>In order to prevent units from wandering off the edges of a map, it is necessary to border the map entirely with a band of Flying Impassable cells. Loathing can perform this tedious task for you automatically by first selecting Raise Mesh Edges, and then Make Mesh Edges Impassable from the Mesh menu.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="media"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Media Map</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">The media map determines whether a given cell is liquid or solid. Your media map should be the same size as your colormap and be in greyscale or bitmap format (refer to your image editor's documentation for instructions on how to save or convert files to these formats). When creating a media map, black is media, and white is land. Ensure that there is only black and white on this map, or there may be strange results. 
+									<p>To use a media map, choose import reflection map from the Maps&gt; Reflection sub menu, in the maps menu. In Myth 2, the elevation of media can vary throughout the level. This means you may have a pool of water at the top of a hill, and also at the bottom. The water elevation is determined by the water displacement map. Contiguous parts of water do not need to have the same elevation, so you can have stream flow downhill, or even uphill, since the water in myth does not have a current, it is largely irrelevant. You can also set the media height of all the media in the water by using the &#147;Set All Media Heights&#148; option in the mesh menu, this can only be used to set all the media to a specific level within the map. To take advantage of multiple water heights, you will need to create a custom water displacement map in an external image editor. The elevations on this media displacement map use the same scale as the normal displacement map. </p>
+									<p>You can also use the Water Mask Adjustment tool to set the media flag (on or off) of a given cell. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="units"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Units</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Units include both the troops and the ambient life forms that populate maps. 
+									<p><b>Teams</b></p>
+									<p>In order to add troops to your map, you will need to first decide how many teams you will be using. In Myth 2, the first team is Team 0 and the others are sequenced from there. In addition to troops, certain scenery items such as Capture The Flag flags can be assigned to a team by assigning a team id number to them. Scenery items that do not start being owned by a given team, such as Territories flags, should be assigned to Team -1.</p>
+									<p><b>Adding Units To Teams</b></p>
+									<p><img src="gfx/Tool_Pics/08_Unit.jpg" width="24" height="21" naturalsizeflag="3"> <b>Unit Tool</b></p>
+									<p>Before adding units to your map, you need to construct a palette of units you will use. You need to create a separate instance of a given unit for each team it appears on. Double click on the unit tool to open the Unit Marker Palette. Add units to the palette by clicking on the Add button, or hitting Command-A on the keyboard. (The following options can also be changed via the Edit button).</p>
+									<ul>
+										<li><b>Tag</b> - The unit type. 
+										<li><b>Team</b> - Enter the team number to which this instance belongs. If this unit is ambient life, enter &quot;-1.&quot; 
+										<li><b>Uncontrollable</b> - Makes the unit uncontrollable. 
+										<li><b>May Be Traded</b> - Allows this instance of a unit to be traded. If you want to have a unit that you must keep a certain number of but may trade some of them you need to create two instances of that unit, one with this option on and one with it off. 
+										<li><b>May Use Veterans</b> - When this option is enabled, veterans from this instance may be carried over to subsequent games. 
+										<li><b>Must Use Veterans</b> - This option forces all units of this instance to be veterans. By using this, you can make units only appear on a map if they are veterans continuing on from a previous level. 
+										<li><b>Is Ambient Life</b> - Used for chickens, crows, and the like. 
+										<li><b>Is Hunted Creature</b> - Used in the Hunting game. 
+										<li><b>Appears In Netgame Type</b> - With this option you can create instances of units which are only used in certain game types. 
+									</ul>
+									<p>Close the dialog with the OK button when you are done.</p>
+									<center>
+										<p><img src="gfx/add_unit.gif" width="365" height="393" naturalsizeflag="3"></p>
+										<p>Add Unit dialog</p>
+									</center>
+									<p><b>Placing Units</b></p>
+									<p>Units are placed on the map by selecting the desired unit from the menu and then clicking somewhere in the 3D view. Loathing with create a unit standing on the point that you clicked. You can duplicate units, but all the duplicates are visible by default, and they cannot be reassigned to a different team. Note that you can duplicate selected units using the Duplicate command under the Edit menu, or Command-D. If you later decide to move a unit, hold down the Control key and drag it to its new position. Note that you can do this with multiple units by selecting them, and then Control-dragging.</p>
+									<p><b>Selecting Units</b></p>
+									<p>You can select units with the unit tool, but only by directly clicking on the target unit. You have to be careful where you click, or else you will create another instance of the current unit. You can add units to the selection set by holding down the shift key. Unless you also hold down the option key the direction that the units face will often be directly away from you.</p>
+									<p>You can also band-select with the select unit tool by clicking away from a group of units, and then dragging the cursor over them.</p>
+									<p><b>Orienting Units</b></p>
+									<p>To change the direction selected units face, click on them, and drag the mouse. The units will rotate in place, displaying a purple arrow indicating the direction they will face when you release the mouse-button.</p>
+									<p><b>Editing Units</b></p>
+									<p>When you double click on a member of a selection set of units, you can change a variety of attributes for those units. The units in the selection set do not all need to be of the same type, or even belong to the same team.</p>
+									<ul>
+										<li><b>Minimum Difficulty</b> - This is the minimum difficulty level at which units will appear on the map. If you set a unit as having a level of Legendary, then it will only appear on Legendary games. Handy for making more or less units available depending on difficulty level. 
+										<li><b>I </b>- This is the initial east/west velocity of this unit. Since units never, ever use this setting (and it has no effect), it should be left at 0. 
+										<li><b>J</b> - This is the north/south velocity of the unit. Has no effect, should be 0--see above. 
+										<li><b>K</b> - Up/down velocity, no effect. 
+										<li><b>Z</b> - This is the height off the ground at which this unit appears. Since units don't fall nicely, and tinkering with this will result in weird results, you shouldn't tinker with it. The exception is in the case of flying units, which you will need to move into the air, since all units are automatically placed on the ground when created. 
+										<li><b>Yaw</b> - The is the direction in which the unit is facing. Much easier to set by dragging in the direction you want. 
+										<li><b>Pitch</b> - Used only for models, and not much even then. Ignore. 
+										<li><b>Invisible</b> - Invisible units are hidden until they are summoned by something like a map action or Unit Trading. If you make units invisible in a netgame, the can be traded for, but won't be initially present at the beginning of Unit Trading. 
+										<li><b>Stone</b> - This makes units petrified upon entering a level. Not all that useful... 
+										<li><b>Detonates Immediately</b> - Units with this option will detonate immediately upon being created. Handy for creating exploding wights, or maybe for scatting blood and guts over an area in advance. 
+										<li><b>Is Invisible Observer</b> - This is used to create an invisible, uncontrollable unit that acts as an observer, allowing the owner team to see in a given area. 
+										<li><b>Netgame Target</b> - Used for assigning the target in the Assassin netgame, or for livestock in Stampede games. 
+										<li><b>Unused</b> - True to their name, these are unused. 
+									</ul>
+									<center>
+										<p><img src="gfx/unit_edit.gif" width="357" height="317" naturalsizeflag="3"> </p>
+										<p>Unit Edit dialog</p>
+									</center>
+									<p><b>Tool Preferences</b></p>
+									<p>Select Tool Preferences from the Edit Menu, and you find only one option: &quot;Show All.&quot; When the option is unchecked only instances of the currently selected unit appear in the overhead view. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="projectiles"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Projectiles</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Projectiles are the variety of objects found on a map. They range from satchel charges surrounding a helpless chicken, to rocks. Projectiles can be launched by units as well, although there are many more kinds than are used as defaults by units. 
+									<p><b>Adding Projectiles Types</b></p>
+									<p>Before it is possible to add projectiles to your map, you must make a palette of projectiles. You may choose as many as you need, although too many projectiles could give the users of your map memory problems or lag. Double-click on the projectile icon in the tools window. You will be presented with a window which allows you to add, delete, and edit the projectile types in your palette. </p>
+									<ul>
+										<li><b>Add- </b>After selecting Add (command-A) from the window, you will be prompted to select a type of projectile from all the valid projectiles that are placed there by default, or projectiles that you have made using Fear. After choosing a projectile and clicking OK, you will be presented with another window, to verify your selection. You have now added a projectile to your palette, which can later be added to your map. 
+										<li><b>Delete-</b> To delete a projectile type, choose a projectile group, and click Delete (command-D) from the base of the window. 
+										<li><b>Edit - </b>This button allows you to change the projectile type. 
+									</ul>
+									<p><b>Placing Projectiles</b></p>
+									<p>After making a projectile type palette, you can add those projectiles to your map. With the projectile icon selected in your tools window, there should be a smaller window below it listing the projectiles you selected. By clicking on the drag-down menu, you can select the type of projectile you would like to add. Click on the map in the Visual window to add selected projectiles to the mesh.</p>
+									<p><b>Placing Projectiles Within Scenery</b></p>
+									<p>Placing projectiles in scenery is fairly involved process, but it gives people a good reason to pat you on the back. Before tackling this task, it may be a good idea to read the section on <a href="fear.html#scen">scenery</a> and <a href="fear.html#prgr">projectile</a> groups in the <a href="fear.html">Fear</a> manual.</p>
+									<p>First, create a new projectile group containing all of the projectiles you want to fly out of a scenery item once it is destroyed. You can also assign sounds and mesh effects within the new projectile group window. Save your new projectile group with an appropriate name, and open up the scenery item listing. Select a scenery item that has the graphic that you'd like to use, and duplicate it. After naming it, open the new scenery item to edit it.</p>
+									<p>You must edit a number of aspects of the scenery in <a href="fear.html#scen">Fear</a> to get your desired effect. The following steps can be edited to created different effects. First, since you want the scenery to explode, make sure the 'is solid' box is not checked. Next, edit the projectile groups, assigning which groups will come out of the scenery when it is destroyed. The group that is assigned to 'impact' will come off of the scenery when a melee unit attacks it. Most of the time, this doesn't need to be linked to a projectile group. The next menu, labeled 'detonation' is the group that will be shot off in various directions when the scenery is destroyed. Link your newly made projectile group through this menu, and save your scenery. To place your new combustible scenery on your map, open your map in Loathing, and place it wherever you want. If you followed the steps correctly, you should be able to spew chickens and various odds and ends from your scenery. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="scenery"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Scenery</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Scenery is generally used to give your map some variety, and to improve gameplay. It includes plant life, rocks, and netgame flags. Most scenery should be assigned to team -1. 
+									<p><b>Adding Scenery Types</b></p>
+									<p>To add scenery to your map, first you must build a palette of the types you will use. Double-click on the scenery icon from the tool window to edit your palette. Using the add button, select a scenery type that you want to include. In the next window, you will be presented with a list of editable features for that scenery.</p>
+									<ul>
+										<li><b>Team</b> - Assigns a team to scenery. Generally it should be -1, unless you'd like the item to be owned by someone. This only applies to netgame flags such as Capture the Flag and Balls on Parade. 
+										<li><b>Netgame Types - </b>These checkboxes edit when the scenery shows up. There is no need to edit this for netgame scenery, as unused flags are hidden automatically. It can be used if you'd like a certain clump of trees to be hidden for one game type, and there for another. 
+									</ul>
+									<p><b>Placing Scenery</b></p>
+									<p>Placing scenery is fairly simple. Choose a scenery type from the drag down menu that appears when the scenery tool is selected, and click in the visual view to place it.</p>
+									<p><b>Editing Scenery</b></p>
+									<p>After placing a scenery item, select it, choose edit marker from the selection menu, or double click on it to change its attributes. From the next window you can edit its coordinates, yaw, pitch, and attributes.</p>
+									<ul>
+										<li><b>Coordinates - </b>The force vectors I, J, and K are apparently ignored. 
+										<li><b>Yaw - </b>The facing direction of the scenery. This can be edited in three ways. The first and easiest way is to select the scenery with the normal cursor, and drag in the direction that you'd like it to face. Second, you can rotate selected scenery using the rotate selection option from the selection menu. Last, you can edit facing from within the edit marker window. 
+										<li><b>Pitch </b>- Only used for models. Ignore. 
+										<li><b>Attributes - </b>Generally these don't need to be used with scenery, but can. They are meant for use with units. However, if you really want to, you can use the check boxes to activate any of these attributes. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="models"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Models</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Models can give your map variety, and improve gameplay. They are objects such as houses, walls, castles, windmills, bridges, etc. Keep in mind that models are a rather tricky thing to master, or even use, and that you should have a little map making experience under your belt before you try to tackle them. 
+									<p><b>Adding Model Types</b></p>
+									<p>To add models to your map, first you must build a palette of the types you will use. Double-click on the model icon from the tool window to edit your palette. Using the add button, select a model type that you want to include. You may also delete models types form this list if you want by using the &quot;delete&quot; button.</p>
+									<p><b>Placing Models</b></p>
+									<p>Placing models can vary in difficulty depending on which model type you are placing. Some models are only parts that make up a whole castle, while others are all in one such as the windmill. Choose a scenery type from the drag down menu that appears when the scenery tool is selected. Move the cursor into the visual window, and you will see the yellow boundary box of the model. This box is a simple representation of the how much space the model will consume. You may also change the orientation of the model by using the left and right arrow keys. When you are ready to place the model, click in the visual window, and the model will appear per your specified location and orientation.</p>
+									<p><b>Editing Models</b></p>
+									<p>After placing a model, use the selection tool to further change its attributes. Command clicking on a model brings up a pop-up menu with texture options for the selected model. Clicking and dragging will change the yaw or facing of the selected object, you will see a yaw arrow similar to the one used by units and scenery. You may also use the model: set model location menu command to fine tune model location.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="netgames"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Netgame Setups</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">We assume that you are already familiar with the various net games from Myth. For netmaps with goals (such as flags and balls), you will find these goals in the scenery lists (specified by type for each net game). You can create palette entries, and place these items just as you would any scenery item. You can enable game types by opening your mesh in Fear, and checking the appropriate box(es). 
+									<p><b>Selecting Game Types</b></p>
+									<p>Not all game types are appropriate for all maps. For instance, King Of The Hill should be avoided on maps where a team starts on, or very close, to the hill. Maps for ball games should be free of places where balls can become trapped out of the reach of all units. It is often a good idea to create your map with multiple game types in mind, and tailor it accordingly. </p>
+									<p><b>Game Types &amp; Requirements</b></p>
+									<p>Some netgames require special scenery objects to be placed before you can play that netgame type.</p>
+									<ul>
+										<li><b>Body Count</b> - No special requirements. Just units on the map. 
+										<li><b>Steal The Bacon</b> - There must be a Steal The Bacon ball scenery object. 
+										<li><b>Last Man on the Hill</b> - Netgame LMOTH flag. 
+										<li><b>Scavenger Hunt</b> - Netgame Balls 1 -&gt; 9 . You can include one of each number, and you don't need to include them all (perhaps you only want a two or three ball game). 
+										<li><b>Flag Rally</b> - Netgame Flags 1 -&gt; 9 . Same as with Scavenger Hunt, but with flags. 
+										<li><b>Capture The Flag</b> - Netgame Capture The Flag flags. A separate scenery item needs to be created for each team, and assigned that team's number. 
+										<li><b>Balls On Parade</b> - Netgame Balls on Parade balls. A separate scenery item needs to be created for each team, and assigned that team's number. 
+										<li><b>Territories</b> - Netgame territories flags. You can place any number of these on the map, but do so intelligently. 
+										<li><b>Captures</b> - Netgame captures balls. Otherwise the same as Territories flags. 
+										<li><b>King of the Hill</b> - Netgame King of the Hill Flag. It is strongly, strongly recommended that all teams be an equal distance from this flag, or else one team might have a major advantage or disadvantage. Whatever you do, never, ever allow a team to start on a King of the Hill flag. 
+										<li><b>Stampede</b> - Stampede requires designated units (often barnyard life such as chickens) for each team, and flags to designate a pen, or goal. The stampede animals all need to be checked as &quot;Netgame Targets&quot;, and the flags need to either be set to a team number, or -1. If they are set to a team number, only stampede target units of that team will be teleported out, whereas a -1 flag will teleport out all units. 
+										<li><b>Assassination</b> - A target unit. A separate target unit needs to be added for each team. The target may marked as Uncontrollable for &quot;Choke The Chicken&quot; variations. The only netgame that should be selected is &quot;Assassination.&quot; Once the unit is placed it must be designated as &quot;Netgame Target&quot; by double-clicking on the unit, and checking the appropriate box. 
+										<li><b>Hunting</b> - Ambient life forms. Deer, chickens, crows and other animals can all be added to the map. They all need to be assigned to Team -1, and marked Uncontrollable, Must use veterans, and Is hunted creature. All netgames should be unchecked for these units except Hunting. 
+										<li><b>Custom</b> - For special scripted game types... you may well never have to use this. 
+									</ul>
+									<p>Before these net objectives can be added to your map, you need to construct a palette of net scenery items. Double click on the scenery tool to open the Scenery Marker Palette. Add net objectives to the palette by clicking on the Add button, or hitting Command-A on the keyboard; they all start with the word &quot;netgame.&quot; Capture the Flag and Balls on Parade require that you create a flag or ball palette entry for each team. All other net objectives should be assigned to &quot;Team -1.&quot; You can leave all the netgame types selected as Myth will only activate those netgame objects required for the chosen game. Close the dialog with the OK button when you are done.</p>
+									<p><b>Placing Net Objectives</b></p>
+									<p>The flags and balls are placed on the map by selecting the desired type from the menu, and then clicking in the 3D view. Keep in mind that these objectives need to be placed in a manner that is fair to all teams, but that some variety is also desirable to encourage different attack and defense strategies.</p>
+									<p>Note that you can filter which objects are shown on the overhead by selecting Tool Preferences from the Edit Menu. When you uncheck the &quot;Show All&quot; option only instances of the currently selected item in the scenery menu appear in the overhead view. Thus you can see the placement of just the territories flags (for example). This is very helpful for balancing these objectives.</p>
+									<p><b>Selecting and Moving Net Objectives</b></p>
+									<p><img src="gfx/Tool_Pics/06_%20Scenery.jpg" width="24" height="21" naturalsizeflag="3"> You can select flags and balls with the scenery tool, but only by directly clicking on the target item. You have to be careful where you click, or else you will create another instance of the current scenery item. You can add items to the selection set by holding down the shift key.</p>
+									<p><img src="gfx/Tool_Pics/01_Arrow.jpg" width="25" height="21" naturalsizeflag="3"> The selection tool is often a better method of selecting and moving objects as it removes the possible confusion of creating new objects. You can also use it to band-select items.</p>
+									<p>To move flags and balls, click on a selected object, and drag the mouse while holding down the Control key. To move items over a large distance (more than one screen's worth) keep holding down the Control key, and move the view with the keyboard. The selected objects will follow along.</p>
+									<p><b>Setting Game Types</b></p>
+									<p>After adding all the flags and balls to your map, you still need to specify the game types. Launch Fear and open the <a href="fear.html#mesh">meshes</a> folder in the Tags list. Your map should appear in the meshes list. Open it. In the <a href="fear.html#mesh">Game Scoring Types</a> section check all the options that your map supports. Click OK, and close Fear. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="sounds"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Sounds</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Sounds add atmosphere to a map. They are a very important part in making a map seem realistic. There are two basic types of sounds on maps. The first is the map's ambient sound -- this is a sound file that is played all over the map. The second are sound sources which you can place in different regions of your map. 
+									<p><b>Ambient Sounds</b></p>
+									<p>Ambient sounds are set with <a href="fear.html#amso">Fear</a>. Open your mesh from within the application, and set the appropriate field. Note that only ambient sounds may be stereo files. If you attempt to use an &quot;st&quot; sound as a sound source, your map will crash.</p>
+									<p><b>Sound Sources</b></p>
+									<p>To add a sound source to a map, double click on the sound tool. Choose &#147;Add&#133;&#148;. Then select the sound you want. Should you change your mind, you can change this sound and all of its markers on the map. Just choose &#147;Edit,&#148; or double-click its name in the sound list. To place a sound on the map, choose it from the pop up menu on the floater, and then click the point on the mesh where you want it appear. To change other attributes of the sound, you will need to edit it in <a href="fear.html#amso">Fear</a>.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="observers"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Observers</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Observers are the cameras of Myth II. Each team has its own observer which usually starts out showing their units. 
+									<p><b>Creating Observers</b></p>
+									<p><img src="gfx/Tool_Pics/09_Observer.jpg" width="24" height="21" naturalsizeflag="3"> <b>Observer Tool</b></p>
+									<p>You first need to create palette entries for the observers you will place. Double click on the observer tool and use the Add button (or type Command-A) to add one observer for each team. You can use the Delete button to remove any mistakes, and the Edit button to change an observer's team. Close the dialog with the OK button when you are done.</p>
+									<p>One way to place an observer is to select a team from the palette, and click in the 3D view. A large eyeball will appear in the view. The observer can then be reoriented by dragging the mouse, or moved by holding down the control key and dragging the mouse.</p>
+									<p>A better way to place observers is to orient the editing camera in Loathing the same way you want the observer to start. Select the team from the palette, and choose &quot;Drop Observer&quot; from the Mesh menu. Loathing will then create a new observer for you, and set it to mimic the current view. If you have already created an observer for that team, you can get the same effect by selecting that team's eyeball, setting up the view, and choosing the Drop Observer command. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="animations"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td bgcolor="#330000"><b>Model Animations</b></td>
+								<td align="right" bgcolor="#330000"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Model Animations are in fact animated models, and are the most striking new feature added to Myth II. Not only do they look neat and add to the feel of realism, (as in the case of the windmill blades), but animated models, like the drawbridge, can play an integral role in gameplay. Keep in mind that models will slow down some older machines, and, as such, you should avoid unnecessary animation. 
+									<p><b>Adding Model Animations</b></p>
+									<p><img src="gfx/Tool_Pics/15_ModelAnim.jpg" width="24" height="21" naturalsizeflag="3"> <b>Model Animations Tool</b></p>
+									<p>You first need to create palette entries for the animated models you will place . Double click on the model animations tool and use the Add button (or type Command-A) to add the desired animations. You can use the Delete button to remove any mistakes, and the Edit to change to a different animation. Close the dialog with the OK button when you are done.</p>
+									<p><b>Placing Model Animations</b></p>
+									<p>Animated models are placed on the map by selecting the desired model from the menu, and then clicking in the 3D view. To move selected animated models, drag the mouse while holding down the Control key. To move them over a large distance (more than one screen's worth) keep holding down the Control key, and move the view with the keyboard. The model will follow along.</p>
+									<p><b>Selecting Model Animations</b></p>
+									<p>Unlike other objects in Loathing, you cannot select animated models with its creator tool; you must use the selection tool.</p>
+									<p><b>Orienting Model Animations</b></p>
+									<p>Unfortunately, due to the implementation of model animations in Myth II, you can't change their orientation. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><img height="39" width="32" src="gfx/ghol.gif"></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#000033">
+				<tr>
+					<td bgcolor="#330000"><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td bgcolor="#330000"><b>Section IV: Map Actions, aka &quot;Scripting&quot;</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="introToActions"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td bgcolor="#330000"><b>Introduction to Map Actions</b></td>
+								<td align="right"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Actions scripting is not an easy task, and we recommend that users base their map actions on those Bungie has used for their maps. Indeed, unless you have had past programming experience, trying to create original map actions is ill-advised. The existing maps cover almost everything anyway, so completely original map actions are probably unnecessary for all but the most obscure uses. 
+									<p>Anyone who has used a functional programming language such as LISP or Scheme should have no difficulty understanding the interface to the map actions. There are differences, to be sure, but the underlying formula is the same. Basically, all actions take in either a parameter or a set of parameters, and return a completion status. The primary difference is that the return isn't literal as in common languages - instead you have to query the action for its return. Also, the return does not occur immediately, and possibly never will while the map is being played.</p>
+									<p>As with all programming languages, actions must be activated to execute. There are two calling mechanisms available within the system. Actions can be activated as soon as a game begins by using the Initially Active flag, or they may be called when another action returns a status of some type. An explanatory code equivalent may be found in Actions <a href="#appendixA">Appendix A</a>.</p>
+									<p>The last important thing that remains in common with most programming languages is type matching. Loathing does a very good job of enforcing this, but if you want to get really fancy you ought to keep this in mind.</p>
+									<p>Building good map actions essentially boils down to copying existing actions, or being good enough at designing them to risk making your own. Map scripts are complex to play around with, so, unless you need something really special, copying is a better option than creating original actions.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="editingMapActions"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td bgcolor="#330000"><b>Editing Map Actions</b></td>
+								<td align="right"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2"><img src="gfx/Tool_Pics/13_Action.jpg" width="24" height="21" naturalsizeflag="3"> <b>Action Tool</b> - clicking on this button opens a three-pane dialog which allows you to create and edit map actions. 
+									<p><b>Map Actions Menu</b></p>
+									<ul>
+										<li><b>Add/Edit Map Action</b> 
+										<ul>
+											<li><b>Name</b>: The name of the map action 
+											<li><b>Type</b>: The AI tag that the action will use 
+											<li><b>Expiration Mode</b>: 
+										</ul>
+									</ul>
+									<ul>
+										<ul>
+											<ul>
+												<li>On Trigger - Kills the action at the time specified in the Trigger Time box. 
+												<li>On execution - Kills the action as soon as an action has been completed (i.e., a model animation is out of frames). 
+												<li>On successful execution - Kills the action if an action has executed successfully. 
+												<li>On failed execution - Kills the action if an action has executed without success. 
+												<li>Never - Never kills the action, regardless of circumstances. 
+											</ul>
+										</ul>
+									</ul>
+									<ul>
+										<ul>
+											<li><b>Trigger Time</b>: The start and end timers for an action. 
+											<li><b>Activates only once</b>: Action can only be executed once (used for things like the destruction of wall animations). 
+											<li><b>Initially active</b>: Begins active, needs no trigger. 
+											<li><b>No initial delay</b>: No delay before the action begins. 
+											<li><b>Only initial delay</b>: Doesn't insert a delay after the first time through. 
+										</ul>
+									</ul>
+									<p><b>Main Map Actions Menu</b></p>
+									<ul>
+										<li><b>Map Actions</b> 
+										<ul>
+											<li>List of all map actions, each individually defined as &lt;TYPE&gt;.&lt;name&gt;. 
+										</ul>
+									</ul>
+									<ul>
+										<ul>
+											<ul>
+												<li><b>Add</b>: Add a new item to the list. 
+												<li><b>Delete</b>: Delete the item from the list. 
+												<li><b>Edit</b>: Make changes to the currently selected action. 
+												<li><b>Duplicate</b>: Makes a copy of the currently selected action, and allows you to assign a new name. 
+												<li><b>Arrows</b>: 
+											</ul>
+										</ul>
+										<ul>
+											<ul>
+												<ul>
+													<li>Up/Down - Selection of Action List items. 
+													<li>Left/Right - Exists purely for the user's organization. Changes the indentation of the action by one whitespace character. 
+												</ul>
+											</ul>
+										</ul>
+										<li><b>Parameters</b> 
+										<ul>
+											<li>List of map action parameters 
+										</ul>
+										<ul>
+											<ul>
+												<li><b>Add</b>: Add a new parameter to the list. 
+												<li><b>Delete</b>: Delete a parameter from the list. 
+												<li><b>Edit</b>: Make alterations to a parameter, where possible. 
+												<li><b>Add Custom</b>: Add a custom parameter. 
+											</ul>
+										</ul>
+										<li><b>Elements</b> 
+										<ul>
+											<li>The matching values for a parameter. 
+										</ul>
+										<ul>
+											<ul>
+												<li><b>Add</b>: Add an element to the parameter list. Note - many elements' values can also be set by clicking on the desired unit, model, or point. 
+												<li><b>Delete</b>: Remove an element from the parameter list. 
+												<li><b>Edit</b>: Change the value of an element in the parameter list. 
+											</ul>
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="parameters"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td bgcolor="#330000"><b>Action Types and Subordinate Parameters</b></td>
+								<td align="right"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">Consider this a reference to all of the action type parameters. We are not responsible for the psychological trauma that might result from reading through this entire list in one sitting. Refer to it as necessary. <br>
+									<br>
+									<ul>
+										<li><b>Universal</b> 
+										<ul>
+											<li><b>Link</b> - Takes an action identifier, linking another action. 
+											<li><b>Debug Flag</b> - If true, used to write debug information. 
+											<li><b>Activates on Success</b> - Takes an action identifier, if successful executes all actions in the list. 
+											<li><b>Activates on Failure</b> - Takes an action identifier, if failed executes all actions in the list. 
+											<li><b>Activates on Trigger</b> - Takes an action identifier, if triggered executes all actions in the list. 
+											<li><b>Activates on Execution</b> - Takes an action identifier, if executed executes all actions in the list. 
+											<li><b>Activates on Activation</b> - Takes an action identifier, when activated executes all actions in the list. 
+											<li><b>Activates on Deactivation</b> - Takes an action identifier, when deactivated executes all actions in the list. 
+											<li><b>Activates on Error</b> - Takes an action identifier, when an error occurs all actions in the list are executed. 
+											<li><b>Activates on Inhibition</b> - Takes an action identifier, when inhibited all actions in the list are executed. 
+											<li><b>Activates on Missing Prerequisites</b> - Takes an action identifier, when missing prerequisites all actions in the list are executed. 
+											<li><b>Deactivates on Success</b> - Takes an action identifier, deactivates all actions in the list when successful. 
+											<li><b>Deactivates on Activation</b> - Takes an action identifier, deactivates all actions in the list when activated. 
+											<li><b>Deactivates on Deactivation</b> - Takes an action identifier, deactivates all actions in the list when deactivated. 
+											<li><b>Deactivates on Error</b> - Takes an action identifier, deactivates all actions in the list when an error occurs. 
+											<li><b>Inhibitions</b> - Takes an action identifier, will not trigger if all given (and non-linked) actions are successful. 
+											<li><b>Prerequisites</b> - Takes an action identifier, will not trigger unless one of the given (and non-linked) actions is successful. 
+											<li><b>Activates Simultaneously</b> - Takes an action identifier, triggering the actions triggers all actions in the list. 
+										</ul>
+										<li><b>None</b> 
+										<ul>
+											<li>No additional subordinate parameters. 
+										</ul>
+										<li><b>Action List</b> 
+										<ul>
+											<li><b>Actions to Activate</b> - Takes action identifiers, a list of actions to be activated. 
+											<li><b>Random Selection Flag</b> - Takes action identifiers, randomly selects an action to activate. 
+											<li><b>Activate Only One</b> - Takes action identifiers, stepping through the list activating until a success occurs. 
+											<li><b>Chance of Activating</b> - Takes a number, contains an array giving the chances of listed actions to activate. 
+											<li><b>Actions to Deactivate</b> - Takes action identifiers, a list of actions to be deactivated. 
+											<li><b>Chance of Deactivating</b> - Takes a number, contains an array giving the chances of listed actions to deactivate. 
+										</ul>
+										<li><b>Ambient Sound Control</b> 
+										<ul>
+											<li><b>Sound</b> - Takes a source identifier, determining the sound to be played. 
+											<li><b>Volume</b> - Takes a number, determining the volume it is played at. 
+											<li><b>Duration</b> - Takes a number, duration in seconds to fade out a sound effect. 
+										</ul>
+										<li><b>Model Animation</b> 
+										<ul>
+											<li><b>Model Animation</b> - Takes a model identifier, determining the model to animate. 
+											<li><b>Start Forward Flag</b> - Takes a flag, if true starts playing an animation forward from the beginning. 
+											<li><b>Start Backward Flag</b> - Takes a flag, if true starts playing an animation backward from the end. 
+											<li><b>Stop Flag</b> - Takes a flag, if true stops playing an animation. 
+											<li><b>Back and Forth Flag</b> - Takes a flag, if true plays an animation back and forth. 
+											<li><b>Cycle Flag</b> - Takes a flag, if true makes an animation cycle. 
+											<li><b>Reset Frame Index Flag</b> - Takes a flag, if true resets to the start or end of a sound. 
+											<li><b>Advance Animation Flag</b> - Takes a flag, if true moves the animation forward a single frame. 
+											<li><b>Frame Greater Than</b> - Takes a number, tests if the current animation frame index is greater than that number. 
+											<li><b>Frame Less Than</b> - Takes a number, tests if the current animation frame index is less than that number. 
+											<li><b>Frame Equal To</b> - Takes a number, tests if the current animation frame index is equal to that number. 
+										</ul>
+										<li><b>Assassin (Mahir only)</b> 
+										<ul>
+											<li><b>Subject</b> - Takes monster identifiers, the suicide monsters to attack with. 
+											<li><b>Visibility</b> - Takes a number, the radius around the suicide unit which is visible. 
+											<li><b>Fear Duration</b> - Takes a number, the amount of time the suicide unit waits before deciding that an attacking missile unit is no longer paying attention. 
+											<li><b>Initial Delay</b> - Takes a number, the maximum random delay in calls to the unit before starting. 
+										</ul>
+										<li><b>Attack</b> 
+										<ul>
+											<li><b>Attackers</b> - Takes monster identifiers, monsters that will do the attacking. 
+											<li><b>Targets</b> - Takes monster identifiers, monsters that will be the target of the attack. 
+											<li><b>Attack All Enemies Flag</b> - Takes a flag, if true attacks all enemies on map. 
+											<li><b>Use Special Abilities Flag</b> - Takes a flag, if true use special abilities in attack. 
+											<li><b>Attack Ground Location</b> - Takes a world point, attacks the ground at that position. 
+											<li><b>Attack Nearest Flag</b> - Takes a flag, if true monsters attack the nearest available targets. 
+											<li><b>Don't Retarget Flag</b> - Takes a flag, if true only monsters without targets are used to do move on. 
+											<li><b>Polygon</b> - Takes world points, attack only units within the defined clockwise, convex polygon. 
+											<li><b>Closed Polygon Flag</b> - Takes a flag, if true indicates that the polygon is closed. 
+											<li><b>Reversed Polygon Flag</b> - Takes a flag, if true tests for units outside the polygon rather than within. 
+										</ul>
+										<li><b>CDAudio</b> 
+										<ul>
+											<li><b>Play Track</b> - Takes a number, plays the selected track index. 
+											<li><b>Repeat Flag</b> - Takes a flag, if true repeats the tracks. 
+											<li><b>Fade Out Flag</b> - Takes a flag, if true fades out the track. 
+											<li><b>Fade In Flag</b> - Takes a flag, if true fades in the track. 
+										</ul>
+										<li><b>Chicken</b> 
+										<ul>
+											<li>No additional subordinate parameters--this map action is called from the unit via its Map Action attribute. You can use <a href="fear.html#mons">Fear</a> to edit this characteristic. 
+										</ul>
+										<li><b>Connector</b> 
+										<ul>
+											<li><b>Objects</b> - Takes object identifiers, the objects to connect. 
+											<li><b>Connection Tag</b> - Takes a connector, to define the projectile. 
+											<li><b>Distance to Interpolants</b> - Takes a number, defining the distance between interpolation points. 
+										</ul>
+										<li><b>Unit Control</b> 
+										<ul>
+											<li><b>Monsters</b> - Takes monster identifiers, the monsters to affect. 
+											<li><b>Received User Control Flag</b> - Takes a flag, if true denotes that user control is received. 
+											<li><b>Ignores User Control Flag</b> - Takes a flag, if true monsters ignore user commands. 
+											<li><b>Does Not Autotarget Flag</b> - Takes a flag, if true monsters do not autotarget. 
+											<li><b>Cannot Be Autotargeted Flag</b> - Takes a flag, if true monsters cannot be autotargeted. 
+											<li><b>Delete Monsters</b> - Takes monster identifiers, deletes the monsters. 
+											<li><b>Fade Flag</b> - Takes a flag, if true deletes monster by fading them off of the map. 
+											<li><b>Visible Flag</b> - Takes a flag, if true makes the monster visible. 
+											<li><b>Invisible Flag</b> - Takes a flag, if true makes the monster invisible. 
+											<li><b>Monster Source Flag</b> - Takes a flag, if true makes the marker a monster source. 
+											<li><b>Health Fraction</b> - Takes a number, setting the health fraction of the monster. 
+											<li><b>New Monster Name</b> - Takes a number, setting the monster's name to the indexed name in the monster name list. 
+											<li><b>Experience</b> - Takes a number, setting the experience level of the monster. 
+											<li><b>Levels Survived</b> - Takes a number, setting the number of levels a unit has survived. 
+											<li><b>Use Monster Entrance Flag</b> - Takes a flag, if true uses the monster entrance projectile group. 
+											<li><b>World Knot Visibility Flag</b> - Takes a flag - if true makes the monster appear with the world knot appearance method. 
+											<li><b>Tain Visibility Flag</b> - Takes a flag, if true makes the monster appear with the tain appearance method. 
+											<li><b>Magic Visibility Flag</b> - Takes a flag, if true makes the monster visible/invisible magically. 
+											<li><b>Set Marker Height</b> - Takes a number, adds the value to the monster's marker height. 
+											<li><b>Give Monster Artifact</b> - Takes an object identifier, gives a monster the artifact. 
+											<li><b>Ammunition</b> - Takes a number, sets the amount of ammunition a unit has without regard to normal in-game maximums. 
+											<li><b>Remove Artifact</b> - Takes a flag, if true removes the artifact from the monster. 
+										</ul>
+										<li><b>Default Actions</b> 
+										<ul>
+											<li>No additional subordinate parameters. 
+										</ul>
+										<li><b>Delay</b> 
+										<ul>
+											<li><b>Results Action</b> - Takes an action identifer, directs the results of a delay to the target action. 
+											<li><b>Delay Time</b> - Takes a number, sets the time in seconds to delay. 
+											<li><b>Results Type</b> - Takes a field name, signifies the field name under which subjects are stored. 
+											<li><b>Even Distribution Flag</b> - Takes a flag, if true delays the monsters evenly over the given time. 
+										</ul>
+										<li><b>Endgame Condition</b> 
+										<ul>
+											<li><b>Dark Victory Flag</b> - Takes a flag, if true Dark side wins. 
+											<li><b>Light Victory Flag</b> - Takes a flag, if true Light side wins. 
+											<li><b>Failure Flag</b> - Takes a flag, if true Light side fails a victory. 
+											<li><b>Suspend Flag</b> - Takes a flag, if true game goes to Sudden Death instead of an abrupt ending. 
+											<li><b>Winning Team</b> - Takes a number, denotes the index of the winning team. 
+											<li><b>No Celebration</b> - Takes a flag, if true units on winning team don't cheer. 
+										</ul>
+										<li><b>Follow</b> 
+										<ul>
+											<li><b>Radius</b> - Takes a number, denotes the radius to determin spatial groups. 
+											<li><b>Follow Radius</b> - Takes a number, determines the distance to follow at. 
+											<li><b>Falling Behind Actions</b> - Takes action identifiers, determines actions to activate the first time that the units start to fall behind. 
+											<li><b>Abandoned Actions</b> - Takes action identifiers, determines which actions to activate once the units are abandoned. 
+											<li><b>Follower Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the following monsters are eliminated. 
+											<li><b>Followed Elimination Actions</b> - Takes action identifiers, determines which actions to activate if all of the followed monsters are eliminated. 
+											<li><b>Stop When Idle Flag</b> - Takes a flag, if true following monsters will not attack. 
+											<li>General Action 
+											<li><b>Command Type</b> - Takes a number of action to do: 
+											<ul>
+												<li>0: Stop 
+												<li>1: Scatter 
+												<li>2: Retreat 
+												<li>3: Special Ability (immediate) 
+												<li>4: Guard 
+												<li>5: Taunt 
+											</ul>
+											<li><b>Monsters</b> - Takes a monster identifier, determines which monsters follow the command type. 
+										</ul>
+										<li><b>Geometry Filter</b> 
+										<ul>
+											<li><b>Monsters</b> - Takes monster identifiers, monsters to check for in the geometry. 
+											<li><b>Object Type</b> - Takes object types, objects to check for in the geometry. 
+											<li><b>Object Identifier</b> - Takes object identifiers, object identifiers to check for in the geometry. 
+											<li><b>Polygon Points</b> - Takes world points, points to define a polygon. Must be in clockwise order. 
+											<li><b>Polygon Closed Flag</b> - Takes a flag, if true polygon is closed. 
+											<li><b>Circle Centerpoint</b> - Takes a world point, defines the center point of a circle. 
+											<li><b>Circle Centerpoint (Monster)</b> - Takes a monster identifier, defines the center point of a circle as a monster's location. 
+											<li><b>Circle Radius</b> - Takes a number, defines the radius of a circle. 
+											<li><b>Holding Object</b> - Takes an object identifier, defines which units are holding that object. 
+											<li><b>Not Holding Object</b> - Takes an object identifier, defines which units are not holding that object. 
+											<li><b>Entire Map</b> - Takes the map itself, defines the entire map as the geometry. 
+											<li><b>Results Action Identifier</b> - Takes an action identifier, defines where to place the results of a geometry test. 
+											<li><b>Tested Items Inside Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object identifiers that are inside the geometry. 
+											<li><b>Tested Items Outside Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object identifiers that are outside the geometry. 
+											<li><b>Tested Items Inside Location Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object locations that are inside the geometry. 
+											<li><b>Tested Items Outside Location Field Name</b> - Takes a field name, defines the field name in the results action identifier in which to place monster or object locations that are outside the geometry. 
+											<li><b>Maximum Number of Items</b> - Takes a number, restricts the number of items added to the result to this number if set. 
+											<li><b>Use Markers Instead of Monsters</b> - Takes a flag, if true uses monster markers instead of marker positions. 
+										</ul>
+										<li><b>Harass (for ghols) </b>
+										<ul>
+											<li><b>Subject</b> - Takes monster identifiers, defines the monsters doing the harassment. 
+											<li><b>Visibility Radius</b> - Takes a number, defines the area around the harassing units that can be seen. 
+											<li><b>Initial Delay</b> - Takes a number, defines the amount of time each unit will delay before beginning evaluation. 
+											<li><b>Activate On Casualty</b> - Takes action identifiers, defines the actions to activate if the unit takes a casualty. 
+											<li><b>Reevaluation Delay</b> - Takes a number, defines how long to delay before reevaluation. 
+											<li><b>Projectile Radius</b> - Takes a number, defines the radius around the unit to look for projectiles to throw. 
+											<li><b>Guard Waypoint</b> - Takes a world point, defines where a unit should go to if no enemies are in range. 
+										</ul>
+										<li><b>Netgame Goal</b> 
+										<ul>
+											<li><b>Polygon</b> - Takes a polygon, defines the area around the goal. 
+											<li><b>Team Index</b> - Takes a number, defines the index of the team who currently owns the goal. 
+										</ul>
+										<li><b>Group</b> 
+										<ul>
+											<li><b>Initial State</b> - Takes an action identifier, which must be either a guard or split up action. Defines how the unit wtarts on the map. 
+										</ul>
+										<li><b>Group Guard</b> 
+										<ul>
+											<li><b>Guard Point</b> - Takes a world point, defines where the unit is guarding. 
+											<li><b>Guard Radius</b> - Takes a radius, defines the inner and outer radius to guard within. 
+											<li><b>Actions</b> - Takes two action identifiers, the first of which is used to set up the group, the second of which is the action used to attack. 
+										</ul>
+										<li><b>Invisible Pursuit</b> 
+										<ul>
+											<li><b>Invisible Unit</b> - Takes a monster identifier, defining the invisible unit. 
+											<li><b>Pursuers</b> - Takes monster identifiers, defining which monsters are pursuing. 
+											<li><b>Meander Points</b> - Takes world points, defining which places the unit should meander to. 
+											<li><b>Activate on Casualty</b> - Takes action identifiers, defining a list of actions to activate when the team recieves a casualty. 
+											<li><b>Activate on Visible</b> - Takes action identifiers, defining a list of actions to activate when the unit becomes visible. 
+										</ul>
+										<li><b>World Knot</b> 
+										<ul>
+											<li><b>Models</b> - Takes model identifiers, defining the models composing the world knot. 
+											<li><b>Duration</b> - Takes a number, defining the duration of the teleportation effect. 
+											<li><b>Model Animations</b> - Takes model identifiers, defining animations to perform on the world knot models. NEVER EVER EVER EVER run a model animation while the world knot is doing something! 
+											<li><b>Teleporting Out Flag</b> - Takes a flag, if true the world knot teleports out. 
+											<li><b>Activate On Wave</b> - Takes action identifiers, defining a set of actions to activate when matching waves come through. One action per wave only. 
+											<li><b>Monsters to bring in</b> - Takes action identifiers, each defining subject fields of monster to bring in. 
+											<li><b>Next world knot to go to</b> - Takes an action identifier, places the next world knot onto the end of a linked list. 
+											<li><b>Trigger on Teleport In</b> - Takes action identifiers, defines actions to trigger when the world knot begins a teleport in sequence. 
+											<li><b>Use Bounding Box For Knot Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the world knot. If false, an average is used. 
+											<li><b>Use Bounding Box For Wave Center Flag</b> - Takes a flag, if true uses a point bounding box to determine the center of the wave. If false, an average is used. 
+											<li><b>World Knot Centerpoint</b> - Takes a world point, defining the center of the world knot if you know the map action would specify it wrong otherwise. 
+											<li><b>World Knot Radius</b> - Takes a radius, defining the radius of the world knot if you know that the map action would specify it wrong otherwise. 
+										</ul>
+										<li><b>Leading</b> 
+										<ul>
+											<li><b>Leader</b> - Takes a monster identifier, defining the leader. 
+											<li><b>Maximum Distance</b> - Takes a number, defining the distance between the maximum range between leader and the group. 
+											<li><b>Desired Range</b> - Takes a number, defining the desired distance between the leader and the group. 
+											<li><b>Minimum Range</b> - Takes a number, defining the minimum distance between the leader and the group. 
+											<li><b>Target Type</b> - Takes a number, defining the type of the target: 
+											<ul>
+												<li>0: Waypoint 
+												<li>1: Monster 
+												<li>2: Object 
+											</ul>
+											<li><b>The Group</b> - Takes monster identifiers, defining the group. 
+											<li><b>Range To Target</b> - Takes a number, defining the distance between the leader and the target at which the leader thinks the target has been found. 
+											<li><b>Target Waypoints</b> - Takes world points, defining the waypoints to lead the group to. 
+											<li><b>Target Object</b> - Takes object identifiers, defining the objects to lead the group to. 
+											<li><b>Target Monster</b> - Takes monster identifiers, defining the monsters to lead the group to. 
+											<li><b>Beckoning Actions</b> - Takes action identifiers, determining the actions to execute when beckoning to the group. 
+											<li><b>Fleeing Actions</b> - Takes action identifiers, determining the actions to execute when the leader flees from the enemy. 
+											<li><b>Leader Died Actions</b> - Takes action identifiers, determining the actions to execute when the leader is killed. 
+											<li><b>Target Gone Actions</b> - Takes action identifiers, determining the actions to execute when the target is eliminated. 
+											<li><b>Success Actions</b> - Takes action identifiers, determining the actions to execute when the group is led to the target. 
+											<li><b>Delay Before Yelling</b> - Takes numbers, defining the lower bound and delta to delay before successive yells. 
+											<li><b>Maximum Times To Yell</b> - Takes a number, defining the maximum number of times to yell before stopping. 
+											<li><b>Delay Before Beckoning</b> - Takes numbers, defining the lower bound and delta to delay before successive beckons. 
+											<li><b>Maximum Times To Yell</b> - Takes a number, defining the maximum number of times to beckon before stopping. 
+											<li><b>Minimum Radius Before Fleeing</b> - Takes a radius, defining how close the leader can get to the enemy before running. 
+											<li><b>Fleeing Radius</b> - Takes a radius, defining how far behind the group the leader will flee when he cowers. 
+										</ul>
+										<li><b>Legion (defensive) </b>
+										<ul>
+											<li><b>Group Count</b> - Takes a number, defining how many groups there are in the legion. 
+											<li><b>Line</b> - Takes numbers, the first of which defines the point to retreat towards, and the second of which is the point to advance towards. 
+											<li><b>Group Centerpoint Array</b> - Takes world points, defining an array of group centerpoints. 
+											<li><b>Group Unit Container Array</b> - Takes action identifiers, defining an array of map actions which contain the subject lists for each group. 
+											<li><b>Power Ratio</b> - Takes a number, defining the strength ratio at which the legion attacks. 
+											<li><b>Maximum Damage Before Attack</b> - Takes a number, defining how much damage a unit will sustain before attacking. 
+											<li><b>Visibility Radius</b> - Takes a radius, determining the radius around its current centerpoint within which it will look for enemies. 
+											<li><b>Outer Attack Radius</b> - Takes a radius, determining the radius around its current centerpoint within which the legion will attack enemies. 
+											<li><b>Inner Attack Radius</b> - Takes a radius, determining the radius around its current centerpoint within which the legion never stop attacking enemies. 
+											<li><b>Global Centerpoint</b> - Takes a world point, defining the absolute center of the legion. 
+											<li><b>Global Facing</b> - Takes an angle, determining which direction the legion is facing. 
+											<li><b>Fallback Actions</b> - Takes action identifiers, determining which actions will be activated when the legion starts to fall back. 
+											<li><b>Advancing Actions</b> - Takes action identifiers, determining which actions to activate when the legion reaches the end of its advance. 
+											<li><b>Activate On Attack</b> - Takes action identifiers, determining which actions to activate when the legion attacks. 
+											<li><b>Deactivate On Attack</b> - Takes action identifiers, determining which actions to deactivate when the legion attacks. 
+											<li><b>Activate After Attacking</b> - Takes action identifiers, determining which actions to activate after the legion stops attacking. 
+											<li><b>Deactivate After Attacking</b> - Takes action identifiers, determining which actions to deactivate after the legion stops attacking. 
+											<li><b>Group Facing Array</b> - Takes angles, defining an array of the group facings. 
+											<li><b>Group Formation Array</b> - Takes numbers, defining an array of the indices of the group formations: 
+											<ul>
+												<li>0: Short line 
+												<li>1: Long line 
+												<li>2: Loose line 
+												<li>3: Staggered Line 
+												<li>4: Box 
+												<li>5: Rabble 
+												<li>6: Shallow Encirclement 
+												<li>7: Deep Encirclement 
+												<li>8: Vanguard 
+												<li>9: Circle 
+											</ul>
+											<li><b>Group Position</b> Dependency Array - Takes numbers, defining an array of which groups are guarding which. 
+											<li><b>Allied Legions</b> - Takes action identifiers, defining which legion actions will act with the legion. 
+										</ul>
+										<li><b>Lightning</b> 
+										<ul>
+											<li><b>Central Sound Source</b> - Takes a sound, defining where the lightning will be shot from. 
+											<li><b>Radius</b> - Takes a radius, defining the radius around the center to scan for monsters. 
+										</ul>
+										<li><b>Lock</b> 
+										<ul>
+											<li><b>Keys</b> - Takes action identifers, defining keys. 
+											<li><b>Actions To Activate</b> - Takes action identifiers, defining actions to be activated when the lock is opened. 
+											<li><b>Actions To Deactivate</b> - Takes action identifers, defining actions to be deactivated when the lock is opened. 
+										</ul>
+										<li><b>Look</b> 
+										<ul>
+											<li>No additional subordinate parameters. 
+										</ul>
+										<li><b>Local Projectile Group Action</b> 
+										<ul>
+											<li><b>Groups</b> - Takes local projectile groups, defining the groups to use. 
+											<li><b>Turn On Flag</b> - If true, turns on the groups. 
+											<li><b>Turn Off Flag</b> - If true, turns off the groups. 
+											<li><b>Opacity</b> - Takes a number, determining how opaque the groups are. 
+										</ul>
+										<li><b>Meander Action (wander aimlessly) </b>
+										<ul>
+											<li><b>Meanderers</b> - Takes monster identifiers, defining which monsters will meander. 
+											<li><b>Meander Points</b> - Takes world points, defining locations to wander to. 
+											<li><b>Activate On Casualty</b> - Takes action identifiers, defining actions to activate when a casualty occurs. 
+											<li><b>Scan For Threats</b> - Takes a flag, if true the units will scan for nearby threats. 
+											<li><b>Threat Scan Width</b> - Takes a number, designating the width in cells to scan for threats. 
+										</ul>
+										<li><b>Mesh Cell Modifier</b> 
+										<ul>
+											<li><b>Mesh Cells To Affect</b> - Takes world points. Each cell with a world point in it is modified. 
+											<li><b>Kill This Cell</b> - Takes a flag, if true kills the cell. If false unkills the cell. Killing a cell is used under models so that the pathfinding treats it all as a single big block. 
+											<li><b>Terrain Cost</b> - Takes a number: 
+											<ul>
+												<li>0: Dwarf-Depth Media 
+												<li>1: Human-Depth Media 
+												<li>2: Giant-Depth Media 
+												<li>3: Deep Media 
+												<li>4: Sloped 
+												<li>5: Steep 
+												<li>6: Grass 
+												<li>7: Desert 
+												<li>8: Rocky 
+												<li>9: Marsh 
+												<li>10: Snow 
+												<li>11: Forest 
+												<li>12: Unused 
+												<li>13: Unused 
+												<li>14: Walking Impassable 
+												<li>15: Flying Impassable 
+											</ul>
+										</ul>
+										<li><b>Melee</b> 
+										<ul>
+											<li><b>Formation</b> - Takes a number, defining the formation to use: 
+											<ul>
+												<li>0: Short Line 
+												<li>1: Long Line 
+												<li>2: Loose Line 
+												<li>3: Staggered Line 
+												<li>4: Box 
+												<li>5: Rabble 
+												<li>6: Shallow Encirclement 
+												<li>7: Deep Encirclement 
+												<li>8: Vanguard 
+												<li>9: Circle 
+											</ul>
+											<li><b>Power Over Distance Threshhold</b> - Takes a number, the distance at which to choose a more powerful group isntead of a closer one. 
+											<li><b>Subjects</b> - Takes monster identifiers, defines the subjects of the action. 
+										</ul>
+										<li><b>Mission</b> 
+										<ul>
+											<li><b>Advance Flag</b> - Takes a flag, if true advances the mission objective. 
+										</ul>
+										<li><b>Model Effect</b> 
+										<ul>
+											<li><b>Model</b> - Takes a model identifier, defining the model to use. 
+											<li><b>Model Animation</b> - Takes a model identifier, defining the model animation to affect. 
+											<li><b>Duration</b> - Takes a number, determines the duration in seconds. 
+											<li><b>Delta Yaw</b> - Takes an angle, defining the change in yaw per second. 
+											<li><b>Delta Pitch</b> - Takes an angle, defining the change in pitch per second. 
+											<li><b>New Permutation</b> - Takes a number, determining which permutation to crossfade to over the duration. 
+											<li><b>Permutation</b> - Takes a number, determining which permutation to force immediately. 
+											<li><b>Fade In Flag</b> - Takes a flag, if true fades in the model. 
+											<li><b>Fade Out Flag</b> - Takes a flag, if true fades out the model. 
+											<li><b>Delete Model Flag</b> - Takes a flag, if true deletes the model upon completion. 
+											<li><b>Permutation Only Flag</b> - Takes a flag, if true only change the model permutation. 
+											<li><b>Material Index</b> - Takes a number, defining the material index to fade in or out. 
+											<li><b>Material Final Opacity</b> - Takes a number, defining what opacity to fade the material index to fade to. 
+											<li><b>Initial Scale</b> - Takes a number, defining the initial scale of the model. 
+											<li><b>Final Scale</b> - Takes a number, defining the final scale of the model. 
+											<li><b>Projectile Type To Detonate</b> - Takes a projectile type, defining a projectile type to create and detonate immediately. 
+											<li><b>Projectile Origin</b> - Takes a world point, defining a the point to create the projectile at. 
+										</ul>
+										<li><b>Move Marker</b> 
+										<ul>
+											<li><b>Team Index</b> - Takes a number, defining the index of the team to move the marker near. 
+											<li><b>Subject</b> - Takes a monster identifier, defining the monster to move. The monster MUST NOT have been created before you attempt to move the marker. 
+										</ul>
+										<li><b>Movement</b> 
+										<ul>
+											<li><b>Waypoints</b> - Takes world points, defining the locations to move to. 
+											<li><b>Monsters</b> - Takes monster identifiers, defining which monsters to move. 
+											<li><b>Cycle Flag</b> - Takes a flag, if true the units repeatedly move through the waypoints. 
+											<li><b>Back And Forth Flag</b> - Takes a flag, if true the units move back and forth through the waypoints. 
+											<li><b>Preserve Target Flag</b> - Takes a flag, if true the target is kept. 
+											<li><b>Formation Index</b> - Takes a number, defining which formation to use: 
+											<ul>
+												<li>0: Short Line 
+												<li>1: Long Line 
+												<li>2: Loose Line 
+												<li>3: Staggered Line 
+												<li>4: Box 
+												<li>5: Rabble 
+												<li>6: Shallow Encirclement 
+												<li>7: Deep Encirclement 
+												<li>8: Vanguard 
+												<li>9: Circle 
+											</ul>
+											<li><b>Final Facing</b> - Takes an angle, defining which facing to assume at the last waypoint. 
+										</ul>
+										<li><b>Munger</b> 
+										<ul>
+											<li><b>* This is something that by general Bungie consensus, users should NEVER mess around with. It is included simply for the purposes of comprehensive documentation.</b> 
+											<li><b>Insert Parameters</b> - Takes action identifiers, defines parameters to insert. 
+											<li><b>Replace Parameters</b> - Takes action identifiers, defines parameters to replace. 
+											<li><b>Delete Parameters</b> - Takes action identifiers, defines parameters to delete. 
+											<li><b>Append Parameters</b> - Takes action identifiers, defines parameters to append. 
+											<li><b>Deactivate Actions</b> - Takes action identifiers, defining the actions to deactivate. 
+											<li><b>Activate Actions</b> - Takes action identifiers, defining the actions to activate. 
+											<li><b>Delete Actions</b> - Takes action identifiers, defining the actions to delete. 
+											<li><b>Actions To Make Successful</b> - Takes action identifiers, defining the actions to make successful. 
+										</ul>
+										<li><b>Netgame Type</b> 
+										<ul>
+											<li><b>Type</b> - Takes numbers corresponding to each netgame type, if true the action succeeds. 
+											<li><b>Winning Team Index</b> - Takes number corresponding to team number, if true the action succeeds. 
+											<li><b>Winning Team Can Tie</b> - Takes a flag, if true the action can succeed even if the winning team is tied. 
+											<li><b>Winning Team Minimum Score</b> - Takes number corresponding to minimum score of winning team, if true the action succeeds. 
+										</ul>
+										<li><b>Object Control</b> 
+										<ul>
+											<li><b>Projectile Tag</b> - Takes a field name, defining which projectile tag to affect. 
+											<li><b>Reveal All Flag</b> - Takes a flag, if true reveals all instances of the object. 
+											<li><b>Reveal Random Flag</b> - Takes a flag, if true reveal a random instance of the object. 
+										</ul>
+										<li><b>Observer Movement</b> 
+										<ul>
+											<li><b>Camera Mode</b> - Takes a number, defining the camera mode: 
+											<ul>
+												<li>-1: Controlled by user 
+												<li>0: Uncontrollable by user 
+												<li>1: Controlled by map actions 
+												<li>2: Object tracking 
+											</ul>
+											<li><b>Destination</b> - Takes a world point, defining where to move the observer to. 
+											<li><b>Final Facing</b> - Takes an angle, defining where the observer needs to face when it reaches the destination. 
+											<li><b>Viewing subject</b> - Takes a monster identifier, defining which monster to follow if desired. 
+											<li><b>Linear Interpolant Separation</b> - Takes a number, defining the distance between linearly interpolated camera positions. 
+											<li><b>Angular Interpolant Separation</b> - Takes a number, defining the distance between angularly interpolated camera positions. 
+											<li><b>Maximum Time Before Cutting</b> - Takes a number, defining how long to move the camera through interpolation before snapping to the destination. 
+										</ul>
+										<li><b>Particle System Control</b> 
+										<ul>
+											<li><b>Switch Particle System State</b> - Takes a flag, if true toggles between snowing and not snowing. 
+											<li><b>Target Multiplier</b> - Takes a number, defining a multiplier to determine number of particles. 
+										</ul>
+										<li><b>Peasant</b> 
+										<ul>
+											<li>No additional subordinate parameters. 
+										</ul>
+										<li><b>Pick Up Object</b> 
+										<ul>
+											<li><b>Object</b> - Takes an object identifier, defining which object to pick up. 
+											<li><b>Monsters</b> - Takes monster identifiers, defining which monsters to pick the object up. 
+										</ul>
+										<li><b>Netgame Time</b> 
+										<ul>
+											<li><b>Planning Time Over</b> - Takes a flag, if true the action succeeds if planning time has expired. 
+											<li><b>Sudden Death</b> - Takes a flag, if true the action succeeds if sudden death is in progress. 
+											<li><b>Game Over</b> - Takes a flag, if true the action succeeds if the game is over. 
+											<li><b>Time Remaining Less Than</b> - Takes a number, if remaining game time (not including Sudden Death) is less than this number, the action succeeds. 
+										</ul>
+										<li><b>Platoon</b> 
+										<ul>
+											<li><b>Initial State</b> - Takes an action identifier, defining the starting state. 
+											<li><b>Initial Squads</b> - Takes action identifiers, defining the the initial squads comprising the platoon. 
+											<li><b>Centerpoint</b> - Takes a world point, defining the unit's initial centerpoint. 
+											<li><b>Facing</b> - Takes an angle, defining the unit's initial facing. 
+											<li><b>Allies</b> - Takes action identifiers, defining the other platoons which may be called when attacking. 
+										</ul>
+										<li><b>Platoon Movement</b> 
+										<ul>
+											<li><b>Waypoints</b> - Takes world points, defining which points to use as waypoints. 
+											<li><b>Waypoint Radii</b> - Takes radii, defining the random radius at each waypoint. 
+											<li><b>Radii</b> - Takes radii, defining the minimum and maximum distances for detecting and attacking enemies. 
+											<li><b>Loop Flag</b> - Takes a flag, if true loops through the waypoints. 
+											<li><b>Charge Flag</b> - Takes a flag, if true charge when an attack is ordered. 
+											<li><b>Interpolate Flag</b> - Takes a flag, if true interpolates between waypoints. 
+											<li><b>Interpolant Spacing</b> - Takes a number, defining the distance between interpolated waypoints. 
+											<li><b>Congregate Flag</b> - Takes a flag, if true the platoon will congregate toward its apparent center before moving toward the first waypoint. 
+										</ul>
+										<li><b>Platoon Scouting</b> 
+										<ul>
+											<li><b>Waypoints</b> - Takes world points, defining the list of waypoints to use. 
+											<li><b>Waypoint Radii</b> - Takes radii, defining the random radius at each waypoint. 
+											<li><b>Radii</b> - Takes radii, defining the minimum and maximum distances for detecting and attacking enemies. 
+											<li><b>Loop Flag</b> - Takes a flag, if true loops through the waypoints. 
+											<li><b>Charge Flag</b> - Takes a flag, if true charge when an attack is ordered. 
+											<li><b>Interpolate Flag</b> - Takes a flag, if true interpolates between waypoints. 
+											<li><b>Interpolant Spacing</b> - Takes a number, defining the distance between interpolated waypoints. 
+											<li><b>Congregate Flag</b> - Takes a flag, if true the platoon will congregate toward its apparent center before moving toward the first waypoint. 
+										</ul>
+										<li><b>Prohibited Netgame Teams</b> 
+										<ul>
+											<li><b>* This Map Action is not fully implemented and can cause problems such as incorrect team counts and false game reporting.</b> 
+											<li><b>Game Type + Team Indexes</b> - Takes two numbers, the first is the number of the game type and the second is the team to be removed. As many of these as required can be added to the same action. 
+										</ul>
+										<li><b>Rout</b> 
+										<ul>
+											<li><b>Destinations</b> - Takes world points, defining the positions to run to when routed. 
+											<li><b>Subject</b> - Takes monster identifiers, defining the monsters to rout. 
+										</ul>
+										<li><b>Shaman</b> 
+										<ul>
+											<li><b>Shaman</b> - Takes a monster identifier, defining the shaman to control. 
+											<li><b>Allies</b> - Takes monster identifiers, defining the allies that the shaman tries to heal. 
+											<li><b>Vitality Threshhold</b> - Takes a number, determining the health level of allies before the shaman tries to heal them. 
+											<li><b>Fallback Action Identifier</b> - Takes an action identifier, defining which action to trigger if the shaman has nobody to heal. 
+										</ul>
+										<li><b>Action Sniffing</b> 
+										<ul>
+											<li><b>Test Case</b> - Takes a number, defining which case to test for. 
+											<li><b>Don't Clear Flag</b> - Takes a flag, if true don't clear the test case after success. 
+											<li><b>Keep Reporting Errors</b> After Initial Success Flag - Takes a flag, if true keep reporting errors after the action is successful the first time. 
+											<li><b>Time Between Errors</b> - Takes a number, defining the minimum time between reporting errors. 
+											<li><b>Delay Before Announcing Errors</b> - Takes a number, defining how long to wait before beginning to report errors. 
+										</ul>
+										<li><b>Soaring</b> 
+										<ul>
+											<li>No additional subordinate parameters--this map action is called from the unit via its Map Action attribute. You can use <a href="fear.html#mons">Fear</a> to edit this characteristic. 
+										</ul>
+										<li><b>Sound Action</b> 
+										<ul>
+											<li><b>Sound Tag</b> - Takes a sound, defines the sound to use. 
+											<li><b>Monster</b> - Takes a monster identifier, defining which monster generates the sound. 
+											<li><b>Override Flag</b> - Takes a flag, if true the monster will generate the sound despite any player commands that have been issued. 
+										</ul>
+										<li><b>Group Split Up</b> 
+										<ul>
+											<li><b>Threshholds</b> - Takes numbers, defining surviving monster counts. 
+											<li><b>Setup Action Pointers</b> - Takes field names, defining setup action lists. 
+										</ul>
+										<li><b>Squad</b> 
+										<ul>
+											<li><b>Centerpoint</b> - Takes a world point, defining the centerpoint of the squad. 
+											<li><b>Facing</b> - Takes an angle, defining the facing of the squad. 
+											<li><b>Formation</b> - Takes a number, defining the formation to assume while walking between waypoints. 
+											<li><b>Monsters</b> - Takes monster identifiers, defining the monsters in the squad. 
+										</ul>
+										<li><b>Suicide (for wights) </b>
+										<ul>
+											<li><b>Subjects</b> - Takes monster identifiers, defining the monsters to suicide with. 
+											<li><b>Visibility Radius</b> - Takes a radius, defining the area around the suiciding area that is visible. 
+											<li><b>Fear Duration</b> - Takes a number, defining the amount a time the unit will wait before trusting that enemy missile units are no longer paying attention. 
+											<li><b>Enemy Detonation Threshold</b> - Takes a number, defining the number of enemy units must be adjacent before detonating. 
+											<li><b>Power Over Distance Threshhold</b> - Takes a radius, defining how far to look for a more powerful unit than the closest one. 
+											<li><b>Detonation Radius</b> - Takes a radius, defining how big a detonation radius there will be. 
+											<li><b>Minimum Power Threshhold</b> - Takes a number, defining the minimum enemy strength before attacking. 
+											<li><b>Initial Delay</b> - Takes a number, defining the minumum amount of time before the units start caring. 
+											<li><b>Activate On Casualty</b> - Takes action identifiers, defining which actions to activate when a casualty occurs. 
+											<li><b>Inhibition</b> - Takes an action identifier, determining which units to prevent from creating. 
+											<li><b>Never Avoid</b> - Takes a flag, if true will never attempt to avoid the enemy during a charge. 
+										</ul>
+										<li><b>Surround</b> 
+										<ul>
+											<li><b>Units Lost Before Attacking</b> - Takes a number, defining the maximum number of units which may be lost before triggering an attack. 
+											<li><b>Time Before Attacking</b> - Takes a number, defining how long to wait before attacking. 
+											<li><b>Activate On Attack</b> - Takes action identifiers, defining which actions to activate when the attack is triggered. 
+											<li><b>Subject</b> - Takes monster identifiers, defining the monsters used to surround with. 
+										</ul>
+										<li><b>Test Unit</b> 
+										<ul>
+											<li><b>Unit Count Greater Than</b> - Takes a number, and tests for a unit count greater than it. 
+											<li><b>Unit Count Less Than</b> - Takes a number, and tests for a unit count less than it. 
+											<li><b>Unit Count Equal To</b> - Takes a number, and tests for a unit count equal to it. 
+											<li><b>Polygon</b> - Takes world points, defining a polygon to use for the test. 
+											<li><b>Closed Polygon Flag</b> - Takes a flag, if true the polygon is closed. 
+											<li><b>Reversed Polygon Flag</b> - Takes a flag, if true tests for monsters outside of the polygon. 
+											<li><b>Vitality Greater Than</b> - Takes a number, and tests for cumulative vitality greater than it. 
+											<li><b>Vitality Less Than</b> - Takes a number, and tests for cumulative vitality less than it. 
+											<li><b>Change in Vitality</b> - Takes a number, and tests for a change in vitality greater than it. 
+											<li><b>Power Greater Than</b> - Takes a number, and tests for cumulative power greater than it. 
+											<li><b>Power Less Than</b> - Takes a number, and tests for cumulative power less than it. 
+											<li><b>Difficulty Greater Than or Equal To</b> - Takes a number, and tests for a difficulty greater than or equal to it. 
+											<li><b>Difficulty Less Than or Equal To</b> - Takes a number, and tests for a difficulty less than or equal to it. 
+											<li><b>Power Ratio Less Than</b> - Takes a number, and tests for a power ratio less than it. 
+											<li><b>Power Ratio Greater Than</b> - Takes a number, and tests for a power ratio greater than it. 
+											<li><b>Received User Command</b> - Takes a flag, if true tests whether or not the unit has received a command from the user. 
+											<li><b>Object Held</b> - Takes an monster identifier, and tests whether the unit is holding anything. 
+											<li><b>Object Held By aLl Units Flag</b> - Takes a flag, and tests whether all units are holding the object. 
+											<li><b>Object Test Radius</b> - Takes a world point and a radius, and tests whether an object is in the area. 
+											<li><b>Radius About Centerpoint</b> - Takes a radius, and tests for points in the resulting circle. 
+											<li><b>Enemy List</b> - Takes monster identifiers, defining a list of enemies to use for the Enemy Closer Than radius test. 
+											<li><b>Enemy Closer Than Radius</b> - Takes a radius, and tests whether there are enemies within the given radius of the subject. 
+											<li><b>Ignore Invisible Units Flag</b> - Takes a flag, if true forbids test from acknowledging magically invisible units withing the radius. 
+										</ul>
+										<li><b>Wandering Movement</b> 
+										<ul>
+											<li><b>Centerpoint</b> - Takes a world point, defining the centerpoint of the wandering. 
+											<li><b>Wander Radius</b> - Takes a radius, defining the radius within which to wander. 
+											<li><b>Monsters</b> - Takes monster identifiers, defining which monsters are wanderers. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="Anchor"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td bgcolor="#330000"><b>Appendix A</b></td>
+								<td align="right"></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000" colspan="2">GenericActionPass (parameter set) 
+									<blockquote>
+										<p>{</p>
+										<p>if (this.status != Active)</p>
+										<blockquote>
+											<p>{</p>
+											<p>switch (this.status)</p>
+											<blockquote>
+												<p>{</p>
+												<p>case Deactivating: //Activate specially flagged actions</p>
+												<blockquote>
+													<p>ActivateOnDeactivate(action1);</p>
+													<p>ActivateOnDeactivate(action2);</p>
+													<p>break;</p>
+												</blockquote>
+												<p>case Inactive: //It's dead - do nothing;</p>
+												<blockquote>
+													<p>break;</p>
+												</blockquote>
+												<p>case Activating: //Activate specially flagged actions</p>
+												<blockquote>
+													<p>ActivateOnActivate(action3);</p>
+													<p>ActivateOnActivate(action4);</p>
+													<p>break;</p>
+												</blockquote>
+												<p>case Error: //Activate specially flagged actions</p>
+												<blockquote>
+													<p>ActivateOnError(action5);</p>
+													<p>ActivateOnError(action6);</p>
+													<p>break;</p>
+												</blockquote>
+												<p>case Successful: //Activate specially flagged actions</p>
+												<blockquote>
+													<p>ActivateOnSuccess(action7);</p>
+													<p>ActivateOnSuccess(action8);</p>
+													<p>break;</p>
+												</blockquote>
+												<p>case Failure: //Activate specially flagged actions</p>
+												<blockquote>
+													<p>ActivateOnFailure(action9);</p>
+													<p>ActivateOnFailure(action10);</p>
+													<p>break;</p>
+												</blockquote>
+												<p>}</p>
+											</blockquote>
+											<p>}</p>
+										</blockquote>
+										<p>else</p>
+										<blockquote>
+											<p>{</p>
+											<p>&lt;execute action body&gt; //Do whatever the main function of the action is</p>
+											<p>}</blockquote>
+									</blockquote>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><img height="39" width="32" src="gfx/ghol.gif"></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td bgcolor="#330000"><b>Section V: Contributors and Credits</b></td>
+								<td align="right"></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="contributors"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td><b>Contributors and Credits</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#220000">The following people contributed their time and effort to this manual, a sacrifice for which we offer our thanks, adoration, and first born children: 
+									<p><b>Credits</b></p>
+									<ul>
+										<li><b>John Scott</b> (Bellendaine), editor in chief 
+										<li><b>Chris Barrett</b> (plague) 
+										<li><b>Nathan Bastian</b> (Bastian) 
+										<li><b>Joe Doll</b> (Fly Molo) 
+										<li><b>Chris Dreessen</b> (Manus Celer Dei) 
+										<li><b>Chris Schaefgen</b> (Hoder) 
+										<li><b>David Shaw</b> (Arkham) 
+										<li><b>James Trevett</b> (Setik) 
+										<li><b>Tyson Green</b> (Ferrex the Dead) 
+									</ul>
+									<p><b>Special Thanks to:</b></p>
+									<ul>
+										<li><b>Jamie Griesemer</b> (Case) 
+										<li><b>Darren Bahr</b> (Khayman) 
+										<li><b>Max Hoberman</b> (Yeroen) 
+									</ul>
+									<center>
+										<p>Bungie Software cannot provide phone-support for Loathing or its documentation.<br>
+										Any updates to this manual, or to Loathing itself, will be made available via Bungie's website. <br>
+										Keep tuned to &lt;http://www.bungie.com/mythii&gt; for details.</center>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#330000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#330000">
+							<tr>
+								<td>
+									<center>
+										<b>Loathing and Myth II copyright 1998 <a href="http://www.bungie.com">Bungie Software</a></b></center>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#330000">
+				<tr>
+					<td width="50%" align="center"><b>Loathing Documentation</b></td>
+					<td align="center" bgcolor="#000033"><a href="fear.html"><b>Fear Documentation</b></a></td>
+				</tr>
+			</table></center>
+	</body>
+
+</html>

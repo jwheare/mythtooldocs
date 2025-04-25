@@ -1,0 +1,1756 @@
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="GoLive CyberStudio 3">
+		<title>Fear Documentation</title>
+	</head>
+
+	<body bgcolor="#000022" text="white" link="#eeeeff" vlink="#eeeeff">
+		<center>
+			<table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#330000">
+				<tr>
+					<td width="50%" align="center"><a href="loathing.html"><b>Loathing Documentation</b></a></td>
+					<td align="center" bgcolor="#000033"><b>Fear Documentation</b></td>
+				</tr>
+			</table>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b><img height="51" width="336" src="gfx/header.gif" hspace="15"></b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Section I: A Brief Introduction to Fear</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Introduction</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">&quot;Hmm, I wonder how large of an explosion I can make...&quot; 
+									<p>For many of us, this was the question that started us down the dark path of playing with Myth's tags. The innate desire to cause as much destruction as humanly possible. No more than a month after Myth: The Fallen Lords shipped, people were using hex editing tools to create lightning shooting archers, gigaton wights, and dwarves who could create some absolutely mind bending carnage.</p>
+									<p>Of course, after a little while, many of us mellowed out a bit and started playing with other things. And although we were still using hex editors and some basic, third party editors, we managed to create some awfully nifty stuff. I still vividly remember the first time I witnessed the seemingly mundane glory of a barrel exploding into a plethora of dwarf heads. Hey, nobody else had done it before.</p>
+									<p>Now, instead of figuring out the difference between the hexadecimal digits FF and 00, we have Fear. Fear is kind of like every Myth editor's dream application, a straightforward program that finally lays bare things people sacrificed months to decipher, often unsuccessfully. There are literally hundreds of things that were never understood, never uncovered, and never even suspected that Fear now lets us play with. </p>
+									<p>Things with names like Initial Z Deviation and J Component of a Wobble Phase Multiplier. Scary, eh? Think of this document as a dictionary. It contains explanations for all sorts of things you might have never understood, and definitions for all sorts of things you probably never cared about. </p>
+									<p>It is also, coincidentally, the kind of thing that only a masochist will sit down and read in one sitting. The whole idea behind this document is to teach you the basics, and then provide a reference that you can fall back on when you don't understand something. Flip to the section you need to read, and ignore the rest. You don't, after all, read the entire M section of a dictionary when trying to figure out what masochist means, do you?</p>
+									<p>So, now that you've slogged through that, it's time to start playing. Like meaty morsels dropped in a pool of piranhas, Fear and Loathing are going to stir up the waters a bit. Let the games begin.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>What Fear Does</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Fear is a tag editor. It edits simple tags, complicated tags, tags of all shapes and sizes (with the exception of a few tags that it doesn't like). 
+									<p>Fine. So, what's a tag?</p>
+									<p>Myth II uses small data structures called tags to store all sorts of information, from models to sounds to collection. Simply think of them as data files for Myth, and you should have no problems. Tag files come in three varieties: single tag files, monolithic tag files, and plugin files. </p>
+									<p>The single tag files are just that, a single tag contained in a standalone file. These files are found in the local folder, inside sub-folders that organize these files into their respective types, such as projectiles or monsters. Standalone tags, when placed in the right spots, override or are added to existing tags found in the monolithic tag files.</p>
+									<p>Monolithic tag files are simply collections of tags neatly wrapped up in a single, easy to handle file. Since Myth II uses several hundred tags, these files are both easier to manage than hundreds of single tag files, and waste less disk space. The only problem is that no changes can be made to these files; you'll see why in the Saving Tags section. Instead, the tags contained within these monolithic tag files are overridden by single tags in the local folder. This way, you can make changes to these small, external files to your heart's content, but you will always have a clean version waiting to back you up.</p>
+									<p>Plugin files are kind of like miniature monolithic files that are generally used to organize and distribute the tags you have created. When you build a plugin file, all of the tags in your local folder are gathered up, neatly labeled, and placed in your plugins folder. You can then distribute these files, which often contain new maps but can be used for just about anything. Remember, Myth II will automatically load up any plugins that contain one or more mesh tags, and any changes to units or physics or anything else will only affect those contained meshes. Any tags that don't contain meshes (often new or modified units) must be manually loaded in your Netgame Options screen. Any tags in these files will affect all maps and meshes, so be careful what you enable. Finally, keep in mind that you cannot edit a plugin file--the tags contained within plugins are not loaded by Fear. You will have to edit your original tags as standalone tag files, and then (once they're finished) build a new plugin.</p>
+									<p>Back on topic, what Fear does is edit these tags. Since tags are broken down into different types, Fear has different editors for each flavor of tag. For example, a monster tag is very different than a mesh tag. If you tried to edit one with the other's editor, you'd wind up with interesting (and very disappointing) results. When you open a tag, Fear automatically loads the correct editor, and you can go right to work.</p>
+									<p>By editing tags, you can change almost anything in Myth. Seriously. Units, physics, maps, interfaces. While Fear can't completely edit some objects (such as mesh objects, which are edited by Loathing), it covers most of the bases, and can be used to create some pretty nifty stuff. </p>
+									<p>And now, without further ado, it is time to learn something useful (wipe that scowl off your face).</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Table of Contents</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">It's a big document out there... 
+									<p><b>Section II: The Actual Use of Fear</b></p>
+									<ul>
+										<li><a href="#installing"><b>Installing Fear</b></a> 
+										<li><a href="#opening"><b>Opening and Editing Tags</b></a> 
+										<li><a href="#saving"><b>Saving Tags</b></a> 
+										<li><a href="#menus"><b>The Menus</b></a> 
+										<li><a href="#info"><b>Getting Info</b></a> 
+										<li><a href="#notes"><b>Last Notes</b></a> 
+									</ul>
+									<p><b>Section III: Tag Specific Documentation</b></p>
+									<ul>
+										<li><a href="#amso"><b>ambient sounds</b></a> 
+										<li><a href="#arti"><b>artifacts</b></a> 
+										<li><a href="#core"><b>collection references</b></a> 
+										<li><a href="#256"><b>collections</b></a> 
+										<li><a href="#conn"><b>connectors</b></a> 
+										<li><a href="#ditl"><b>dialog string lists</b></a> 
+										<li><a href="#bina"><b>dialogs</b></a> 
+										<li><a href="#font"><b>fonts</b></a> 
+										<li><a href="#form"><b>formations</b></a> 
+										<li><a href="#geom"><b>geometries</b></a> 
+										<li><a href="#inte"><b>interface</b></a> 
+										<li><a href="#ligh"><b>lightning</b></a> 
+										<li><a href="#phys"><b>local physics</b></a> 
+										<li><a href="#lpgr"><b>local projectile groups</b></a> 
+										<li><a href="#medi"><b>media types</b></a> 
+										<li><a href="#meef"><b>mesh effects</b></a> 
+										<li><a href="#meli"><b>mesh lighting</b></a> 
+										<li><a href="#mesh"><b>meshes</b></a> 
+										<li><a href="#anim"><b>model animations</b></a> 
+										<li><a href="#mode"><b>models</b></a> 
+										<li><a href="#mons"><b>monsters</b></a> 
+										<li><a href="#obje"><b>objects</b></a> 
+										<li><a href="#obpc"><b>observer constants</b></a> 
+										<li><a href="#part"><b>particle systems</b></a> 
+										<li><a href="#pref"><b>preferences</b></a> 
+										<li><a href="#prel"><b>preloaded data</b></a> 
+										<li><a href="#prgr"><b>projectile groups</b></a> 
+										<li><a href="#proj"><b>projectiles</b></a> 
+										<li><a href="#reco"><b>recordings</b></a> 
+										<li><a href="#save"><b>saved games</b></a> 
+										<li><a href="#scen"><b>scenery</b></a><a href="#scen"> </a>
+										<li><a href="#soli"><b>sound lists</b></a> 
+										<li><a href="#soun"><b>sounds</b></a> 
+										<li><a href="#stli"><b>string lists</b></a> 
+										<li><a href="#temp"><b>templates</b></a> 
+										<li><a href="#text"><b>text</b></a> 
+										<li><a href="#unit"><b>units</b></a> 
+										<li><a href="#wind"><b>wind</b></a> 
+									</ul>
+									<p><b>Section IV: Some Other Miscellany Stuff</b></p>
+									<ul>
+										<li><a href="#tips"><b>Tips and Advice</b></a> 
+										<li><a href="#thanks"><b>Special Thanks</b></a> 
+									</ul>
+									<p>Fin.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><img height="40" width="25" src="gfx/dorf.gif"></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Section II: The Actual Use of Fear</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="installing"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Installing Fear</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">In order to do its work, Fear needs to be placed in the same folder as the Myth II application. More specifically, it must be in the same folder as the tags folder, from which it reads and loads the tags for you to edit. 
+									<p>On both the PC and Mac platforms, you will need to do a &quot;Custom Install&quot; to get Fear onto your hard drive. See the &quot;Read Me&quot; text on the Myth II CD for more information.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="opening"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Opening and Editing Tags</b></td>
+								<td align="right"><a href="gfx/Picture01.gif"><b>Image: Main Tags Group List</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Opening tags is really very easy. If Fear is in the right place (that is, the same folder as the tags and local folders), you simply need to launch the Fear application to get started. Upon launch, Fear will automatically scan your tags and local folder, and create a list of all available tags. 
+									<p>To start with, Fear will display a list of installed tag groups. These are collections of similar tags, such as artifacts, sounds, or scenery. Beside the group name is a number that tells you how many tags are contained in these groups. Some, like observer constants, will probably never have more than one, but others can contain hundreds of tags. Double clicking on any of these groups will open a new window containing a list of that group's tags. </p>
+									<p>In some cases, you will notice that the tag names are in bold or plain text. If a tag's name is in bold text, it means that that tag is contained in a grouped tag file; at first, most of the tags will have bold names. Plain text names, on the other hand, mean that the tag is contained in a single tag file inside the local folder. The distinction isn't really important until it comes to saving files.</p>
+									<p>Kudos to you if you've guessed the next step: find the tag you want to edit, and then double click on it. If Fear is able to edit that tag, it will open in the appropriate editor. If not, nothing will happen; if you are madly clicking on a tag and it isn't opening, odds are Fear can do nothing with it.</p>
+									<p>Since each tag editor is different, they will be covered in greater detail later, though the suspense is no doubt killing you by now...</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="saving"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Saving Tags</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Here is one area where Fear is different than the majority of applications. If you venture into the File menu, you will notice that Fear has no Save options. The reason for this is simple--Fear saves changes automatically. 
+									<p>If you open a tag, make any changes (sometimes even this isn't necessary), and then click the omnipresent OK button, Fear will create a new single tag file in the appropriate group folder inside the local folder. If there is already an identical tag in there, Fear will overwrite it. Here is where the bold and plain names become very important. If you are editing a bold named, grouped tag, Fear will create a new single tag--your changes won't affect the original. However, if you are editing a plain named, standalone tag, the changes will overwrite the original tag file in the local folder. The moment you click the OK button, your changes are saved--if you've messed up, hit the Cancel button and try again.</p>
+									<p>When you're making serious changes to an object, you should follow the time honored practice of backing up your original local folder. Fear has no Revert command, but you can always toss the local folder and start with a fresh copy or a backup.</p>
+									<p>Now then, you know how to open and save tags. Time to make ugly, and start actually editing those things.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="menus"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>The Menus</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Fear doesn't have many menu commands, but those that it does have are very handy. 
+									<p><b>File Menu</b></p>
+									<ul>
+										<li><b>New Tag</b> - This command creates a new tag file in the group whose window is currently open. For example, if you have the meshes group window open, this tag will create a new mesh tag. 
+										<li><b>Open</b> - This command is disabled-- you can safely ignore it. 
+										<li><b>Close</b> - This closes the currently open window. No surprises here. 
+										<li><b>Get Info</b> - This brings up information on the currently selected tag. More on this in a later section. 
+										<li><b>Build</b> 
+										<ul>
+											<li><b>Build Monolithic Tag Files</b> - This command takes all of the tags present in your tags and local folders, and rolls them into complete, grouped tag files. Since this is not reversible, you should make sure that everything is working nicely first. In most cases, you shouldn't use this anyway--building plugin files is much more convenient. 
+											<li><b>Build Plug-in File</b> - This command takes all of the tags in your local folder, and rolls them into a plugin file which you can name. This file is automatically placed in your plugins folder. Once you've finished creating and modifying tags, this is awfully handy for distributing them. 
+										</ul>
+										<li><b>Import</b> 
+										<ul>
+											<li><b>Overhead Map</b> - This command is used to import a pict file for use as an overhead map in a netmap. It imports it, names it, and creates a new collection tag for it. The Windows version of Fear does the same, except that it imports Windows bitmap files. 
+											<li><b>Netgame Preview</b> - This command is for importing a 377x190 pixel pict file bitmap on PCs) for use as a netmap pregame screen... otherwise, it works exactly like importing an overhead map. 
+											<li><b>Plugin Icon</b> - This command is for importing a 415x120 pixel pict file (yup, bitmap on PCs) for use as a plugin preview screen (as seen in the plugins dialog when you select a plugin). The plugin icon is stored in a special, hidden collection type, and when you build a plugin, it will automatically use the last plugin icon you imported. 
+										</ul>
+										<li><b>Load Tag From Data File...</b> - This command is for loading dialog information from external dialog editors. You probably won't ever have to use this. 
+										<li><b>Dump Text For Group</b> - This is used to make Fear dump all of the text present in the highlighted group. Handy for extracting text or string lists, but mostly useless for other tags. 
+										<li><b>Quit</b> - This command, upon being used, causes the world to end in a blazing fireball. Please, use it responsibly. 
+									</ul>
+									<p><b>Edit Menu</b></p>
+									<ul>
+										<li><b>Duplicate</b> - This command is used to duplicate a highlighted tag. This is really handy when you want to create a new tag, but don't want to start from scratch. Want to make that Screaming Iron Assault Dwarf? Duplicate the dwarf tags and work from there. 
+										<li><b>Remove</b> - I don't think this works... 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="info"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Getting Info</b></td>
+								<td align="right"><a href="gfx/Picture31.gif"><b>Image: Get Info Dialog</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">The Get Info box, summoned by highlighting a tag (not a tag group...), and selecting Get Info from the File menu, is a handy little beast. 
+									<p><b>Get Info Dialog</b></p>
+									<ul>
+										<li><b>Group</b> - This is the group to which this tag belongs, such as meshes or projectiles. The four letters in the parentheses are the abbreviation for that group-mesh for meshes, proj for projectiles, and so on. 
+										<li><b>Subgroup</b> - This the tag's abbreviated name, which Myth II actually pays attention to (it ignores the name, and deals with this instead). You can pretty much ignore this. 
+										<li><b>Size</b> - This is the size of the tag in bytes. Remember, approximately 1,048,576 bytes is one meg (whee, useless trivia!). 
+										<li><b>Version</b> - This is the version of Fear that this tag was created and last edited with. You can ignore it. 
+										<li><b>Destination</b> - This is a filing setting-the grouped tag file selected in this pop-up is where this tag will go when someone uses the Build Monolithic Tag Files command in the File menu. While its location does not affect editing or use in any way, it is sometimes helpful to organize some tags into the appropriate grouped tag files. For example, most collections and sounds are marked to go in the large install file, as they are rather large and unnecessary for small installs. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="notes"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Last Notes...</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Fear, being the creation of a bunch of programmers for use by another bunch of programmers, has a few little things that may catch some people off guard. Here's a few of them. 
+									<p><b>Notes</b></p>
+									<ul>
+										<li><b>Random Ranges</b> - If you see two number fields right beside each other, separated by the word &quot;to&quot;, you are dealing with a random range. They're really quite easy--Myth II simply chooses a random number from between the two numbers you give. The first field should always be smaller than the second, but if you ever want a random range to contain a constant value, just make the minimum (first field) and maximum (second field) the same value, and there you go. Myth II will always select this value. 
+										<li><b>Fractions</b> - These are actually just decimal numbers ranging from 0.00 and up, usually to 1.00 (thought it can certainly go higher). It is easiest just to think of these like percents--1.00 is 100%, 0.50 is 50%, and 0.00 is 0%. You will often see these where you have random chance events, such as the chance a bottle has of exploding when it hits the ground. Just remember that 1.00 is full, and 0.00 is nothing. 
+										<li><b>I, J, K Components</b> - These are just a different name for the X, Y, and Z components that we all know and love. I is X, or east and west across a map. J is Y, or north and south on a map. K is Z, or up and down in a direction perpendicular to the mesh. You will see a lot of these in the local physics objects, and scattered here and there throughout Fear. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><img height="40" width="25" src="gfx/dorf.gif"></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Section III: Tag Specific Documentation</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="amso"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>ambient sounds (amso)</b></td>
+								<td align="right"><a href="gfx/Picture02.gif"><b>Image: Ambient Sound Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Ambient sounds are the sounds you hear in the background while you're playing. These can be anything from soothing natural noises to the cries of a boxing announcer (as implemented in some hilarious third party maps). While you can't actually edit the sound itself, you can modify some of its behaviors. 
+									<p><b>ambient sounds Tag Anatomy</b></p>
+									<ul>
+										<li><b>Background Sound</b> - This is the sound that is constantly played in the background, the ambient component of this ambient sound. 
+										<li><b>Random Sound</b> - This sound is randomly played according to characteristics defined below, the random component of the ambient sound. 
+										<li><b>Inner Radius</b> - This is the inner radius of the sound, or the blue circle when viewed in Loathing. 
+										<li><b>Outer Radius</b> - This is the outer radius of the sound, or the cyan circle when viewed in Loathing. 
+										<li><b>Period (seconds)</b> - This is the range that defines the random sound's period. The period of the random sound is the delay between each time it plays. The number is randomly selected from between the two numbers entered--to make it a constant value, enter the same numbers on both sides. Large period values result in less frequent random sounds, while short ones make the sound more common. 
+										<li><b>Random Sound Radius</b> - This is the radius in which the random sound is audible. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="arti"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>artifacts (arti)</b></td>
+								<td align="right"><a href="gfx/Picture03.gif"><b>Image: Artifact Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Artifacts are those nifty items you can find in the Myth world that modify the traits of the units that find them. They can be anything from a slight improvement (such as a charm to ward off paralysis) to an armageddon weapon that only your Screaming Iron Assault Dwarf can handle. 
+									<p><b>artifacts Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection</b> - This pop-up allows you to select the sprite collection that this artifact uses. 
+										<li><b>Monster Restriction Tag</b> - This pop-up allows you to select the type of unit that can pick up this artifact. You might, for example, limit a magic sword to berserks, or a magical staff to warlock. 
+										<li><b>Specialization Restriction</b> - No idea... it's probably not implemented, though, since it has no effect. 
+										<li><b>Special Ability</b> - This allows you to select the string list which contains the special ability text used by this artifact. 
+										<li><b>Initial Charges</b> - This range contains the number of uses (ammo) this artifact initially contains. 
+										<li><b>Flags</b> 
+										<ul>
+											<li><b>Overrides Owner Attack</b> - If this is checked, this item overrides the attack of the unit that picks it up. 
+											<li><b>Vanishes After Last Charge</b> - If this is checked, the artifact disappears after its final charge is used. Otherwise, it still hangs around. 
+										</ul>
+										<li><b>Artifact Sequences (window)</b> 
+										<ul>
+											<li><b>Inventory</b> - This pop-up allows you to select the sequence that will be used for the artifact's inventory icon. 
+										</ul>
+										<li><b>Artifact Projectiles (window)</b> 
+										<ul>
+											<li><b>Projectile</b> - This pop-up allows you to select the projectile that represents this artifact, not the projectile its attack might generate. 
+										</ul>
+										<li><b>Effect Modifiers (window)</b> - This set of modifiers override the unit's object damage modifiers. Each is a fraction that is applied to the damage of the appropriate type that is suffered by the holder of the artifact. 1.00 means that there is no change--the unit suffers damage as normal. A value of 2.00, on the other hand, would result in double damage, and a damage type of 0.50 would result in half damage. And 0.00...well, can you say Amulet of Utterly Senseless Invincibility? 
+										<li><b>Override Attack (window)</b> - This window is identical to the attack edit window in the monster tag section. Please refer to it for more information on editing the artifact's override attack. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="core"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>collection references (core)</b></td>
+								<td align="right"><a href="gfx/Picture04.gif"><b>Image: Collection Reference Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Collection references are sort of like collection modifiers--they take a collection, and play with its tints and colors to create various permutations of a sprite set, allowing one to considerably alter a collection without creating an entirely new sprite set. 
+									<p><b>collection references Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection</b> - This allows you to select the collection referred to (and altered by) this collection reference. 
+										<li><b>Sprite Preview (un-named)</b> - This area and buttons (Previous and Next) allow you to take a look at the sprites you are altering. Note that the sprite is automatically scaled to fill the area. 
+										<li><b>Permutation List (un-named)</b> - This list allows you to add or delete new permutations, whose colors can be altered in the color list. 
+										<li><b>Color List (un-named)</b> - This list shows all of the color available to alter within this collection. Double clicking on a color brings up the Color Edit window. It should be noted that the &quot;primary&quot; and &quot;secondary&quot; colors take on a special meaning in netgames--these colors are overridden by a player's chosen primary and secondary colors. 
+										<li><b>Tint</b> 
+										<ul>
+											<li><b>Tint Fraction</b> - This color is used to tint the sprites, which allows you to do such things as tint a sprite with black to darken it for a nighttime map. Darkened units, darkened trees, and darkened projectiles all look better on a dark map than bright, happy daytime units. 
+											<li><b>Edit Tint Color</b> - This button brings up the Color Edit window, which is used to select the tint color. 
+										</ul>
+										<li><b>Color Edit (window)</b> 
+										<ul>
+											<li><b>Color (un-named)</b> - This is the color (Wow! Really?). Clicking on the color brings up a color picker, so you can change it relatively easily. 
+											<li><b>Color Flags</b> 
+											<ul>
+												<li><b>Is Reversed</b> - We can't remember exactly what this does... 
+												<li><b>Uses Global Tint</b> - If this is flagged, the Global Tint of the mesh (see mesh object) is used in lieu of this color. 
+												<li><b>Is Unused</b> - True to its name, this flag is unused. Ignore it. 
+											</ul>
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="256"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>collections (.256)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Collections are collections of graphics and sprites. Myth editing veterans will recognize these as .256 objects, where all of Myth's graphical elements are stored. 
+									<p>However, Fear cannot edit these tags-- they require an external, third party editor due to the sheer complexity of editing, importing, and exporting sprites.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="conn"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>connectors (conn)</b></td>
+								<td align="right"><a href="gfx/Picture05.gif"><b>Image: Connector Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Connectors are the things that are strung between scenery objects to create fences and other such objects. 
+									<p><b>connectors Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection Reference</b> - This pop-up allows you to select the collection reference used by this connector. 
+										<li><b>Normal</b> - This pop-up allows you to select the normal, undamaged sequence for this connector. 
+										<li><b>Damaged</b> - This pop-up is for selecting the sequence to be used when the connector is damaged. 
+										<li><b>Origin Height Fraction</b> - This number is the height (on the pole object sprite) that the connector is drawn. This is used to adjust the height of the sprite, so that it isn't on the ground and actually appears to be properly strung between the fence posts. 
+										<li><b>Interpolant Distance</b> - This is the distance (in world units) at which the connector sprite is repeated. This is used to create smooth, unbroken connectors--if this value is too large, there will be gaps between repetitions of the sprites, which (in terms of realism) Officially Sucks. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="ditl"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>dialog string lists (ditl)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">These are actually just another type of string list (more on these later). These string lists contain (surprise surprise!) lists of strings that are used by Myth II's dialog boxes. The reason they are separated is a closely guarded secret, but rest assured that it has nothing to do with mind control lasers or orbital mirrors. 
+									<p>If you ever feel a burning need to edit the strings in Myth II's error messages, look no further than these tags.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="bina"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>dialogs (bina)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Dialogs are the screens and boxes used by the Myth interface to give and receive information. Every window and dialog box is defined by one of these tags. 
+									<p>However, Fear cannot edit these tags-- they require external tools to be modified, which generally isn't a very good idea anyway. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="font"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>fonts (font)</b></td>
+								<td align="right"><a href="gfx/Picture06.gif"><b>Image: Font Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Fonts are, surprisingly enough, fonts used by the Myth application. While there isn't much you can do to these tags inside of Fear, you can play around with a few things. 
+									<p><b>fonts Tag Anatomy</b></p>
+									<ul>
+										<li><b>Styles</b> 
+										<ul>
+											<li><b>Italic</b> - This is the font that is substituted for this font when a |i switch is typed (a pipe followed by an I, the familiar italic text switch). 
+											<li><b>Bold</b> - This is the font that is substituted for this font when the |b switch is typed. 
+											<li><b>Condensed</b> - This is the font that is substituted for this font when the |c switch is typed. 
+											<li><b>Underlined</b> - This is the font that is substituted for this font when the |u switch is typed. 
+										</ul>
+										<li><b>Edit Kerning By Hand</b> - This button, when clicked, asks you to choose which character you want to edit (just type it in), and then to enter the kerning for that character. Kerning is the width of the character, or rather how much room is allotted for it on a line of text. If a character appears to have too much space beside it, just decrease the kerning a bit. 
+										<li><b>Edit Kerning From File</b> - This allows you to import a font into Myth, which is automatically kerned by the application. However, this requires specially prepared fonts, so you probably shouldn't mess with this one. Who wants to mess with fonts anyway? 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="form"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>formations (form)</b></td>
+								<td align="right"><a href="gfx/Picture07.gif"><b>Image: Formation Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Formation tags contain alterable variables that allow you to customize (to a limited extent) the nature of your formations in Myth II. Since much of the formation information is hard coded and unchangeable, you cannot really change the shape of most formations. However, you can tweak them to provide just the right spacing for that defensive line or the perfect enclosure for that encirclement maneuver. Best of all, you don't have to worry about causing netgame problems-- your changes will not affect other players in the games you play. 
+									<p><b>formations Tag Anatomy</b></p>
+									<ul>
+										<li><b>Maximum Units Per Short Line Row</b> - This number defines the maximum number of units that will stand side by side per row in a Short Line formation (number 1). 
+										<li><b>Short Line Unit Separation</b> - This number defines the amount of space between each unit in a Short Line formation (number 1). 
+										<li><b>Maximum Units Per Long Line Row</b> - This number defines the maximum number of units that will stand side by side per row in a Long Line formation (number 2). 
+										<li><b>Long Line Unit Separation</b> - This number defines the amount of space between each unit in a Long Line formation (number 2). 
+										<li><b>Maximum Units Per Loose Line Row</b> - This number defines the maximum number of units that will stand side by side per row in a Loose Line formation (number 3). 
+										<li><b>Loose Line Unit Separation</b> - This number defines the amount of space between each unit in a Loose Line formation (number 3). 
+										<li><b>Maximum Units Per Staggered Line Row</b> - This number defines the maximum number of units that will stand side by side per row in a Staggered Line formation (number 4). 
+										<li><b>Staggered Line Unit Separation</b> - This number defines the amount of space between each unit in a Staggered Line formation (number 4). 
+										<li><b>Box Unit Separation</b> - This number defines the amount of space between each unit in a Short Line formation (number 5). 
+										<li><b>Minimum Mob Unit Separation</b> - This number defines the minimum distance between each unit in a Rabble formation (number 6). 
+										<li><b>Mob X Bias</b> - This number is used to determine how wide the mob is compared to how deep it is. A rabble with a value of two would be twice as wide as it is deep, while one with 0.5 would be half as wide. 
+										<li><b>Minimum Encirclement Radius</b> - This is the minimum radius that an Encirclement formation (number 7 or 8) can have. 
+										<li><b>Shallow Encirclement Arc Length</b> - This is the arc length (in degrees) that units in a Shallow Encirclement formation (number 7) try to line up on. 90 is a quarter of a circle, 180 is half a circle, and 360 is a complete circle. 
+										<li><b>Deep Encirclement Arc Length</b> - This is the arc length (in degrees) that units in a Deep Encirclement formation (number 8) try to line up on. 120 is about a third of a circle. 
+										<li><b>Vanguard Front Row Separation</b> - This number defines the distance between the units in the front row of the Vanguard formation (number 9). 
+										<li><b>Vanguard Unit Separation</b> - This number defines the cumulative distance between the units in the Vanguard formation (number 9) as the row extends backwards. A large number creates a shallower V, while a smaller number makes a sharper formation. 
+										<li><b>Vanguard Row Separation</b> - This number defines the separation between rows in a Vanguard formation (number 9). 
+										<li><b>Circle Unit Separation</b> - This number defines the separation between units in a Circle formation (number 0). Smaller numbers make for tighter circles. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="geom"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>geometries (geom)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Geometries contain the data for model objects-- the actual, nitty gritty point data used to create a 3D structure. 
+									<p>Due to the complexity of 3D modeling, Fear cannot edit these objects. Like collections, they require an external, third party editor.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="inte"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>interface (inte)</b></td>
+								<td align="right"><a href="gfx/Picture08.gif"><b>Image: Interface Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">The interface tag contains a simple tag that organizes the Myth II interface. It points to the resources used by the interface, and probably won't make for very interesting editing, only a lot of headaches. No user serviceable parts inside, et cetera. 
+									<p><b>interface Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection</b> - This pop-up allows you to select the collection used by the Myth II interface. 
+										<li><b>System</b> - This pop-up allows you to select the general system font. 
+										<li><b>Low Resolution</b> - This is for selecting the in game font used when Myth is being played in low resolution mode. 
+										<li><b>High Resolution</b> - This is for selecting the in game font used when Myth is being played in high resolution mode. 
+										<li><b>Narration Header</b> - That's right-- this is for selecting the header font used during the narrations. 
+										<li><b>Narration Body</b> - This is for selecting the main body font used during the narrations. 
+										<li><b>Narration Caption</b> - This is for selecting the caption font used during the narrations. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="ligh"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>lightning (ligh)</b></td>
+								<td align="right"><a href="gfx/Picture09.gif"><b>Image: Lightning Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Lightning is the attack effect that we all know and love. The lightning tags allow you to edit most of this weapon's characteristics, resulting in some bizarre variants of the original. 
+									<p><b>lightning Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection Reference</b> - This allows you to select the collection reference to use for this lightning object. 
+										<li><b>Sequences</b> 
+										<ul>
+											<li><b>Fork</b> - This is the sequence used by forks coming off of this lightning bolt. 
+											<li><b>Main Bolt</b> - This is the sequence used to create the main body of the lightning bolt. 
+											<li><b>Mesh Stain</b> - This is the sequence used to create the mesh scar caused by this lightning bolt. 
+										</ul>
+										<li><b>Shock Duration</b> - This is not implemented... ignore it. 
+										<li><b>Fade Duration</b> - This is not implemented... ignore it. 
+										<li><b>Bolt Length</b> - This is the average length of the lightning bolt. 
+										<li><b>Velocity</b> - This is the velocity of the lightning bolt--generally, lightning bolts are pretty speedy. 
+										<li><b>Scale</b> - This fraction is the scale applied to the lightning bolt sequences. 1.00 is normal size, while 2.00 is double size and 0.50 is half size, etc. 
+										<li><b>Fork Segments</b> - This random range determines the length of the segments that break off of the main bolt. These secondary bolts don't actually cause damage, but they sure look cool. 
+										<li><b>Fork Overlap</b> - This is the number of pixels that the fork segment sprites overlap. Too little causes gaps in the bolt, as does too much. Fine tuning this number results in a nice, continuous bolt of lightning. 
+										<li><b>Main Bolt Overlap</b> - Just like the fork overlap, except for the main bolt of the lightning. 
+										<li><b>Fork Angle</b> - This is the angle at which forks split off of the main bolt. An angle of 90 would cause the forks to travel off perpendicularly from the main bolt, while greater values would actually cause the forks to travel backwards with respect to the motion of the bolt. 
+										<li><b>Apparent # of Bolts</b> - This is (appropriately) the apparent number of bolts inside a bolt of lightning. Some lightning attacks use more than one bolt in order to simulate a complex, twisting bolt. 
+										<li><b>Flags</b> 
+										<ul>
+											<li><b>Duration Based on Length</b> - If this is flagged, the duration of the bolt is based upon its length. 
+											<li><b>Scars Ground</b> - If this is flagged, the bolt scars the ground when it explodes. 
+											<li><b>Moves Objects</b> - If this is flagged, the lightning bolt moves things that are beneath its flightpath, by means of tiny, mostly non-damaging explosions. This does have the effect, however, of detonating explosives. 
+											<li><b>Ignores Collisions With Models</b> - If this is flagged, the bolt can shoot through models as though they were not there. Not too realistic, but oodles of fun. 
+										</ul>
+										<li><b>Damage Parameters (window)</b> - This window is identical to the one used to set projectile damage parameters, so you should refer to the projectiles section for more information on how to use it. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="phys"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>local physics (phys)</b></td>
+								<td align="right"><a href="gfx/Picture10.gif"><b>Image: Local Physics Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Local physics are the physics models used by Myth II to define such behavior as gravity and the motion of particles in a local projectile group. The are rather complex, having several different basic types with a whole host of variations thereof. In all cases, a physics model works on every particle in the local projectile group calling it. Be prepared to examine and compare some of the existing models before you have a solid understanding of them yourself. 
+									<p><b>local physics Tag Anatomy</b></p>
+									<ul>
+										<li><b>Type</b> - This pop-up allow you to select the type of physics model being used, and the Edit Physics Parameters button will bring up a different window depending on what you have selected. 
+										<li><b>Linear Physics (window)</b> 
+										<ul>
+											<li><b>Linear Acceleration</b> 
+											<ul>
+												<li><b>I component</b> - This is analogous to the X (east/west) component of a particle's acceleration. 
+												<li><b>J component</b> - This is analogous to the Y (north/south) component of a particle's acceleration. 
+												<li><b>K component</b> - This is analogous to the Z (up/down) component of a particle's acceleration. 
+											</ul>
+											<li><b>Random Acceleration</b> 
+											<ul>
+												<li><b>I component</b> - This is analogous to the X component of a particle's random acceleration, which is randomly added to the linear acceleration. 
+												<li><b>J component</b> - This is analogous to the Y component of a particle's random acceleration, which is randomly added to the linear acceleration. 
+												<li><b>K component</b> - This is analogous to the Z component of a particle's random acceleration, which is randomly added to the linear acceleration. 
+											</ul>
+											<li><b>Initial Linear Velocity</b> 
+											<li><b>I component</b> - This is the range between which the particle's initial X velocity is selected. 
+											<li><b>J component</b> - This is the range between which the particle's initial Y velocity is selected. 
+											<li><b>K component</b> - This is the range between which the particle's initial Z velocity is selected. 
+											<li><b>Flags</b> 
+											<li><b>Projectiles originate within bounds</b> - This flag is kinda tricky--when it is checked, particles are always created within the bounds of the group that called the physics model. This is demonstrated by such things as Soulblighter's crows, which all originate from within his body--the bounds of his local projectile group. Other examples of this are teleportation effects. 
+											<li><b>Projectiles respect group yaw</b> - When this is checked, the axes of the physics model are twisted so that the positive X (or I) axis is facing in the same direction as the group that called it. Again, Soulblighter demonstrates this with his diverging crows, which always shoot out in front of him. 
+										</ul>
+										<li><b>Cylindrical Physics (window)</b> 
+										<ul>
+											<li><b>Angular Acceleration</b> - This is the acceleration of particles around the center of the cylinder. 
+											<li><b>Initial Angular Velocity</b> - This range determines the initial velocity of particles traveling around the cylinder. 
+											<li><b>Initial Z Deviation</b> - This value determines how spread out the particles are along the Z axis--this value is measured from the vertical halfway point of the object calling it, and the deviation extends above and below this mid range. 
+											<li><b>Attraction Constant</b> - This is the amount of attraction the midway Z plane (see above) has for the particles above and below it. This attraction pulls the particles towards the plane, causing them to pass through the plane, oscillate above and below it, and cause a nifty wave motion. 
+											<li><b>Radial Velocity</b> - This is the speed at which the particles move along their radius, away from the middle. Positive values cause the particles to move slowly away, gradually dispersing, while negative values cause them to move ever inwards. 
+											<li><b>Z Acceleration</b> - This is the particle's acceleration along the Z axis, upward or downward. 
+										</ul>
+										<li><b>Spherical Spring Physics (window)</b> 
+										<ul>
+											<li><b>Initial Angular Velocity</b> - This random range determines the initial speed of the particles around the center of the sphere along the Z axis. 
+											<li><b>Attraction Constant</b> - This is the amount of attraction the center of the sphere has for every particle in the system. The greater the attraction, the harder a particle is pulled towards the middle, and the faster it travels outward after passing through the middle. 
+											<li><b>Random time offsets</b> - If checked, this causes the particles in this system to be randomly spaced out within the area, creating a more random pattern of particles. If this is not checked, many of the particles move in unison. 
+										</ul>
+										<li><b>Point Attractor Physics</b> - Due to a problem with energy loss (or rather, integer round-off), this model type doesn't work very well, and is more or less the same as a well designed spherical spring. Just Say No to point attractors. 
+										<li><b>Converging Physics (window)</b> 
+										<ul>
+											<li><b>Initial Angular Velocity</b> - This random range determines the initial angular velocity (around the Z axis) of particles in this group. 
+											<li><b>Phi Min</b> - This number is the minimum angle of elevation at which inbound particles will approach. For example, if it was 45, all particles would approach at an angle above 45 degrees. 
+											<li><b>Phi Delta</b> - This number is upper value of a random range from which the angles of particles is selected (whew). Since 0 is the lower bound, a setting of 45 here would result in particles appearing anywhere between 0 and 45 degrees. To make particles come from every angle, just put 90 in here, since the angles are measured from the ground (0 degrees) to vertical (90 degrees) in every direction. 
+											<li><b>Diverge</b> - If this is checked, the motion of the particles is reversed--they spread outwards instead of inwards. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="lpgr"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>local projectile groups (lpgr)</b></td>
+								<td align="right"><a href="gfx/Picture11.gif"><b>Image: Local Projectile Group Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Local projectile groups are the tags that create such effects as smoke and fish jumping out of the water. Basically, they are groups of particles that are acted upon by local physics objects, resulting in predefined motion around a (usually) stationary spot on the map. 
+									<p><b>local projectile groups Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection</b> - This pop-up is for selecting the sprite collection reference tag used by this group. 
+										<li><b>Physics</b> - This pop-up is for selecting the local physics tag that affects every particle in the projectile group. 
+										<li><b>Sequences</b> 
+										<ul>
+											<li><b>Flight</b> - This is for selecting the in-flight sequence for the particles in this group. 
+											<li><b>Stain</b> - This is for selecting the stain sequence used by this group. 
+										</ul>
+										<li><b>Scale Fraction</b> - This random fraction range is used to scale the sprites used for the group, which can be used to create particles of varying sizes in the group. This is awfully handy for things like smoke, which should have different sizes of puffs. 
+										<li><b>Animation Rate</b> - This random fraction range is used to vary the speed of the sequence animations, resulting in such things as puffs of smoke that grow slower or faster than the others in their group. 
+										<li><b>Target Number</b> - This random range is used to set the number of projectiles in the group. 
+										<li><b>Radius</b> - This random range is used to determine the radius of the group, which works in team with physics models to create effects over areas of varying sizes. 
+										<li><b>Projectile Expiration Time</b> - This random range determines the lifespan of particles in the group, which are in seconds. Long expiration times are handy for slow rising columns of smoke, while short ones are recommended for groups that contain large numbers of particles. 
+										<li><b>Height Offset</b> - This value is added to the initial elevation of the local projectile group (remember, this can be raised above the ground) to offset it. If you want a group to originate higher than its starting point, insert a positive value. If you want it lower, use a negative value. 
+										<li><b>Startup Transition</b> 
+										<ul>
+											<li><b>Has Startup Transition</b> - If this flag is checked, then the group has a startup transition as defined below. 
+											<li><b>Affects transparency</b> - If this is checked, the transition fades the particles in. 
+											<li><b>Affects target number</b> - If this is checked, the transition gradually adds particles. 
+											<li><b>Affects horizontal scale</b> - If this is checked, the transition affects the horizontal scale of the particles... this can be handy for some special effects. The particles will go from the scale specified in the first field (0.00 being invisibly small, 1.00 being normal size, and 2.00 being double size, etc.) to the scale specified in the second field over the duration of the transition. 
+											<li><b>Affects vertical scale</b> - If this is checked, the transition affects the vertical scale of the particles... this can also be handy for some special effects. As with horizontal scale, particles transit from the first scale to the second. 
+											<li><b>Time</b> - This is the duration of the transition. 
+										</ul>
+										<li><b>Duration</b> 
+										<ul>
+											<li><b>Has Finite Duration</b> - If this is checked, the group has a limited lifespan. 
+											<li><b>Time</b> - This random range is the lifespan of the projectile group 
+										</ul>
+										<li><b>Ending Transition</b> - This section is similar to the Startup Transition, except in the opposite direction--this transition is for when the group is ending. 
+										<li><b>Projectile Flags</b> 
+										<ul>
+											<li><b>Affected by wind</b> - If this is checked, the particles in this projectile group are affected by the wind present in a mesh. 
+											<li><b>Deleted when they hit the ground</b> - If this is checked, the particles are deleted when they hit the ground. This is great for thinks like fountains and leaves, which would otherwise build up and begin to slow things down. 
+											<li><b>Deleted after time expires</b> - If this is checked, the particles are deleted after their duration expires. 
+											<li><b>Deleted after animation completes</b> - If this is checked, the particles are removed after their animation cycles complete. 
+											<li><b>Do not animate</b> - If this is checked, the projectiles are not animated, using instead a single frame for each particle. 
+											<li><b>Never get recreated</b> - If this is checked, the group is a one shot deal--projectiles are never recreated, and the group essentially expires once the particles are used up. 
+											<li><b>Stay relative to center</b> - If this is checked, the particles move along with the projectile group. An example of this is the confusion effect, which has little stars which always orbit the affected unit's head. 
+											<li><b>Created symmetrically</b> - If this is checked, the particles will be created so that they are equal distances from each other, nice and symmetrical like. The confusion spell uses this flag to evenly space the stars around a hapless victim's head. 
+											<li><b>Don't respect height above ground</b> - If this is flagged, the projectile group is always on the ground, no matter how high in the air it originated. Handy for fire, especially when using fire arrows to shoot hapless birds... 
+											<li><b>Always start at first frame</b> - If this is checked, the particle animation always starts on the first frame, not the usual randomized frame. Useful for ensuring a proper sequence of frames 
+										</ul>
+										<li><b>Group Flags</b> 
+										<ul>
+											<li><b>Always update physics</b> - If this is checked, the local projectile groups physics are constantly updated, even if the group is invisible (due to a map action or other effect). Accelerations are applied, particles move, and so on even when you can't see them doing so. 
+											<li><b>Delete after particles are gone</b> - If this is checked, the group is deleted when all of its particles are expired and used up. 
+											<li><b>Casts Reflections</b> - If this is checked, the group casts a reflection in any nearby media. Good for most things. 
+											<li><b>Is media surface effect</b> - If this is checked, the group is a media surface effect, like a ripple or a fish leaping, or maybe even a lava bubble. 
+											<li><b>Update per tick</b> - If this is checked, the group's physics are updated once every tick, and only during every tick. This is important for some synchronized projectile groups. If the game is ever suffering from a poor frame rate or other slowdown, groups without this flag may begin to behave oddly, as their physics are not being updated consistently. 
+										</ul>
+										<li><b>Transfer Mode</b> - Transfer modes are how your particles behave during startup and ending transitions. Consequently, if your projectile group has neither, the transfer mode is ignored. 
+										<ul>
+											<li><b>Fade In Over Time</b> - If this is selected, particles fade in over the duration of the startup transition. 
+											<li><b>Fade In Over Animation</b> - If this is selected, particles fade in over the duration of their animation sequences. 
+											<li><b>Fade Out Over Time</b> - If this is selected, particles fade out over the duration of the ending transition. 
+											<li><b>Fade Out Over Animation</b> - If this is selected, particles fade out over the duration of their animation sequences. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="medi"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>media types (medi)</b></td>
+								<td align="right"><a href="gfx/Picture12.gif"><b>Image: Media Type Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Media types contain some of the information Myth II uses to determine the characteristics of water, or any other media, in a map. Such things as reflectivity and waves can be set and edited here, and the possibilities range from lava to sewage to spring water. 
+									<p><b>media types Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection Reference</b> - This pop-up allows you to select the collection reference used by this media type. 
+										<li><b>Surface Effect</b> - This allows you to select a local projectile group for a surface effect, such as a fish jumping or a lava bubble bursting. 
+										<li><b>Reflection Tint Fraction</b> - This is the intensity with which this media tints things reflected in it. 
+										<li><b>Reflection Tint Color</b> - This is the tint color applied to objects reflected in this media. 
+										<li><b>Reflection Transparency</b> - This fraction defines how transparent a reflected object is, which can be used to create murkiness in the water. 1.00 is fully transparent (therefore, no reflection), while 0.00 is not transparent at all. 
+										<li><b>Surface Effect Density</b> - This is the density of surface effects on the media surface. If you have something like fish jumping, this should be fairly low. However, if you have something like active lava bubbling, this should be much higher. 
+										<li><b>Max. Effects Per Cell</b> - This is the maximum number of effects that can appear in a single cell. 
+										<li><b>Time Between Effects</b> - This number of seconds is used to space out surface effects, and in addition to the Surface Effect Density does a pretty good job at it, even if it isn't a random range. 
+										<li><b>Projectile Groups</b> 
+										<ul>
+											<li><b>Small Splash</b> - This is the projectile group called when a projectile marked as having a small splash hits the media. 
+											<li><b>Medium Splash</b> - This is the projectile group called when a projectile marked as having a medium splash hits the media. 
+											<li><b>Large Splash</b> - Guess. 
+											<li><b>Bloody Splash</b> - This is the splash projectile group made when a projectile flagged as being bloody hits the media. 
+											<li><b>Floating Splash</b> - This is the splash projectile group called when a floating object (such as a netgame ball) hits the media. 
+											<li><b>Steam Splash</b> - This is the projectile group called when a projectile marked as being on fire hits the water. 
+											<li><b>Disturbance</b> - This is the projectile group called when a unit walks through the media (its wake). 
+										</ul>
+										<li><b>Flags</b> 
+										<ul>
+											<li><b>Media Does Not Reflect</b> - If this is checked, the media will not reflect objects. Useful for special media like lava. 
+										</ul>
+										<li><b>Wobble Magnitude</b> 
+										<ul>
+											<li><b>I component</b> - This is the amount of wobble (undulation... well, waves) that this media type has along the east/west axis. 
+											<li><b>J component</b> - This is the amount of that this media type has along the north/south axis. 
+											<li><b>K component</b> - This is the amount of wobble the media has in the up/down direction. 
+										</ul>
+										<li><b>Wobble Phase Multiplier</b> 
+										<ul>
+											<li><b>I component</b> - This multiplier fraction is applied to the east/west wobble of this media type. 1.00 is normal wobble, while 0.00 is no wobble whatsoever. Any value above 1.00 is exaggerated wobble--try taking a look at the level 19 Tain media to see a good example of this. 
+											<li><b>J component</b> - This multiplier fraction is applied to the north/south wobble of this media type. 1.00 is normal wobble, while 0.00 is no wobble whatsoever. 
+											<li><b>K component</b> - This multiplier fraction is applied to the up/down wobble of this media type. 1.00 is normal wobble, while 0.00 is no wobble whatsoever. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="meef"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>mesh effects (meef)</b></td>
+								<td align="right"><a href="gfx/Picture13.gif"><b>Image: Mesh Effect Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Mesh effects are the rippling, wavelike deformations of the ground caused by explosions or other similar events. Wight explosions, satchel charges, and some magic spells call mesh effects, making the ground wave beneath them. It helps to take a look at some of the existing mesh effects to get an idea of how the numbers affect them. 
+									<p><b>mesh effects Tag Anatomy</b></p>
+									<ul>
+										<li><b>Amplitude</b> - This is the vertical measure of the effect--how high and how low the waves travel relative to ground level. 
+										<li><b>Velocity</b> - This is the speed at which the wave expands outwards from its source. 
+										<li><b>Cutoff Radius</b> - This is the maximum distance away from the origin that the wave can travel. 
+										<li><b>Dissipation</b> - This is the rate at which the wave diminishes as it travels outwards. 
+										<li><b>Epicenter Offset</b> - This value causes the ripple to begin further away from the epicenter (where the mesh effect was actually called). For example, a wight with an offset would not cause the ground beneath him to ripple, only the ground further out. 
+										<li><b>Camera Shaking Type</b> - This setting allows this mesh effect to shake the camera when it is called. Earthquake causes the camera to shake a bit, build up to some serious shaking, and then fade away over about eight seconds. Explosion, on the other hand, skips the pleasantries and goes right to shaking. Keep in mind that these cause the camera to shake no matter where it is in relation to the explosion, and should be used very sparingly. Expect a mob of people to lynch the first hapless individual who creates a netmap using anything that shakes the camera... 
+										<li><b>Is Inverted</b> - If this is checked, the mesh effect first goes down, then comes up, instead of the other way around. 
+										<li><b>Shockwave</b> 
+										<ul>
+											<li><b>Has Shockwave</b> - If this is checked, the mesh effect also generates a shockwave using the following information. 
+											<li><b>Collection Reference</b> - This is the collection reference from which the mesh effect draws its shockwave sprites. 
+											<li><b>Sequence</b> - This is the sequence used by the shockwave. 
+											<li><b>Number of Radial Points</b> - This is the number of points around the edge of the shockwave. More points result in a smoother, but slower, shockwave. Just for giggles, try making four and fewer point shockwaves... 
+											<li><b>Thickness</b> - This is how thick the shockwave is from its leading to trailing edge. 
+											<li><b>Height Offset</b> - This is the distance between the shockwave and the ground. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="meli"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>mesh lighting (meli)</b></td>
+								<td align="right"><a href="gfx/Picture14.gif"><b>Image: Mesh Lighting Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">The mesh lighting tag contains the constants used by Myth II's lighting engine to create light and shadows on a map. There aren't many interesting things to edit here, but you might want to check it out if you're creating a map with radically different lighting (a night or high noon map comes to mind). 
+									<p><b>mesh lighting Tag Anatomy</b></p>
+									<ul>
+										<li><b>Incidental Light</b> - This is the primary, angled light for the entire level, like the sun. The angle at which it faces is determined by the IJK components, and it helps to think of the angle and direction of the light as a particle flow whose velocities are determined by the components below. 
+										<li><b>I component</b> - This is the east-west component of the light/particle flow. 
+										<li><b>J component</b> - This is the north-south component of the light/particle flow. 
+										<li><b>K component</b> - This is the up-down component of the light/particle flow (this should always, always be negative, unless you are doing some whack things). 
+										<li><b>Ambient Light Intensity</b> - This is the intensity of the ambient light on the level. 
+										<li><b>Maximum Diffuse Light Intensity</b> - This is the maximum, unmodified intensity of light on the map 
+										<li><b>Model Shading Diffuse Light Intensity</b> - This is the intensity of the light in the shadow of a model. A high value makes the shadows lighter, while a value of 0.00 would make the models have an absolutely dark shadow. 
+										<li><b>Maximum Total Light Intensity</b> - This is the maximum total light intensity on this mesh. 
+										<li><b>Maximum Shadow Distance</b> - This is the maximum distance at which shadows will be calculated for a model. Conceivably, if this was too small, the shadows of your models (as calculated in Loathing) would be cut off. However, this is unlikely with most models, and a higher value here results in slower shadow map calculation. 
+										<li><b>Smoothing</b> 
+										<li><b>Gaussian Width</b> - This is the width of the Gaussian blur that is applied to model shadows when the shadow map is calculated. The larger this value, the more blurred your shadows will be. 
+										<li><b>Filter Width</b> - This is the width of the filter as applied to the shadows. Basically, larger values contribute to blurrier shadows. Don't sweat the details, as they say... 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="mesh"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>meshes (mesh)</b></td>
+								<td align="right"><a href="gfx/Picture15.gif"><b>Image: Mesh Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Meshes are among the most complex objects in Myth II. They're also among the most important--they contain much of the information used to create a map in the form of references to other tags. 
+									<p>Due to their complexity, meshes cannot be edited entirely in Fear-- you need an external editor like Loathing to do any major alterations involving terrain, units, or scenery. Fear does, however, allow you to edit a number of very important map characteristics.</p>
+									<p><b>mesh Tag Anatomy</b></p>
+									<ul>
+										<li><b>Landscape</b> - This pop-up is for selecting the level's texture map collection. 
+										<li><b>Media</b> - This pop-up is for selecting the level's media characteristics. 
+										<li><b>Mesh Lighting</b> - This pop-up is for selecting the level's mesh lighting tag, which determines such lighting characteristics as shadows. 
+										<li><b>Particle System</b> - This pop-up is for selecting the weather that is acting upon the level, such as snow or rain. 
+										<li><b>Ambient Sound</b> - This pop-up is for selecting the ambient sound that can be heard at any location on the mesh. Unlike placed ambient sounds, this sound is omnipresent and always at a constant volume-- it can be used for such interesting effects as background music (if done right). 
+										<li><b>Map Description</b> - This pop-up is for selecting the string list that contains the map's name and in game messages. 
+										<li><b>Wind</b> - This pop-up is for selecting the level's wind tag, which determines wind characteristics. 
+										<li><b>Collections</b> 
+										<ul>
+											<li><b>Pregame</b> - This pop-up is for selecting the level's pregame picture (collection). 
+											<li><b>Overhead Map</b> - This pop-up is for selecting the level's overhead map. 
+											<li><b>Mesh Lighting</b> - This pop-up is for selecting the level's postgame picture (collection). 
+										</ul>
+										<li><b>Next Mesh</b> 
+										<ul>
+											<li><b>Success</b> - This pop-up is for selecting the mesh players proceed to if victorious. 
+											<li><b>Failure</b> - This pop-up is for selecting the mesh players proceed to if they fail to meet mission objectives. 
+										</ul>
+										<li><b>Flags</b> 
+										<ul>
+											<li><b>Single Player Map</b> - Is this map a solo campaign map, or a netgame map? 
+											<li><b>Supports Unit Trading</b> - Does this map allow unit trading in netgames? 
+											<li><b>Supports Veterans</b> - Can this map accept veteran units from prior levels or games? 
+											<li><b>Has Limited Terrain Visibility</b> - If checked, the player cannot move the camera to where his units have not yet explored. 
+											<li><b>Is Complete</b> - If checked, the overhead map is completely visible at the start of the game, as in netgames. 
+											<li><b>Can Catch Fire</b> - If unchecked, no part of your mesh can burn. Period. Of course, nobody wants this checked... 
+											<li><b>Leaves Overhead Map Closed</b> - At the start of the game, the overhead map will be closed, though it can be re-opened by the player. 
+											<li><b>Is Training Map</b> - Myth II will open the first map it finds with this flag when the player clicks the &quot;Tutorial&quot; button on the main screen. Generally, you won't need to screw with this. 
+											<li><b>Has Ceiling</b> - Does your map have a ceiling? Indoor maps usually have this checked, which prevents debris from flying over walls. 
+											<li><b>Has Terrain Following Camera</b> - This flag makes the camera automatically raise and lower as you fly over rising and falling terrain. Rather annoying, but possibly useful. 
+										</ul>
+										<li><b>Cutscene Movies</b> 
+										<ul>
+											<li><b>Pregame</b> - The tag of the cutscene movie to play before the level. 
+											<li><b>Success</b> - The tag of the cutscene movie to play after a victory. 
+											<li><b>Failure</b> - The tag of the cutscene movie to play after failing to complete a level. 
+										</ul>
+										<li><b>Storyline</b> 
+										<ul>
+											<li><b>Pregame</b> - The collection (picture) to use as a pregame scene in a solo player level. 
+											<li><b>Picture Captions</b> - The string list to use as a caption displayed beneath the pregame picture. 
+										</ul>
+										<li><b>Game Scoring Types </b>- Checking these boxes enables the corresponding game types on the map. Naturally, this is only for netgames, and you must ensure that the appropriate game objects (flags, balls, etc.) are placed on the map with a map editor ahead of time. 
+										<li><b>Lighting</b> 
+										<ul>
+											<li><b>Dark Color Fraction</b> - This is the maximum intensity of the dark color that can be used by a shadow. 1.00 results in maximum color, while numbers in the 0.75 to 0.9 range are more common. See the entry below... 
+											<li><b>Edit Dark Color</b> - This is for selecting the dark color, which is the color cast by shadows on this mesh. Combined with the Dark Color Fraction, this is the darkest color that can be created by shadows. Usually, black is used for this. 
+											<li><b>Light Color Fraction</b> - Like Dark Color Fraction, but for the light color. Usually, this is much smaller than the Dark Color Fraction, in the 0.10 to 0.50 range. 
+											<li><b>Edit Light Color </b>- This is for selecting the light color, which is the color created by light casting objects. Think of it as the opposite of the darkest color--an area under maximum illumination will be this color. 
+											<li><b>Transition Point</b> - This is the zero point--the illumination level at which there is no lightening or darkening on the mesh. Playing with this, you can make an entire map brighter (by decreasing the value) or darker (by increasing it). 
+										</ul>
+										<li><b>Reverb Properties</b> - Note that sound reverberation affects are not supported on all computers... 
+										<ul>
+											<li><b>Environment</b> - This pop-up allows you to select the generic sound environment. 
+											<li><b>Volume</b> - This is the volume of the reverberations. 
+											<li><b>Decay Time</b> - This is the time it takes for a sound to die away. Typically, a place with bare, hard stone walls would have a higher decay time, while a place with no walls (and thus, no echoes) would have a time of 0.00. 
+											<li><b>Damping</b> - This is how much of the sound is absorbed by the environment. 
+										</ul>
+										<li><b>Global Tint</b> - This color is used to tint all colors on this mesh that have the &quot;Uses Global Tint&quot; flag set in their colors in their collection references (whew). The result is that you can set a unit's tint to Use Global Tint, and then set this tint on the mesh so that all of those units have the tint that you specify here. Very handy for night maps. 
+										<li><b>Team Count</b> - This is the maximum number of teams on your map. This number does NOT include Team -1, which is used for scenery objects and other non-player objects. 
+										<li><b>Ceiling Height</b> - This is the height of the ceiling in world Units. This number is ignored if the Has Ceiling flag is not checked. 
+										<li><b>Edit Blood Color</b> - This allows you to edit the basic blood color on your mesh. Remember, extremely bright reds look unrealistic-- darker reds look much better in actual gameplay. 
+										<li><b>Fog</b> - Fog is a wonderful, fantastic, incredibly neat looking thing that you should probably never use. Well, use it sparingly--fog effects are only available on some computers using certain hardware accelerators, and while it looks very nifty for them, other people won't even see it, and this can be a major advantage in some cases (like netmaps with thick fog). 
+										<ul>
+											<li><b>Density</b> - This is the density of the fog. Dense fog is harder to see through, and light fog is more like a barely noticeable mist, which can be great for adding atmosphere to a map. 
+											<li><b>Fog Color</b> - This is for selecting the color of the fog. Usually, a nice light gray will suffice, but an enterprising person might use a black fog to create the illusion of night. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="anim"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>model animations (anim)</b></td>
+								<td align="right"><a href="gfx/Picture16.gif"><b>Image: Model Animation Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Model animations are the tags that allow such effects as a windmill's turning blades or a raising drawbridge. They work very closely with models (surprise surprise!), but are actually fairly simple once the models are available. 
+									<p><b>model animation Tag Anatomy</b></p>
+									<ul>
+										<li><b>Frames (un-named) </b>- This nameless list window allows you to add, duplicate, or delete models that will be used as frames in your animation sequence. Clicking Add or double-clicking on a model brings up a small dialog box that allows you to select the model from a pop-up menu, or a Permutation, which is basically a variation of that model's textures and appearance. 
+										<li><b>Ticks per frame</b> - This number represents the number of ticks (thirtieths of a second- 30 ticks = 1 second) per frame in your animation. 
+										<li><b>Flags</b> 
+										<ul>
+											<li><b>Random Initial Frame</b> - The animation starts on a random frame in your list. 
+											<li><b>Animation Cycles</b> - When this box is checked, the animation loops, returning to the first frame after the last and never ending. 
+											<li><b>Animate Back and Forth</b> - When this box is checked, the animation runs through the frames, reverses direction, and then runs backward to the first frame. 
+											<li><b>Animation Initially Running</b> - When this box is checked, the animation will start off running. If unchecked, the animation will require an external prompting to start up, as supplied by a map action in the game. 
+										</ul>
+										<li><b>Sound</b> 
+										<ul>
+											<li><b>Forward</b> - This pop-up allows you to select the looping sound to be played while the animation is running in a forward direction. 
+											<li><b>Backward</b> - This pop-up allows you to select the looping sound to be played while the animation is running in a backward direction. Usually, you will only need to supply this sound if you have Animate Back and Forth checked.<br>
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="mode"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>models (mode)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Model tags are the actual tags you embed into a mesh--they contain all of the information used by a model except the actual geometry, which is contained in a geometry object. They also contain such information as the placement of textures, permutations, and transparency. 
+									<p>Again, due to the complexity of these objects, model tags are handled by external, third party editors and not by Fear itself.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="mons"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>monsters (mons)</b></td>
+								<td align="right"><a href="gfx/Picture17.gif"><b>Image: Monster Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Monster objects are a common source of confusion. While easily being the most fun objects to play around with, they are often misunderstood-- a monster tag actually contains the behavior data for all units, not just monsters. The stats and behavior for warriors, berserks, and dwarves are all defined here alongside mauls, Myrkridia, and Trow. Lots of fun to tinker with... 
+									<p>Just remember that, when you create a new monster tag, you MUST ALSO create a unit tag that points to it, or your unit will not be available in map editors like Loathing.</p>
+									<p><b>monster Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection</b> - This is the collection of sprites used by this unit. Often, a unit is designed around these collections, not vice versa, so it might be a bad idea to switch these around (unless you been playing with the collections...). 
+										<li><b>Object Tag</b> - This box is for selecting a unit's type. See the objects entry for more information on these tags. 
+										<li><b>Size</b> - This flag is not for determining actual size, but for determining certain characteristics of a unit. A unit's size determines such things as whether or not a Trow, for example, will punch an enemy (if the enemy is giant size) or kick it (if it is smaller). It looks awfully silly when a Trow punches a dwarf, and even sillier when it kicks another Trow. 
+										<li><b>Visibility</b> - This box allows you to select a unit's field of vision. A nearsighted unit does not see as far as a farsighted unit does, which means units will not fade in or appear on the overhead map until they are closer. If set to None, then the unit is essentially blind-- generally not a desirable thing, but it could be used for some unique units. 
+										<li><b>Class</b> - This is the general class of units that this unit belongs to. The most common are Melee and Missile; hand to hand and long range units, respectively. Other unit classes include Suicide (such as Wights), Harmless (such as those hapless peasants), and Ambient Life (such as birds or chickens). Two others, Invisible Observers (hidden units that are used for map action scripts) and Special (not really used), are mostly used in map design. 
+										<li><b>Allegiance</b> - This pop-up is for selecting a unit's allegiance-- Light, or Dark. In netgames, this doesn't matter, but in the solo game, it... well, it still doesn't matter much there either. Still, you should set this flag appropriately. 
+										<li><b>Local Projectile Group</b> - This pop-up allows you to select an ambient local projectile group for your unit, one that follows the unit around. For example, if you select a chimney smoke group for your unit, he will appear to be perpetually smoking. This can be used for anything from mundane smoke to wild energy effects whirling around your unit. 
+										<li><b>Map Action Tag</b> - This pop-up is for selecting a map action that will automatically be created for this unit when it is created in a level. Chickens and ambient life use this to create their wandering effects, and it is possible to create such things as ambient Wights with this tag. 
+										<li><b>Attacks</b> 
+										<ul>
+											<li><b>Desired Projectile Volume</b> - This pop-up is used to determine how large of a projectile a unit can pick up. Ghols, for example, prefer Small projectiles for their attack, and thus are set to small. This setting does not affect picking up ammunition. 
+											<li><b>Attacks (un-named</b>) - This window list shows all of this unit's different attacks. You can add, duplicate, or delete entries from this list, and double click on them to edit them, which brings up a new Attack Edit window (see below). 
+										</ul>
+										<li><b>Attack Edit (un-named window)</b> 
+										<ul>
+											<li><b>Projectile</b> - This pop-up allows you to select the projectile created by this attack. 
+											<li><b>Sequences (un-named)</b> - This list of four sequences defines the appearance of the attack. Double clicking an entry allows you to select one of this unit's available sequences (as defined in its collection). Selecting no sequence causes no sequence to be played--you should always have a sequence. In fact, Myth will not load if you don't have a sequence specified. In addition to selecting the sequence, opening the sequence edit window allows you to edit these three flags: 
+											<ul>
+												<li><b>Normal</b> - If this is checked, this sequence will be used as the unit's normal, default attack. An attack must have at least one Normal sequence. If it has more, it will randomly select a sequence from those available, which is how warriors can be made to swing their swords differently. 
+												<li><b>Declinated</b> - If this is checked, this sequence is used when a unit is shooting at a downwards angle. Bowmen are great examples of this in action, as they have all three sequences and use them frequently. If no Elevated sequence is specified, the unit will simply use the Normal. And if no Normal is set, then the universe will implode and destroy all of reality. Be sure to set your Normal sequence. 
+												<li><b>Elevated</b> - If this is checked, this sequence is used when a unit is shooting at an upwards angle. Again, bowmen are great examples of this in action. If no Elevated sequence is specified, the unit will simply use the Normal. 
+											</ul>
+											<li><b>Minimum Range</b> - This is the minimum range of this attack. If a target is inside this range, the unit will move away and try to correct this. Dwarves and archers use this. 
+											<li><b>Maximum Range</b> - This is a unit's maximum attack range. Melee units usually use 2.000 for this, while Missile units often have a much greater range. Keep in mind that an attack's range is also limited by characteristics of the projectile being fired. 
+											<li><b>Repetitions</b> - This is the number of times that an attack is carried out per command. If you set an archer's repetitions to 5, he will fire five arrows in rapid succession before pausing to... well, reload. 
+											<li><b>Miss Fraction</b> - This is the fraction of times that a unit will miss with his attack. For Melee units, this manifests as a harmless sword swipe, while for Missile units it results in an off shot. 1.00 causes the unit to miss all the time, while 0.000 results in no misses. 
+											<li><b>Initial Velocity</b> - These two fields show the range between which a projectile's initial velocity will be. It will be a random value between the two specified, so make sure the first is less than the second. If you want the value to be constant, enter the same number in both fields. Melee attacks use 0.00 to 0.00, while a dwarf ranges from .150 to .170. 
+											<li><b>Initial Velocity Error</b> - This is the amount of error that will be introduced to perfect initial velocity, causing the shot to miss. Melee units have an error of 0.00, while Missile units will often have a small error to keep them from hitting every time. 
+											<li><b>Velocity Experience Delta</b> - This is the amount that is removed from the Initial Velocity Error every time a unit scores a kill, resulting in more and more accuracy as the unit becomes more experienced. 
+											<li><b>Recovery Time</b> - This is the amount of time between a unit's attacks, in seconds. Keep in mind that a unit's attack time is also affected by the speed of its attack sequence animation. A unit cannot attackfaster than that its animation can run. 
+											<li><b>Recovery Time Experience Delta</b> - This is the amount that is removed from the Recovery Time every time a unit scores a kill, resulting in faster and faster attacks as a unit grows more experienced. 
+											<li><b>Mana Cost</b> - This is the cost of an attack in mana. A warlock's fireball has a value of 55.00, which is about half of his mana. 
+											<li><b>Attack Flags (inside Attack Edit window)</b> 
+											<ul>
+												<li><b>Is Indirect</b> - This is whether or not an attack is directly targeted at a unit. An indirect attack is usually explosive, affecting any number of units around it, while a direct attack is a melee attack,that affects a single unit and no others. 
+												<li><b>Does Not Require Solution</b> - If this is checked, the unit will attack as soon as an opponent is in range. He doesn't aim, doesn't check for elevation, or any of that jazz. He Just Does It. Great for guided attacks. 
+												<li><b>Aimed at Target's Feet</b> - If checked, the projectile is aimed to hit the ground at the target's feet. This is useful for area effect attacks, like explosives, but lousy for impact weapons, like arrows or melee attacks. 
+												<li><b>Leads Target</b> - If this is checked, the unit looks at how fast and what direction a unit is moving in and takes these into account before attacking. While this greatly improves accuracy, it can result in some shockingly stupid moves-- a dwarf will sometimes throw straight up into the air in order to lead a unit rushing towards it. The result is more often a dead dwarf than a dead opponent. Still, check this if you unit is using a missile attack. 
+												<li><b>Uses Ammunition</b> - Just what it says. Attacks checked with this use ammunition from the unit's carried store, which is set elsewhere in the monster tag. 
+												<li><b>Uses Carried Projectile</b> - This is what ghols do-- this attack uses a projectile determined by the unit's ammunition, which can be anything from a pus packet to an old sword to a head. Your damage and mileage may vary. 
+												<li><b>Is Reflexive</b> - If this is checked, the unit inflicts this attack on itself. Silly in most circumstances, but very useful for targeting the ground directly beneath a unit (as a dwarf does when laying satchels) or inflicting a suicide triggering wound, as a wight does with its dagger. 
+												<li><b>Is Special Ability</b> - If this is checked, the attack is activated using the Special Ability key (default T). 
+												<li><b>Is Primary Attack</b> - If checked, this attack is the default attack selected and used when you simply tell a unit to attack a target. If this is not checked, you must trigger this attack using a double click, as in the case of an archer's knife attack. 
+												<li><b>Avoids Friendly Units</b> - If this is checked, the unit takes into account the presence of friendly units when lining up for a shot (though, he never seems to do a good job). Should be checked for units using an explosive attack who might harm a friendly unit by attacking. 
+												<li><b>Vs. Giant Sized</b> - This is an attack used only against units whose size is set to Giant. An example is a Trow's punch. 
+												<li><b>Prohibited vs. Giant Sized</b> - This is an attack that cannot be used against Giant sized units. An example is a Trow's kick, which is used only against smaller units. 
+												<li><b>Is Fixed Pitch</b> - If checked, the projectile will always be fired at an angle, resulting in an arcing shot instead of a direct, melee shot. Examples include dwarf cocktails and archer arrows. 
+												<li><b>Don't shoot over nearby units</b> - If this is checked, the unit will not try to shoot over a nearby unit. This is very handy for dwarves, who we all know are stupid enough to try and throw a bottle through a comrade's head. 
+												<li><b>Lob to hit lower nearby units</b> - If this is checked, a unit will try to lob a projectile at a target if that target is nearby and below the unit. This is specifically designed to help dwarves lob grenades from castle walls. 
+												<li><b>Can be used against friendly units</b> - If this is checked, this attack can target friendly units. This is necessary for such things as healing, but not necessary for such things as fire arrows or dispersal dreams (though, we all love shooting those lippy dwarves with fire arrows...). 
+											</ul>
+										</ul>
+										<li><b>Projectile Groups</b> 
+										<ul>
+											<li><b>Exploding</b> - This is the projectile group created when a unit suffers a &quot;hard death&quot;-- by an explosion or other sufficiently violent event. 
+											<li><b>Melee Impact</b> - This is the projectile group created when a unit is struck with a melee attack, like a sword. 
+											<li><b>Dying</b> - This is the group created when a unit suffers a &quot;soft death&quot;-- by melee attacks or fire, etc. 
+											<li><b>Blocked Impact</b> - This is the group created when a unit blocks an attack, like a warrior does with his shield. 
+											<li><b>Absorbed Impact</b> - This is the group created when a unit absorbs a blow, like a journeyman does with his coat. 
+											<li><b>Entrance</b> - This is the group called when a unit enters the map. Usually, this is left empty. 
+											<li><b>Exit</b> - This is the group called when a unit exits the map. Usually, this is left empty too, with exceptions such as Soulblighter, who can call his crow effects. 
+										</ul>
+										<li><b>String Lists</b> 
+										<ul>
+											<li><b>Spelling</b> - This is for selecting a unit's spelling string list, which contains a unit's designation in singular and plural (i.e. Dwarf, Dwarves, or Ghol, Ghols). 
+											<li><b>Names</b> - This is for selecting the string list that contains all of the unit's possible names. 
+											<li><b>Flavor</b> - This is for selecting the string list that contains all of the unit's possible flavor texts. 
+											<li><b>Special Ability</b> - This is for selecting the string list that contains the unit's special ability text, which is displayed when you trigger a Special Ability attack. 
+										</ul>
+										<li><b>Distances</b> 
+										<ul>
+											<li><b>Warning</b> - This is the distance at which a unit becomes aware of other units' cries for help, such as when they've been attacked. 
+											<li><b>Critical</b> - This is the distance at which the unit is warned (made aware of) another unit's presence. 
+											<li><b>Activation</b> - This is the distance at which a unit takes action upon another unit. Highly aggressive units, like spiders, have very large values here. 
+										</ul>
+										<li><b>Ammunition</b> 
+										<ul>
+											<li><b>Ammo Tag</b> - This allows you to select the type of projectile a unit is carrying as ammunition. 
+											<li><b>Initial Count</b> - These fields allow you to enter an initial ammunition level, randomly selected from between the two numbers. If you want a fixed initial amount of ammo, enter the same amount in both fields. 
+											<li><b>Maximum Count</b> - The maximum amount of ammo a unit can carry. 
+										</ul>
+										<li><b>Left Handed Fraction</b> - The fraction of units whose sprites are reversed (making them appear left handed). 
+										<li><b>Turning Speed</b> - The speed at which a unit can turn, in degrees per second. 
+										<li><b>Hard Death System Shock</b> - This number is used to define just how much damage a unit has to take to suffer a hard death from such things as an extremely hard hit. 
+										<li><b>Flinch System Shock</b> - This is number is used to define just how hard a unit has to be hit in order to flinch, or hesitate in its attack. For example, trow have a very high value here, which is why they can take such a licking and keep on ticking. 
+										<li><b>Absorbed Fraction</b> - The fraction of blows that a unit will absorb without damage. Journeymen, for example, absorb quite a few hits due to their thick coats. 
+										<li><b>Healing Fraction</b> - The fraction of a unit's health that can be restored through healing. 1.00 is complete restoration, while 0.00 is none at all. 
+										<li><b>Combined Power</b> - This number is used by the Myth AI to assess a unit's attack potential and danger. Consequently, units with a high Power are treated more seriously by the engine in terms of targeting, attack, and defense. 
+										<li><b>Longest Range</b> - This is the longest range at which a unit can attack. 
+										<li><b>Experience Point Value</b> - This is the number of kills a unit is worth to others who might kill it. 
+										<li><b>Cost</b> - This is the unit's cost during unit trading. 
+										<li><b>Pathfinding Radius</b> - This number determines the unit's &quot;space bubble&quot;-- the minimum distance it will allow between it and a allied unit who is trying to pass by it. Naturally, enemy units ignore this... 
+										<li><b>Maximum Mana</b> - This is the maximum number of mana points that a unit has. 
+										<li><b>Mana Recharge Rate</b> - This is the rate at which a unit recharges mana points. 
+										<li><b>Berserk System Shock</b> - If a unit suffers more damage than this amount, it will go berserk, attack all nearby units, friend and foe alike. 
+										<li><b>Berserk Vitality</b> - This fraction is the amount of life at which a unit will go berserk. An example is the Myrkridia, which have a setting of 0.25, and go berserk when reduced to a quarter of their health. Very nasty. 
+										<li><b>Sequences</b> 
+										<ul>
+											<li><b>Primary</b> - This is the unit's primary, just hanging around sequence. 
+											<li><b>Transition to Secondary</b> - This is the transition sequence from primary to secondary. 
+											<li><b>Secondary</b> - This is the unit's second chillin' sequence. 
+											<li><b>Transition to Primary</b> - This is the transition sequence from secondary to primary. 
+											<li><b>Moving</b> - This is the unit's moving sequence. 
+											<li><b>Running</b> - This is the unit's running sequence. 
+											<li><b>Pausing for Obstacle</b> - This is the sequence to play while the unit is pausing for an obstacle. 
+											<li><b>Turning</b> - This is the (you guessed it!) sequence to play when a unit is turning. 
+											<li><b>Blocking</b> - This is for when a unit is blocking an attack. 
+											<li><b>Flinching</b> - This is for when a unit is flinching. 
+											<li><b>Holding for Attack</b> - This is for when a unit is waiting to attack. 
+											<li><b>Ammunition Icon</b> - Sequence is the single frame icon displayed beside a unit's ammunition count, like a dwarfs satchel count or an archers flaming arrows. 
+											<li><b>Picking Up Object</b> - This the sequence for when a unit is picking up an object. 
+											<li><b>Taunting</b> - This is, quite shockingly, the unit's taunt sequence. 
+											<li><b>Celebration</b> - This is the sequence played when a unit is celebrating a level or netgame victory. Often the same as their Taunt sequence. 
+											<li><b>Gliding</b> - This is the sequence that flying units use when they are gliding. 
+											<li><b>Placeholder</b> - This is, amazingly, a placeholder. 
+											<li><b>Head Shots</b> - This is the unit's head shot, as displayed in the status bar at the top of the screen. 
+										</ul>
+										<li><b>Sounds</b> - The sounds dialog is very flexible, allowing you to fill slots with sound tags and specify what type of sound it is. The types you can assign are as follows. 
+										<ul>
+											<li><b>Attack Order</b> - This is called when a unit is ordered to attack. 
+											<li><b>Multiple Attack Order</b> - This is called when the unit is repeatedly ordered to attack. Good for grumbling, petulant units like dwarves. 
+											<li><b>Attack Order vs. Undead</b> - This sound is unimplemented... sorry. 
+											<li><b>Move Order</b> - This is called when a unit is ordered to move. 
+											<li><b>Multiple Move Order</b> - This is called when a unit is ordered to move multiple times. Also good for grumpy units. 
+											<li><b>Selection</b> - This is called when you select (click on) a unit. 
+											<li><b>Multiple Selection</b> - This is called when you repeatedly select a unit. 
+											<li><b>Hit Friendly Unit</b> - This is called when the unit hits an ally. Usually an apology, or perhaps a warning. 
+											<li><b>Hit By Friendly Unit</b> - This is called when the unit is hit by a friendly unit. Usually complaints. 
+											<li><b>Attack Obstructed By Friendly Unit</b> - This is called when the unit's attack is obstructed by a friendly unit. Obviously, this is seldom called by melee units or units whose attacks are set to ignore friendly units. 
+											<li><b>Attack Enemy Unit</b> - This sound is unimplemented... sorry. 
+											<li><b>Attack Enemy Unit with Friends Nearby</b> - This sound is called when a unit is given an attack order and friendly units are nearby. 
+											<li><b>Sprayed with Gore</b> - This sound is unimplemented... sorry. 
+											<li><b>Caused Enemy Death</b> - This is called when the unit causes an enemy death (never would have guessed it...). 
+											<li><b>Caused Friendly Death</b> - This is called when the unit causes a friendly death. 
+											<li><b>Caused Death of Enemy Undead</b> - This is called when the unit kills an enemy undead unit. 
+											<li><b>Caused Multiple Enemy Deaths</b> - This sound is unimplemented... sorry. 
+										</ul>
+										<li><b>Terrain Parameters</b> 
+										<ul>
+											<li><b>Base Movement Speed</b> - This is the speed at which a unit naturally moves. Note that changing this does not affect the unit's walking sequence animation, and major changes here will result in the walking animation not matching the unit's actual speed. 
+											<li><b>Speeds and Costs</b> - All of these boxes determine whether or not a unit can cross a certain terrain. If the box is checked, a unit can cross this type of terrain. The Speed field beside it is the fraction of the unit's normal speed at which it will travel when it crosses this type of terrain (0.500 would be half speed, while 1.00 is full speed ahead). The Cost field is not used at this point, so don't worry about it. 
+										</ul>
+										<li><b>Monster Flags</b> 
+										<ul>
+											<li><b>Translates Continuously</b> - Monsters with this flag checked move smoothly despite not having a walk animation. Generally, you should use this only when the unit does not walk or animate as it is moving--soulless, shades, and other floating units are good examples of this. 
+											<li><b>Holds with Clear Shot</b> - If checked, the unit will stay put if it has a clear shot at the enemy. Otherwise, it will shoot, move, shoot, move, and so on. 
+											<li><b>Floats</b> - If checked, the unit will float just above the ground, as soulless and shades do. 
+											<li><b>Flies</b> - If checked, the unit will fly and glid like birds do (you'll need to use this in conjunction with an object that is told to stay a set height above the mesh. You will then have to place the unit in Loathing and raise it into the air). 
+											<li><b>Allows Projectiles to Pass Through</b> - If checked, the unit is ghostly, and arrows or spears will shoot right through it continuing on to cause more damage. An example of this are soulless. 
+											<li><b>Experience Proportional to Damage</b> - If this is checked, the unit appears to have more experience as its health decreases. This can be used to create a &quot;berserker&quot; effect, making a unit attack faster or more accurately when it is damaged. 
+											<li><b>Is Anti-Missile Unit</b> - If checked, this unit will always try to target units with the flag below... 
+											<li><b>Is Anti-Missile Target</b> - If checked, this unit will always be targeted by Anti-Missile units. 
+											<li><b>Turns to Stone When Killed</b> - Units with this checked turn to stone when they die, a la Trow. 
+											<li><b>Concentrates on a Single Target</b> - Units with this checked will focus their attacks on a single unit until it is dead, and then move on. 
+											<li><b>Is Undead</b> - If checked, the unit is an undead unit. 
+											<li><b>Cannot Be Autotargeted</b> - If checked, this unit cannot be automatically targeted by an attacking unit--it must be explicitly targeted by the player. 
+											<li><b>Is Giant Sized</b> - If checked, this unit is considered to be giant sized, which can affect such things as attacks. 
+											<li><b>Does Not Respect Visibility</b> - If this is checked, the monster is always visible--it does not fade out when it moves out of visual range. Great for things like winch and cannon monsters, which should always be visible (as they are actually a sort of scenery). 
+											<li><b>Is Not Solid</b> - Units with this flag are like ghosts, able to pass through scenery marked as solid (unless it marks the mesh as impassable) and immune to non-area effect weapons. 
+											<li><b>Leaves Contrail</b> - If checked, the unit leaves a ghostly trail behind it. It looks odd, but is useful in some cases. However, it tends to make a unit jerk along, and was never really used in Myth II. 
+											<li><b>Invisible on Overhead Map</b> - This flag, quite appropriately, makes the unit invisible on the overhead map. Very useful for ambient life. 
+											<li><b>Cannot Be Healed</b> - Self explanatory. Units with this flag cannot be healed. 
+											<li><b>Does Not Drop Ammo When Dying</b> - When units with this flag die, they no not drop any ammunition they were carrying (like dwarves do with their satchels). 
+											<li><b>Is Inanimate Object</b> - Units with this flag are inanimate objects. Examples of this include winch &quot;monsters&quot; and cannons. 
+											<li><b>Is Skittish</b> - Units with this flag are supposed to break into a run when approached or attacked. But they don't, so you probably shouldn't use this tag. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="obje"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>objects (obje)</b></td>
+								<td align="right"><a href="gfx/Picture18.gif"><b>Image: Object Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Objects contain many of the physical characteristics of an object. For units, they determine health and vitality, just as they do for any other objects. They also allow you to edit their weaknesses and vulnerabilities. 
+									<p><b>object Tag Anatomy</b></p>
+									<ul>
+										<li><b>Gravity</b> - This number determines the downward acceleration of an object. It is measured in World units per tick squared--a tick is one thirtieth of a second, so just multiply the number by thirty to get the value in World units per second squared. 
+										<li><b>Terminal Velocity</b> - This value is, when used correctly, the maximum downward velocity that an object can achieve. This only works under certain circumstances, so pay attention. If a unit's Z (vertical) velocity is less (that's right, less... projectiles can have negative velocities) than it's terminal velocity, gravity will no longer accelerate it. This is used by parachuting dwarves and could conceivably be used for any projectile. Just make sure that your terminal velocity is negative too. 
+										<li><b>Elastic Coefficient</b> - This value is used to determine how much velocity an object retains after impacting with another object. 1.00 is fully elastic, which means the object will retain all of its velocity, while 0.00 means the object would simply stop after colliding, maintaining none of it's velocity. 
+										<li><b>Max Vitality</b> - These numbers are used to determine a unit's maximum health, which is randomly selected from between the two values. If you want a constant health, input the same number in each field. 
+										<li><b>Scale Fraction</b> - This is the fraction by which an object's sprites are scaled (to create the appearance of larger size). Trow, for example, are scaled between 1.50 and 1.60 in order to make them tower over smaller units. 
+										<li><b>Minimum Damage</b> - This is the minimum amount of damage that the object will recognize. Damage amounts less than this will inflict no damage on the object--it's vitality will not decrease. This is to prevent such occurrences as weakening a tree with explosives, and then felling it with a single arrow or tossed rock. 
+										<li><b>Draw Selection Box</b> - If this is checked, the object can be selected when it is clicked on, causing a selection box to be drawn around it. 
+										<li><b>Draw Vitality Box</b> - If this is checked, the object's health will be displayed in a bar beside it. 
+										<li><b>Maintains Constant Height Above Mesh</b> - If checked, the object will cruise at a level altitude over the mesh. This is demonstrated by a warlock's fireball. 
+										<li><b>Ignore Model and Object Collisions</b> - If this is checked, the object will be ghostly, moving through models and other objects. This is used by gas effects like cloudkill. 
+										<li><b>Effect Modifiers</b> - These fractions control how much damage a unit takes from any given type of damage. 1.00 is normal damage. 0.00 is no damage (i.e. immunity). Anything in between is a fraction of the damage a unit would normally receive. In cases where a given damage type does not inflict damage (i.e. paralysis and confusion), the number indicates how long the unit is affected by the malady. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="obpc"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>observer constants (obpc)</b></td>
+								<td align="right"><a href="gfx/Picture19.gif"><b>Image: Observer Constants Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">The observer constants tag (and there should usually only be one) is a set of constants that are used to control the physics of the player camera. All seven buttons lead to a similar dialogue, which will be explained once for all options. 
+									<p><b>observer constants Tag Anatomy</b></p>
+									<ul>
+										<li><b>Constants Dialog (un-named)</b> - The Positive and Negative sections refer to opposing directions (forward and backward, left and right). 
+										<ul>
+											<li><b>Maximum Velocity</b> - This is the maximum speed the camera can attain in this direction. 
+											<li><b>Acceleration</b> - This is the rate at which the camera builds up to it's maximum velocity. 
+											<li><b>Deceleration</b> - This is the rate at which the camera returns to rest. 
+										</ul>
+										<li><b>Parallel Velocity</b> - This represents the forward and backwards motion of the camera. 
+										<li><b>Yaw Velocity</b> - This represents the turning motion of the camera. 
+										<li><b>Orthogonal Velocity</b> - This represents the straight left and right motion of the camera. 
+										<li><b>Pitch Velocity</b> - This is no longer used... ignore it. 
+										<li><b>Vertical Velocity</b> - This is no longer used... ignore it too. 
+										<li><b>Orbit Velocity</b> - This represents the orbiting motion of the camera. 
+										<li><b>Zoom Velocity</b> - This represents the in and outwards zooming of the camera. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="part"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>particle systems (part)</b></td>
+								<td align="right"><a href="gfx/Picture20.gif"><b>Image: Particle Systems Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Particle systems contain the information Myth II uses to generate it's particle based weather effects, such as snow or rain (though it can do anything from drizzle to rain chickens). 
+									<p><b>particle system Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection Reference</b> - This is the collection reference that contains the sprites you want to use as your particles, such as raindrops, snowflake, or trow (if you're feeling really silly). 
+										<li><b>Sequence</b> - This pop-up is for selecting the actual sequence within your collection to use. 
+										<li><b>Minimum View Distance</b> - This is the minimum distance that a particle can be from the camera. This value prevents things like snowflakes from being too close and obstructing the camera's view. 
+										<li><b>Transparency Rolloff Point</b> - This is the distance from the camera at which the particles begin fade into transparency. 
+										<li><b>Transparency Cutoff Point</b> - This is the distance beyond which particles are completely transparent and invisible. 
+										<li><b>Maximum # of Particles</b> - This is the maximum number of particles that can be on the screen at one time. 
+										<li><b>Scale</b> - This fraction is the scale of the particles. 
+										<li><b>Box Width</b> <b>(in cells) </b>- This is how wide and tall your particle system box is. A particle system works by creating a number of boxes on a mesh and tiling them side by side so that they always surround the camera. Wider boxes mean more particles and a slower mesh, but smaller boxes might result in a player seeing gaps in the rain/snow. The value is, surprisingly enough, measured in cells. 
+										<li><b>Box Top Height (in WU)</b> - This is the elevation of the top of the boxes, where the particles originate. Very tall boxes mean more particles, but boxes that are too low will allow the player to see the particles appearing before his camera. 
+										<li><b>Box Bottom Height (in WU)</b> - This is the elevation of the bottom of the box; the point at which particles are deleted. Low bottoms always ensure that the particles reach the ground (they look odd when they don't), but mean that each particle will be tracked longer and slow the mesh down a bit more. 
+										<li><b>Max. Splashes Per Cell</b> - This is the maximum number of splashes this particle system can cause per cell. 
+										<li><b>Time Between Building Splashes</b> - This is the actual time between the building of each splash effect on the surface of the media being affected by this particle systems. Longer times mean raindrops will cause splashes less frequently, but smaller times can result in splashes bunching up and overlapping each other, which is rather ugly. 
+										<li><b>Boundary Conditions</b> - These mysterious fields allow you to vary the amount of snow or rain the different parts of your mesh receive. Each field is a fraction that determines the base intensity of the system on that edge of the mesh--placing a 1.00 on the top means that it snows with full intensity in the north section of your map, while placing a 0.00 in the left and a 0.50 in the right fields result in no snow and half snow in the west and east sides of your map, respectively. 
+										<li><b>Velocity Ranges</b> 
+										<ul>
+											<li><b>I</b> - This random range determines the X (east-west) velocity of the particles. Their velocity is randomly selected from between these two numbers. 
+											<li><b>J</b> - This random range determines the Y (north-south) velocity of the particles. Their velocity is randomly selected from between these two numbers. 
+											<li><b>K</b> - This random range determines the Z (up-down) velocity of the particles. Their velocity is randomly selected from between these two numbers. For most systems, you should make sure this random range is firmly in the negative, or you'll have strangeness like particles traveling up.
+										</ul>
+										<li><b>Ambient Sound</b> - This is the ambient sound to be played while this particle effect is in effect--for example, rain only plays its ambient sound when it is raining, not when it is calm. 
+										<li><b>Splash Local Projectile Group</b> - This is the local projectile group created when particles land in media (they are simply absorbed when they land on non-media). 
+										<li><b>Flags</b> 
+										<ul>
+											<li><b>States last indefinitely</b> - If this is checked, the system starts in the Snowing State (see below) and stays that way forever. 
+											<li><b>Does not affect projectiles</b> - If this if checked, the particles in this system do not affect other projectiles. For example, rain or snow would not douse burning objects. 
+											<li><b>Transparency varies with </b><b>distance</b> - If this is checked, the further away from the camera they are, they more transparent they become. Handy for adding depth to your particle system. 
+										</ul>
+										<li><b>Not Snowing State</b> 
+										<ul>
+											<li><b>Duration</b> - This is the duration of this state in seconds. The time the system remains in this state is randomly selected from between the two numbers. 
+											<li><b>Intensity</b> - This is the intensity of the particle system while it is at this state. The number is a fraction--1.00 is full intensity, which means the maximum number of particles is used, while 0.50 is half intensity, and 0.00 is completely off. The number is randomly selected from the given range. 
+											<li><b>Transition Duration</b> - This is the duration of the transition from this state to the next. Very long values here result in very gradual changes, while very short values result in the rain or snow stopping very abruptly. 
+										</ul>
+										<li><b>Snowing State</b> 
+										<ul>
+											<li>This state and it's settings are identical to the Not Snowing State, except that the ambient sound is played during this state. Generally, your intensity should be greater during this state than during the not snowing state. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="pref"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>preferences (pref)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Preferences contain Myth's user preferences information. Fear does not edit these, but don't despair, the Myth II Preferences dialog does a very nice job of it on its own.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="prel"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>preloaded data (prel)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">I was told that I don't need to know about these, and closely watched as I quickly departed the room. I think I'm close to something. 
+									<p>Unlike dialog string lists, I suspect that these do have something to do with mind control lasers and orbital mirrors. The truth is out there.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="prgr"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>projectile groups (prgr)</b></td>
+								<td align="right"><a href="gfx/Picture21.gif"><b>Image: Projectile Group Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Projectile groups are just what they sound like--groups of projectiles. Instead of calling projectiles, Myth often calls the very versatile projectile groups instead, allowing for more varied explosions and effects. It might be useful to read the section on projectiles first, however. 
+									<p><b>projectile group Tag Anatomy</b></p>
+									<ul>
+										<li><b>Mesh Effect</b> - This pop-up allows you to selected the mesh effect tag associated with a projectile group. 
+										<li><b>Sound</b> - This pop-up allows you to select the sound associated with a projectile group. 
+										<li><b>Local Projectile Group</b> - This pop-up allows you to select the local projectile group tag associated with a projectile group. This allows for such effects as smoking bodies, or things like a fetch's escaping soul. 
+										<li><b>Projectile List (un-named)</b> - This list allows you to add, delete, and duplicate projectiles in a projectile group. Double clicking on a projectile brings up the Projectile window. 
+										<li><b>Projectile Window (un-named) </b>
+										<ul>
+											<li><b>Projectile</b> - This pop-up allows you to select the projectile. 
+											<li><b>Count</b> - These numbers allow you to select the volume of projectiles. The number of this type of projectile in this group is randomly selected from between these two numbers. If you want a constant number of this projectile, enter the same number in both fields. 
+											<li><b>Position</b> - This number is a percentage that dictates where on the sprite of the calling object this projectile will appear. This is great for things like body parts, which must appear in certain places on the unit's body. 1.00 is the top of the unit, 0.500 is the middle, and 0.00 is the bottom of it. The number is a random range, which means the projectile will appear at a position between the two values. 
+											<li><b>Appearing Fraction</b> - This is the chance that this projectile will appear, 1.00 being a 100% chance, while 0% is no chance of it appearing. 
+											<li><b>Flags</b> 
+											<ul>
+												<li><b>Is Central</b> - If checked, this projectile will be at the very center of the group. 
+												<li><b>Is On Ground</b> - If this is checked, the projectile will appear on the ground beneath the group. 
+											</ul>
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="proj"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>projectiles (proj)</b></td>
+								<td align="right"><a href="gfx/Picture22.gif"><b>Image: Projectile Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Projectiles are one of the most amusing, and complex, objects in Myth II. This tag contains almost all the data needed to create a huge range of projectiles, and are used by all units (among other things) for attacks and other effects. 
+									<p><b>projectile Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection</b> - This pop-up allows you to select the collection (sprites) tag used by this projectile. 
+										<li><b>Object Tag</b> - This pop-up allows you to select the object tag that contains the projectile's physical characteristics. 
+										<li><b>Lightning Tag</b> - This pop-up allows you to select the lightning tag for lightning behavior characteristics. 
+										<li><b>Artifact Tag</b> - This pop-up allows you to select the artifact tag that is associated with this projectile. 
+										<li><b>Sequences</b> 
+										<ul>
+											<li><b>Flight</b> - This pop-up allows you to select  the in flight sequence. 
+											<li><b>Debris</b> -- This pop-up allows you to select  the debris sequence. 
+											<li><b>Bounce</b> - This pop-up allows you to select  the bouncing sequence. 
+										</ul>
+										<li><b>Detonation</b> 
+										<ul>
+											<li><b>Tag</b> - This pop-up allows you to select  the projectile group called when this group explodes. 
+											<li><b>Target</b> - Still no idea what this does... 
+											<li><b>Splash/Rebound Type</b> - This is for setting the splashing and rebounding effect of a projectile. It is cosmetic setting that doesn't really affect anything except the projectile's appearance, so set it accordingly. 
+											<li><b>Normal Frequency</b> - This is the chance that a projectile will detonate on contact with a non-media surface. 1.00 is every time, while 0.00 is never. 
+											<li><b>Media Frequency</b> - This is the chance that a projectile will detonate on contact with a media surface, like water. 1.00 is every time, and 0.00 is never. Very handy for such things as grenades. 
+											<li><b>Velocity</b> - This value is the random velocity given to particles created by the detonation of this of this projectile. 
+											<li><b>When Animation Loops</b> - If this is checked, the projectile detonates when its animation sequence loops. 
+											<li><b>When Transfer Loops</b> - If this is checked, then the projectile detonates when its transfer (fade in, fade out, etc.) loops. 
+											<li><b>At Rest</b> - If this is checked, the projectile detonates when it comes to rest. 
+											<li><b>Remains After Detonation</b> - If this is checked, the projectile remains after it has detonated. Hmm, perma-pus packets, anyone? 
+										</ul>
+										<li><b>Contrail</b> 
+										<ul>
+											<li><b>Tag</b> - This is for selecting another projectile to be used as the projectile's contrail. The most frequent example of this is bits of gore--an arm or leg will have &quot;guts blood&quot; selected so that it drips blood as it flies. When some creativity, this can be used to create some astounding special effects. 
+											<li><b>Ticks Between Contrails</b> - This is the amount of delay between contrail sprites (like the puffs of a grenade). 
+											<li><b>Maximum Number</b> - If checked, the number entered will determine the maximum number of contrails the projectile will generate. If unchecked, the projectile will have an infinite number of contrails. 
+											<li><b>Initial Frequency</b> - This is the frequency at which a projectile emits contrails when it is first created. 1.00 is the maximum, and 0.00 is the minimum. 
+											<li><b>Final Frequency</b> - This is the final frequency at which a projectile emits contrails. Over time, the frequency moves from the initial to final, decreasing the volume of contrails. For example, an arm bleeds most profusely at the beginning of its flight, but eventually tapers off. 
+											<li><b>Frequency Change Per Tick</b> - This is how much the contrail frequency may change per tick. This value will be randomly added or subtracted to the initial value every tick, resulting in some variation in an otherwise smooth contrail. 
+											<li><b>Frequency Resets After Bouncing</b> - If checked, the projectile's contrail frequency will reset after bouncing. 
+										</ul>
+										<li><b>Physics</b> 
+										<ul>
+											<li><b>Volume</b> - This allows you to select the volume of a projectile. This is used to determine who can pick which projectiles. Ghols, for example, pick up and throw Small projectiles. 
+											<li><b>Inertia</b> - This number is actually backwards--an object with a small number here has greater inertia, and thus is accelerated less by explosions and other such things, like ghol arms. A projectile with an inertia of 1.00 is very light and easily affected, while one with an inertia of 0.10 is very heavy and hard to move. 
+											<li><b>Random Initial Velocity</b> - This number is the random initial velocity of a projectile. 
+											<li><b>Affected By Wind</b> - If checked, this object is affected by the wind present in meshes with wind tags set. 
+											<li><b>Cannot Be Accelerated</b> - If this is checked, the projectile cannot be accelerated by external forces, such as wind or explosions. 
+											<li><b>Melee Attack</b> - If checked, this attack is a melee attack, and will be considered as such. 
+										</ul>
+										<li><b>Promotion</b> 
+										<ul>
+											<li><b>Projectile Tag</b> - This is the projectile tag that this projectile can be promoted into. 
+											<li><b>Group Tag</b> - This is the projectile group that this projectile can be promoted into. 
+											<li><b>Promoted on Detonation Fraction</b> - This is the chance that a projectile will be promoted on detonation. 1.00 is every time, 0.00 is never. 
+											<li><b>Promoted at End of Lifespan</b> - If this is checked, the projectile is promoted when it's lifespan expires. 
+										</ul>
+										<li><b>Class</b> - This pop-up is used for selecting a projectile's class. In most cases, this actually does not matter--the body part classes were supposed to be used for things like scripts, which never made it into Myth. However, to be on the safe side, set your projectiles accordingly. 
+										<li><b>Sounds</b> 
+										<ul>
+											<li><b>Flight Tag</b> - This is the sound that the projectile plays while in flight. 
+											<li><b>Rebound Tag</b> - This is the sound that the projectile plays when it rebounds. 
+										</ul>
+										<li><b>Animation Rate</b> - This is the rate at which a projectile's animation plays through. Smaller numbers are faster--most stay at 1.00, which is the normal animation speed, while some slow down over time to 3.00 or 4.00, as a dwarven cocktail does. 
+										<li><b>Lifespan</b> - If checked, the projectile has a lifespan that is randomly selected from the range of numbers supplied. The range is in seconds--1.00 to 3.00 means the projectile will live for 1 to 3 seconds. If unchecked, the projectile is essentially immortal (until it detonates). 
+										<li><b>Delay</b> - This range is the delay between the time that a projectile is created and when it is visible (I think). 
+										<li><b>Nearby Target Radius</b> - This number is used to determine possible range of side-effect attacks, like a fetch's lightning arcing off and hitting a nearby unit, or a shade's dispersal dream attack. 
+										<li><b>Tracking Priority</b> - This is the importance of this projectile to the camera--the more important the projectile, the more likely it is to focussed on by the automatic camera. For example, a wight's blast has a priority of 255--when the camera is in Automatic Mode, it will always zip over to watch a wight explode, because 255 is the highest priority. Use this wisely, though--if all of your projectiles are top priority (255), it becomes rather pointless. Don't do that. Just don't. 
+										<li><b>Guided Turning Speed</b> - This is the speed at which a guided projectile can turn. 
+										<li><b>Damage (window)</b> 
+										<ul>
+											<li><b>Type</b> - This is the type of damage being inflicted by this particular projectile. This is important because many units are invulnerable or take less damage from certain damage types, so you should choose damage accordingly. 
+										</ul>
+										<ul>
+											<ul>
+												<li><b>NONE</b> - This is, appropriately, no damage. 
+												<li><b>Explosion</b> - This is explosive damage. Explosive damage does not cause a unit to bleed, and always causes a unit to suffer a hard death (i.e.turn into chunks). 
+												<li><b>Magical</b> - This damage type causes units to disintegrate into little chunks. 
+												<li><b>Holding (i.e. shocking)</b> - This damage type doesn't actually damage a unit--instead, a unit is held in place for a period of time equal to the amount of &quot;damage&quot; inflicted-- one point of damage is equal to one second of immobility. Impacts of this type always call the internal effect projectile group, which is currently (and should be left) blank. 
+												<li><b>Healing</b> - This damage type actually causes a unit to be healed. It, like holding, always calls the internal healing effect projectile group, which is the familiar journeyman healing effect. 
+												<li><b>Kinetic</b> - Damage of this type, caused by fast moving objects, is pretty much ordinary damage. 
+												<li><b>Slashing Metal</b> - This damage type causes a unit to bleed on impact, but not much else. 
+												<li><b>Stoning</b> - No, it doesn't leave a unit wandering around in a daze... stoning causes a unit to be turned into stone, essentially paralyzing it forever. Nasty thing. 
+												<li><b>Slashing Claws</b> - Just a variation of slashing metal. 
+												<li><b>Explosive Electricity</b> - This is the damage inflicted by lightning, which chars bodies and turns them into little chunks. 
+												<li><b>Fire</b> - Fire damage does not cause units to flinch or bleed, just steadily sucking away health until the unit collapses in a charred heap. 
+												<li><b>Gas</b> - Gas is like fire, but does not char the unit.  Instead it causes soft deaths. It is worth noting that few, if any, non-unit objects are affected by gas damage. 
+												<li><b>Charm</b> - This special damage type doesn't inflict damage at all. Instead, it causes the controller of the unit that created this projectile to gain control of an enemy unit damaged by this projectile. This is used by The Deceiver's charm spell. 
+											</ul>
+										</ul>
+										<ul>
+											<li><b>Damage</b> - This range determines the amount of damage this projectile does. If you want it to inflict a set amount of damage, set both fields to the same value. Otherwise, the value is selected at random from between the two. 
+											<li><b>Radius</b> - This range determines the radius of the projectile's area of effect. Explosions should have large areas, while impacts (by swords, arrows, etc.) should have small or nonexistent radii. 
+											<li><b>Rate of Expansion</b> - This is the speed with which a projectile's damage fills its radius. Alternatively, the speed at which a shockwave departs its epicenter. 
+											<li><b>Damage to Velocity</b> - This is the fraction of damage inflicted by this object that is converted into kinetic energy acting upon an object within its area of effect (whew). Basically, if there is a value here, a portion of the damage this explosion (or whatever damage type it is) inflicts on a chunk of debris will be changed into motion. 1.00 is equal speed to damage, while 0.00 is no speed. You can go faster than 1.00. 
+											<li><b>Damage Flags</b> 
+											<ul>
+												<li><b>Proportional to Velocity</b> - If this is checked, an object does more damage the faster it is moving. This is great for things like sharp or hard debris, which can be tossed by ghols or accelerated in explosions, which can sometimes bring them to lethal speeds... 
+												<li><b>Area of Effect</b> - If checked, this projectile has an area of effect. 
+												<li><b>Does Not Interrupt Events</b> - If this is checked, then the damage caused by the projectile does not interrupt other events, like another unit's attack. 
+												<li><b>Cannot Be Healed</b> - If this is checked, damage inflicted by this projectile cannot be healed later. 
+												<li><b>Can Cause Paralysis</b> - If this is checked, the projectile causes any unit it damages to be paralyzed. 
+												<li><b>Can Stun</b> - This doesn't appear to do anything... 
+												<li><b>Cannot Be Blocked</b> - Projectiles with this flag set cannot be blocked by a unit. 
+												<li><b>Does Not Affect Monsters</b> - If this is checked, the projectile will not affect units of any type. 
+												<li><b>Detonates Explosives Immediately</b> - Projectiles with this flag cause explosives to explode if they are close by. An example is a fetch's lightning--for laughs, stand a fetch on top of a pile of satchel charges and tell it to shoot something. Boom. 
+												<li><b>Proportional to Mana</b> - If this is checked, the amount of damage inflicted is proportional to the amount of mana spent on the attack. 
+												<li><b>Can Destroy Large Objects</b> - If this is checked, the projectile can destroy large objects. Generally, only things like powerful explosives or things like Trow kicks should have this flag set. 
+												<li><b>Instantaneous</b> - If this is checked, the damage caused by a projectile does not spread to fill its area of effect--it simply fills that area instantly. 
+												<li><b>Cannot Hurt Owner</b> - If this is checked, the projectile cannot damage the unit that owns it. 
+												<li><b>Does Not Make Monsters Flinch</b> - If this flag is checked, the projectile will not cause units to flinch when they are affected by it. Nice for subtle things, like gas attacks. 
+												<li><b>Can Cause Confusion</b> - If this is set, the projectile will cause any unit it damages to become confused. 
+											</ul>
+										</ul>
+										<li><b>Projectile Flags (window)</b> 
+										<ul>
+											<li><b>Uses Owner Color Table Index</b> - Objects with this flag checked use certain colors that belong to their owners. This creates such effects as colored flights on arrows, netgame balls, and appropriately colored body parts. 
+											<li><b>Can Animate Backwards</b> - Projectiles with this flag set can, and will, sometimes run through their animation sequences in reverse, creating a bit more diversity in motion. 
+											<li><b>Can Be Mirrored</b> - If this is checked, then the projectile's sprites can be mirrored (flipped) in order to provide a varied appearance. 
+											<li><b>Becomes Dormant at Rest</b> - Projectiles with this flag become dormant when they come to rest, but don't disappear. Body parts and netgame balls are examples of these sorts of projectiles. 
+											<li><b>Animates at Rest</b> - If this flag is checked, then the projectile continues to run through its animation sequence even when it is at rest. 
+											<li><b>Bloodies Landscape</b> - If this flag is checked, the projectile creates bloodstains on the ground upon impact. 
+											<li><b>Is On Fire</b> - Projectiles with this flag are on fire--they have a burning contrail like flaming arrows and dwarf bottles, and are extinguished by water. 
+											<li><b>Passes Through Target</b> - If this is checked, the projectile will continue moving even after it has hit its target. 
+											<li><b>Cannot Be Mirrored Vertically</b> - If this is checked, the projectile cannot be mirrored vertically (in order to create more variety in the appearance of projectiles). 
+											<li><b>Floats</b> - Projectiles with this flag checked float when they land on media. 
+											<li><b>Is Media Surface Effect</b> - If this is checked, the projectile is (appropriately) a media surface effect. Examples of these are splashes. 
+											<li><b>Continually Detonates</b> - Projectiles with this flag continually detonate. This can give the appearance of pulsing clouds, and create persistent areas of effect. 
+											<li><b>Is Lightning</b> - If this is checked, the projectile is a lightning bolt, and uses characteristics as defined by its Lightning Tag. 
+											<li><b>Chooses Nearby Target</b> - If this is checked, the projectile will randomly attack a new target inside of its Nearby Target Radius. The secondary bolts spawned by a fetch's lightning bolt do this. 
+											<li><b>Is Only Destroyed By Lifespan</b> - Projectiles with this flag checked persist until their lifespan expires. This is handy for things like clouds of gas or fire that remain even after injuring a unit. 
+											<li><b>Can Set Landscape On Fire</b> - When this flag is checked, the projectile can spark a fire upon hitting a combustible piece of landscape. 
+											<li><b>Centered on Target</b> - Projectiles with this flag set are centered on their target when they detonate. This is used by such things as a Shade's dispersal dreams, which create a blast pattern radiating from the victim. 
+											<li><b>Marks Target As Having Been Chosen</b> - If this is checked, then a projectile cannot hit a previously targeted unit again. Handy for limiting things like bouncing lightning and dispersal dreams. 
+											<li><b>Is Bloody (Do Not Draw)</b> - Projectiles with this flag are considered &quot;bloody&quot;, and are therefore not drawn when Myth is being played in No Blood mode. All pieces of gore should have this flag. 
+											<li><b>Is Guided</b> - Projectiles with this flag are guided towards their target. 
+											<li><b>Detonates Immediately</b> - If this flag is set, the projectile detonates immediately upon creation. This is used by such things as the wight's detonation. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="reco"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>recordings (reco)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Recordings are Myth II's saved film objects. These tags contain sequences of commands that the Myth II engine reads to create replays. Fear cannot edit these tags. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="save"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>saved games (save)</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Like recordings, saved games are internal tags used by Myth II to store game data, in this case the state of a saved game. Like recordings, these tags cannot be edited by Fear.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="scen"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>scenery (scen)</b></td>
+								<td align="right"><a href="gfx/Picture23.gif"><b>Image: Scenery Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Scenery tags contain much of the appearance and behavior data for Myth II's scenery objects. 
+									<p><b>scenery Tag Anatomy</b></p>
+									<ul>
+										<li><b>Collection</b> - This pop-up allows you to select the sprite collection tag used by this scenery object. 
+										<li><b>Projectile</b> - This is the projectile that this object is transformed into when it becomes airborne. This is most often used by netgame balls. 
+										<li><b>Object Tag</b> - This pop-up allows you to select the object tag that defines a scenery object's physical characteristics. 
+										<li><b>Model Permutation Delta</b> - Woo boy, brace yourselves for this one... A scenery object with the right flags set (see below) can, when destroyed, adjust to this value the permutation of a model occupying the same mesh cell. This is how effects such as destructible model walls are acheived--by placing a scenery object in the same cell as that model and setting the permutations correctly. If you are playing with this, you are operating above and beyond the scope of this documentation. Be careful out there. 
+										<li><b>Scenery Projectile Groups (window)</b> 
+										<ul>
+											<li><b>Impact</b> - This is the projectile group that is created when something collides with the scenery object. Dust is a common example, and you might make it so that trees emit leaves when impacted. 
+											<li><b>Detonation</b> - This is the projectile group that is created when this object explodes. Fragments and pieces of the object are most commonly used here. 
+										</ul>
+										<li><b>Scenery Collection References (window)</b> 
+										<ul>
+											<li><b>Collection Reference</b> - This allows you to select the scenery color reference used by this scenery object. This is handy for things like variations in color without altering the sprite itself--very useful for creating night variants of common things. 
+										</ul>
+										<li><b>Scenery Sequences (window)</b> 
+										<ul>
+											<li><b>Undamaged</b> - This is the sequence used by the scenery object when it is undamaged. 
+											<li><b>Ruined</b> - This is the sequence used when the object is damaged and ruined. 
+										</ul>
+										<li><b>Netgame</b> 
+										<ul>
+											<li><b>Is Netgame Flag</b> - If this flag is checked, the scenery object is considered to be a netgame object (flag or ball), and the following Netgame options become visible. 
+											<li><b>Scoring Type</b> - This is the type of game that this scenery object is used in and loaded into. 
+											<li><b>Flag Number</b> - This is the number assigned to this flag or ball, which is important for such games as Flag Rally or Scavenger hunt. Otherwise, the number should be set to 0, as it is for Territories, Captures, Last Man, etc. 
+										</ul>
+										<li><b>Scenery Flags</b> 
+										<ul>
+											<li><b>Is Solid</b> - Scenery with this flag checked are solid objects that can interact with units, projectiles, and other objects. 
+											<li><b>Has Random Facing</b> - If checked, this scenery will be facing in a random direction, as determined by its sequences. This randomizes scenery when it is placed, and helps greatly with visual variety since all scenery faces one direction during a game. 
+											<li><b>Is Large Object</b> - If this is checked, then only projectiles with the flag Can Destroy Large Objects can destroy this scenery. 
+											<li><b>Respects Monster Visibility</b> - If this is checked, then this scenery object will fade out when no units are in range, just as an enemy unit would. 
+											<li><b>Adjusts Model Permutation</b> - If this is checked, this scenery object changes to the Model Permutation Delta the permutation of a model occupying the same cell. 
+											<li><b>Animates</b> - If this is checked, then the scenery animates its sequence instead of using a static, random frame. 
+											<li><b>Marks Terrain Impassable</b> - If this is checked, the scenery marks as impassable the terrain directly beneath it. This makes objects like trees impassable, and helps unit pathfinding. 
+											<li><b>Affects Model Animation Frame</b> - If this is checked, the destruction of this scenery object causes any model animations in the same cell to advance one frame. 
+											<li><b>Destruction Starts Model Animation</b> - If this is checked, the destruction of this scenery object causes any model animations in the same cell to start. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="soli"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>sound lists (soli)</b></td>
+								<td align="right"><a href="gfx/Picture24.gif"><b>Image: Sound List Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Sounds lists are just that--lists of sounds used by the engine in lieu of many separate sounds. 
+									<p><b>sound list Tag Anatomy</b></p>
+									<ul>
+										<li><b>Sound List (un-named)</b> - This list allows you to add, delete, and duplicate sounds on the list. Double clicking on a sound brings up a small window that allows you to select the entry's sound tag. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="soun"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>sounds (soun)</b></td>
+								<td align="right"><a href="gfx/Picture25.gif"><b>Image: Sound Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Sounds are used extensively by Myth II to create an aurally detailed environment, complete with random, ambient, narrative, and event sounds. Sounds tags contain the sound data for these sounds, as well as several of their behavioral characteristics. Aside from being fairly simple, sounds are an awful lot of fun. Try changing the pitch of your berserks' voices for an amusingly tenor chorus of battle cries. 
+									<p><b>sound Tag Anatomy</b></p>
+									<ul>
+										<li><b>Loudness</b> - This is used to control the basic volume of a sound. Most sounds are flagged as Normal, while ambient and random sounds are often Quiet. Explosions usually occupy the Loud setting, and the Narration setting is for messages of dire importance, such as netgame warnings or in game dialogue. 
+										<li><b>Subtitle String List</b> - This is for selecting the string list to use as a subtitle--the chosen string is written at the bottom of the screen for the benefit of those unable to hear the message. 
+										<li><b>Play Fraction</b> - This fraction is the chance that this sound will be played when it is called. 1.00 is, as usual, always, and 0.00 is never. 
+										<li><b>External Frequency Modifier</b> - This fraction modifies a sound's frequency. For example, a berserks' attack order sound has a setting of 1.00, so this sound is played every time the berserk is order to attack. A setting of 0.50 means it will be played half the time, and 0.00 is never. 
+										<li><b>Pitch</b> - This range affects the pitch of your sounds. A pitch of 1.00 is unchanged, while a pitch of 2.00 is twice as high, and a pitch of 0.50 is twice as low. The value is randomly selected from between this range. Try setting both values to 1.75, and live the dream of commanding a troop of chipmunks. 
+										<li><b>Volume</b> - This range affects the volume of your sounds when they are played. 1.00 is again unchanged from the original sound, while 2.00 is twice as loud, etc. 
+										<li><b>Permutation Flags</b> 
+										<ul>
+											<li><b>Cannot Be Restarted</b> - If this flag is set, the sound cannot be broken off and restarted--this sounds really bad for explosions and voices, or most sounds for that matter. 
+											<li><b>Can Occupy Multiple Channels</b> - If this is checked, this sound can be played simultaneously in multiple channels. Great for sounds like sword blows and body impacts, which often occur in numbers during a melee. 
+											<li><b>Cannot Be Obstructed By Media</b> - If this is checked, then the sound will not be muted when it is played under media. 
+											<li><b>All permutations use the same subtitle</b> - If this is checked, all permutations use the same subtitle string. 
+											<li><b>Stopped when source disappears</b> - If this is checked, a sound will stop immediately if the source disappears. Good for things like ambient sound, bad for things like explosions. 
+										</ul>
+										<li><b>Permutations</b> - This list allows you to add, duplicate, and delete a sound's permutations. A permutation is randomly selected when a sound is called, which allows for a greater diversity of sounds (witness the several battle cries of many units). Double clicking on a permutation brings up the Permutation Edit window. 
+										<li><b>Permutation Edit (window)</b> 
+										<ul>
+											<li><b>Name</b> - This is the name of the permutation. 
+											<li><b>Skip Fraction</b> - This is the likelihood that this permutation will be skipped when this sound is called, and a permutation is randomly selected. 
+											<li><b>Import/Play</b> - These buttons allow you to import a 16-bit, 22 kHz AIFF sound, or play the current sound. Be sure to import the right sound type, or you might wind up with odd results. 
+										</ul>
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="stli"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>string lists (stli)</b></td>
+								<td align="right"><a href="gfx/Picture26.gif"><b>Image: String List Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">String lists are very basic tags that nevertheless contain a stunning amount of the information that Myth II uses. The editor is very simple--just a text window that you can input strings into. Strings are separated by means of line breaks (a return character, just a new line). Type in one string per line, and if your string is longer than the line, let the editor window automatically wrap it to the next line. 
+									<p>The only thing to watch out for is null strings at the end of your list. Be sure that when you finish typing, you cannot move the cursor beyond the end of your last string. If you can move onto the next, empty line, you should hit delete to erase that empty line, or Myth will consider it to be a string as well.</p>
+									<p>Often, you will see bold and italic text being used in strings. To change the type style, you need to enter |p, |i, or |b (those are vertical bars, or pipes) to switch the style to Plain, Italic, or Bold (respectively). These switch characters (which are just two separate characters) will be invisible in the game, but will alter all text following them. Myth I players will note that this has changed from Myth I, which used \b, \i, and \p to change text styles.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="temp"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>templates (temp)</b></td>
+								<td align="right"><a href="gfx/Picture27.gif"><b>Image: Template Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Templates tags contain the templates for Myth II's map actions. Since these require (and are tied to) hard coded map actions in the Myth II engine, tampering with them is a bad idea.</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="text"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>text (text)</b></td>
+								<td align="right"><a href="gfx/Picture28.gif"><b>Image: Text Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Text tags are like string tags, except that returns/line breaks are not used to separate lines into strings. Text tags are used for such things as level narrations, and are just as easy to edit as string list tags. Simply open the tag, and type away. </td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="unit"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>units (unit)</b></td>
+								<td align="right"><a href="gfx/Picture29.gif"><b>Image: Unit Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Unit tags are extremely simple tags that tie two components together to make a single new unit. Units, not monsters, are what are called by meshes and most other things in the engine--monsters are the data used by those units only. If you create a new monster tag, be sure to create a new unit tag to go with it. 
+									<p><b>unit tag Tag Anatomy</b></p>
+									<ul>
+										<li><b>Monster</b> - This pop-up allows you to select the monster tag that defines this unit's characteristics and behavior. 
+										<li><b>Collection Reference</b> - This pop-up is for selecting the unit's collection reference, which defines its colors in many situations, including the solo game. This allows minor variations of units, such as night units, without requiring the creation of entirely new monster tags and collection tags. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="wind"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>wind (wind)</b></td>
+								<td align="right"><a href="gfx/Picture30.gif"><b>Image: Wind Editor</b></a></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022" colspan="2">Wind is a subtle invisible force that acts on projectiles in a mesh with a wind tag.
+									<p><b>wind Tag Anatomy</b></p>
+									<ul>
+										<li><b>Time Between Adjustments</b> - This range is the number of seconds between adjustments to the wind velocity. 
+										<li><b>Maximum Adjustment per Tick</b> - This is the maximum amount that a velocity component can change per adjustment. Large values here and small values in the Time Between Adjustments can result in some pretty chaotic wind patterns. 
+										<li><b>Wind Velocity</b> 
+										<li><b>I component</b> - This is analogous to the X component of the wind's velocity. The velocity of the wind in a West/East direction is randomly selected from this range. 
+										<li><b>J component</b> - This is analogous to the Y component of the wind's velocity. The velocity of the wind in a North/South direction is randomly selected from this range. 
+										<li><b>K component</b> - This is analogous to the Z component of the wind's velocity. The velocity of the wind in an up/down direction is randomly selected from this range. 
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><img height="40" width="25" src="gfx/dorf.gif"></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Section IV: Some Other Miscellany Stuff</b></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="tips"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Tips and Advice</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">Here's where we get to really tell you how to screw things up. 
+									<p><b>Random Fear Tips</b></p>
+									<ul>
+										<li><b>Start Small</b> - I know, that Screaming Iron Assault Dwarf and his unmitigated capacity for devastation haunts your dreams, but it helps to start small when first playing with Fear. Make your dwarves throw satchel charges instead of cocktails first, so that you can get a better idea of how things work before you embark on a major project. If you try to do too much, you might find yourself in way over your head, and you'll have to fend off all sorts of bugs. 
+										<li><b>Avoid Bells and Whistles</b> - Sound advice in daily life, but even better advice when playing with Myth. Sure, using a 500 particle local projectile group makes a really cool looking cloud of fog, but it will also slow down most older computers. Also, excessive use of wild special effects can cheapen your creation--after all, how many lightning shooting archers and Super Deluxe Mega Mages can one person stand? 
+										<li><b>Back Up Your Local Folder</b> - Sure, you've heard this advice before. Back up, back up, back up. However, with Fear, it pays to keep a copy of your tags set aside when working, because of the way Fear automatically saves changes. If you really mess something up, you can't just hit Undo or decide not to save. 
+										<li><b>Get Rid of Your Local Folder! </b>- Whoo, contradictions! Seriously, though, if you've been playing with tags that were included with Myth II, you should remove or rename your local folder before playing netgames or the solo game. Otherwise, you will run into errors as people on the battlefield see your glorious Stone Cold Ghol Shaman as just another ghol.
+										<li><b>Too Much of a Good Thing</b> - Myth has certain built in limits to the number of objects that can exist on a map. If you notice that your projectiles are vanishing, or your local projectile groups are no longer creating particles, odds are there are too many on the map. But remember: just because a local projectile group has run out of particles and is invisible doesn't mean it isn't still there.
+										<li><b>No Limits </b>- Often, you will see fractions that determine such physical things as inertia and energy conversion, especially inside of projectiles. These fractions are generally multiplied against another value, which means 1.00 will leave that value the same. We all understand that fractions range from 1.00 to 0.00, but keep in mind that you can go higher than 1.00... much higher. Throw a higher value into a projectile's Damage to Velocity attribute, and watch the debris fly! 
+										<li><b>Keep Track of Your Tags</b> - When embarking on a particularly ambitious project, it helps to jot down which tags you will need in order to accomplish this. New units need new monster and unit tags, while more ambitious units might also require object, collection, collection reference, projectile, projectile group, sound, and several string list tags. And that's just the units. Knowing what you have left to do can be invaluable. Plan ahead. 
+										<li><b>Be Negative</b> - If you're feeling particularly reckless, try substituting a negative value for some of the values you see in Fear. While this might cause all sorts of strangeness, the worst it can really do is cause Myth II to crash (save your work... you have been warned). Doing so can result in some useful results. For example, giving a unit a negative attack recovery time can result in some awfully fast attacks.
+									</ul>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="thanks"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Special Thanks</b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#000022">A final thanks to a few people who helped in the creation of this guide. 
+									<p><b>Made Possible By:</b></p>
+									<ul>
+										<li><b>Jason Regier</b> - For patiently explaining all of the tags I couldn't figure out on my own. 
+										<li><b>Jason Jones</b> - For explaining a few other tags, some Myth I stuff, and occasionally threatening to kill me. 
+										<li><b>Jonathon Haas</b> - For explaining a few functions of Fear itself. 
+										<li><b>The Level Designers</b> - For giving me a chance to play with some of these tags and actually call it &quot;work.&quot; 
+										<li><b>The Badlands group</b> - For testing these docs (and creating the Loathing docs, so that I didn't have to). 
+										<li><b>The Number 7</b> - Seriously though, what isn't? 
+									</ul>
+									<center>
+										<p>Bungie Software cannot provide phone-support for Fear or its documentation.<br>
+										Any updates to this manual, or to Fear itself, will be made available via Bungie's website. <br>
+										Keep tuned to &lt;http://www.bungie.com/mythii&gt; for details.</center>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="1" cellspacing="0" frame width="96%" bgcolor="#000033">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#000033">
+							<tr>
+								<td><b>Fear, Myth II, and content copyright 1998 <a href="http://www.bungie.com">Bungie Software</a></b></td>
+								<td align="right">Tyson (Ferrex) Green</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#330000">
+				<tr>
+					<td width="50%" align="center"><a href="loathing.html"><b>Loathing Documentation</b></a></td>
+					<td align="center" bgcolor="#000033"><b>Fear Documentation</b></td>
+				</tr>
+			</table></center>
+	</body>
+
+</html>
