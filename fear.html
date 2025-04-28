@@ -2,15 +2,15 @@
 
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
-		<title>Fear Documentation v1.8.4</title>
+		<title>Fear Documentation v1.8.5</title>
 	</head>
 
 	<body bgcolor="#420000" text="#af996b" link="#af996b" vlink="#af996b">
 		<center>
 			<table border="0" cellpadding="2" cellspacing="0" frame width="80%" bgcolor="#330000">
 				<tr>
-					<td width="50%" align="center"><a href="loathing.html"><b>Loathing Documentation v1.8.4</b></a></td>
-					<td align="center" bgcolor="#390000"><b>Fear Documentation v1.8.4</b></td>
+					<td width="50%" align="center"><a href="loathing.html"><b>Loathing Documentation v1.8.5</b></a></td>
+					<td align="center" bgcolor="#390000"><b>Fear Documentation v1.8.5</b></td>
 				</tr>
 			</table>
 			<p><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#3c0000">
@@ -100,6 +100,7 @@
 										<li><a href="#core"><b>collection references</b></a> 
 										<li><a href="#256"><b>collections</b></a> 
 										<li><a href="#conn"><b>connectors</b></a> 
+										<li><a href="#d256"><b>detail collections</b></a> 
 										<li><a href="#dmap"><b>detail maps</b></a> 
 										<li><a href="#dtex"><b>detail textures</b></a> 
 										<li><a href="#ditl"><b>dialog string lists</b></a> 
@@ -440,6 +441,18 @@
 										<li><b>Interpolant Distance</b> - This is the distance (in world units) at which the connector sprite is repeated. This is used to create smooth, unbroken connectors--if this value is too large, there will be gaps between repetitions of the sprites, which (in terms of realism) officially sucks. 
 									</ul>
 								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></p>
+			<p><a name="d256"></a><table border="0" cellpadding="1" cellspacing="0" frame width="90%" bgcolor="#3c0000">
+				<tr>
+					<td><table border="0" cellpadding="4" cellspacing="2" frame width="100%" bgcolor="#3c0000">
+							<tr>
+								<td><b>detail collections (d256) <font color="red">*1.8.5*</font></b></td>
+							</tr>
+							<tr>
+								<td bgcolor="#390000">Detail Collections are optional Myth II tags that allow higher resolution collections to be used instead of base collections. Fear cannot edit these tags. They were introduced in 1.8.5 and can only be modified by Oak. </td>
 							</tr>
 						</table></td>
 				</tr>
@@ -960,6 +973,7 @@
 											<li><b>Is Last Level of Scenario</b> - If checked, will load the epilogue after beating this level for single player. Just like it does when you beat The Forge.
 											<li><b>Pregame Cutscene Before Narration<font color="red">*1.8.2*</font></b>
 											<li><b>Postgame Cutscene After Narration<font color="red">*1.8.2*</font></b>
+											<li><b>Is Secret Level <font color="red">*1.8.5* - Oak-only</font> - If checked, hides this level from mission selection, even when Shift is held down.</b>
 										</ul>
 										<li><b>Cutscene Movies</b> 
 										<ul>
@@ -1007,6 +1021,8 @@
 										</ul>
 										<li><b>Minimum Player Zoom <font color="red">*1.8.2* - Oak-only</font></b> - Allows an extended zoom level. Valid range is between "-5.0" (full extended
 zoom) and -0.99998 (Myth II's normal max zoomed out level).
+										<li><b>TFL Min Version <font color="red">*1.8.5* - Oak-only</font></b> - Specifies the minimum version of the TFL gameplay (vTFL/Unity) patch that this mesh supports.
+										<li><b>TFL Max Version <font color="red">*1.8.5* - Oak-only</font></b> - Specifies the maximum version of the TFL gameplay (vTFL/Unity) patch that this mesh supports.
 									</ul>
 								</td>
 							</tr>
